@@ -1,0 +1,2 @@
+# synaptik
+IA studio
