@@ -9,70 +9,51 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Barlow+Condensed:wght@300;400;700;900&display=swap" rel="stylesheet"/>
 <style>
+/* ============================================================
+   BASE
+============================================================ */
 :root{
-  --black:#000000;
-  --white:#ffffff;
-  --g1:#0c0c0c;
-  --g2:#161616;
-  --g3:#222222;
-  --g4:#444444;
-  --g5:#888888;
-  --g6:#aaaaaa;
+  --black:#000;--white:#fff;
+  --g1:#0c0c0c;--g2:#161616;--g3:#222;--g4:#444;--g5:#888;--g6:#aaa;
   --ff-t:'Barlow Condensed',sans-serif;
   --ff-m:'Space Mono',monospace;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{
-  background:var(--black);
-  color:var(--white);
-  font-family:var(--ff-m);
-  font-size:13px;
-  line-height:1.7;
-  overflow-x:hidden;
-  cursor:crosshair;
-}
+body{background:var(--black);color:var(--white);font-family:var(--ff-m);font-size:13px;line-height:1.7;overflow-x:hidden;cursor:crosshair;}
 a{color:inherit;text-decoration:none;}
 ::selection{background:var(--white);color:var(--black);}
 
 /* Scanlines */
-body::after{
-  content:'';
-  position:fixed;inset:0;
-  background:repeating-linear-gradient(0deg,rgba(255,255,255,0.013) 0px,rgba(255,255,255,0.013) 1px,transparent 1px,transparent 3px);
-  pointer-events:none;z-index:9000;
-  animation:scanmove 10s linear infinite;
-}
+body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.013) 0px,rgba(255,255,255,.013) 1px,transparent 1px,transparent 3px);pointer-events:none;z-index:9000;animation:scanmove 10s linear infinite;}
 @keyframes scanmove{0%{background-position:0 0}100%{background-position:0 300px}}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.7) 100%);pointer-events:none;z-index:8999;}
 
-/* Vignette */
-body::before{
-  content:'';position:fixed;inset:0;
-  background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,0.7) 100%);
-  pointer-events:none;z-index:8999;
-}
-
-/* Progress bar */
+/* Curseur */
 #pbar{position:fixed;top:0;left:0;height:1px;background:var(--white);width:0%;z-index:10000;transition:width .1s;}
-
-/* Cursor */
 .cdot{position:fixed;width:4px;height:4px;background:var(--white);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);z-index:9999;}
 .cring{position:fixed;width:28px;height:28px;border:1px solid rgba(255,255,255,.4);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);z-index:9998;transition:width .25s,height .25s,border-color .25s;}
 .cring.on{width:50px;height:50px;border-color:var(--white);}
 
-/* Grid canvas */
-#gbg{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.035;}
+/* Grille de fond */
+#gbg{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.03;}
 #gbg canvas{width:100%;height:100%;}
 
-/* Nav */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:1.4rem 2.5rem;
-  border-bottom:1px solid rgba(255,255,255,.06);
-  background:rgba(0,0,0,.88);
-  backdrop-filter:blur(4px);
-}
+/* ============================================================
+   OVERLAY PLEIN ÉCRAN
+============================================================ */
+#playerOverlay{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s ease;}
+#playerOverlay.active{opacity:1;pointer-events:auto;}
+.overlay-bg{position:absolute;inset:0;background:rgba(0,0,0,.97);backdrop-filter:blur(12px);}
+#overlayPlayer{position:relative;z-index:1;width:92vw;height:calc(92vw * 9/16);max-width:1500px;max-height:90vh;border:none;transform:scale(.97);opacity:0;transition:all .5s cubic-bezier(.16,1,.3,1);}
+#playerOverlay.active #overlayPlayer{transform:scale(1);opacity:1;}
+#closePlayer{position:absolute;top:1.5rem;right:1.5rem;z-index:2;background:none;border:1px solid rgba(255,255,255,.2);color:white;font-family:var(--ff-m);font-size:.62rem;letter-spacing:.18em;padding:.6rem 1.1rem;cursor:pointer;transition:background .2s,color .2s,border-color .2s;}
+#closePlayer:hover{background:var(--white);color:var(--black);border-color:var(--white);}
+
+/* ============================================================
+   NAV
+============================================================ */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 2.5rem;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(0,0,0,.9);backdrop-filter:blur(6px);}
 .nlogo{display:flex;align-items:center;gap:.7rem;font-family:var(--ff-t);font-size:1.4rem;font-weight:900;letter-spacing:.25em;}
 .nlogo img{height:28px;width:auto;}
 .nblink{display:inline-block;width:2px;height:1em;background:var(--white);margin-left:2px;vertical-align:middle;animation:blink 1s step-end infinite;}
@@ -82,74 +63,36 @@ nav{
 .nlinks a::before{content:'// ';color:var(--g4);}
 .nlinks a:hover{color:var(--white);}
 
-/* Hero */
-#hero{
-  min-height:100svh;
-  display:flex;flex-direction:column;justify-content:flex-end;
-  padding:0 2.5rem 4rem;
-  position:relative;z-index:1;
-}
-#boot{
-  position:absolute;top:6rem;left:2.5rem;
-  font-size:.68rem;color:var(--g4);line-height:2.2;letter-spacing:.05em;
-  z-index:2;
-}
+/* ============================================================
+   HERO
+============================================================ */
+#hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 2.5rem 4rem;position:relative;z-index:1;}
+#boot{position:absolute;top:6rem;left:2.5rem;font-size:.68rem;color:var(--g4);line-height:2.2;letter-spacing:.05em;z-index:2;}
 .bl{opacity:0;transition:opacity .2s;}
 .bl.s{opacity:1;}
-
-.htitle{
-  font-family:var(--ff-t);
-  font-size:clamp(5rem,18vw,18rem);
-  font-weight:900;
-  letter-spacing:-.02em;
-  line-height:.85;
-  text-transform:uppercase;
-  position:relative;z-index:2;
-  user-select:none;
-}
+.htitle{font-family:var(--ff-t);font-size:clamp(5rem,18vw,18rem);font-weight:900;letter-spacing:-.02em;line-height:.85;text-transform:uppercase;position:relative;z-index:2;user-select:none;}
 .gw{display:block;position:relative;}
-.gw::before,.gw::after{
-  content:attr(data-t);
-  position:absolute;left:0;top:0;
-  font-family:inherit;font-size:inherit;font-weight:inherit;
-  letter-spacing:inherit;line-height:inherit;
-  color:var(--white);opacity:0;
-}
+.gw::before,.gw::after{content:attr(data-t);position:absolute;left:0;top:0;font-family:inherit;font-size:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;color:var(--white);opacity:0;}
 .gw::before{clip-path:polygon(0 20%,100% 20%,100% 40%,0 40%);animation:g1 6s infinite;}
 .gw::after{clip-path:polygon(0 60%,100% 60%,100% 78%,0 78%);animation:g2 7.5s infinite 1.2s;}
 @keyframes g1{0%,93%{opacity:0;transform:none}94%{opacity:.9;transform:translate(-4px,0)}95%{opacity:.9;transform:translate(5px,0)}96%{opacity:0;transform:none}}
 @keyframes g2{0%,90%{opacity:0;transform:none}91%{opacity:.7;transform:translate(6px,0)}92%{opacity:.7;transform:translate(-5px,0)}93%{opacity:0;transform:none}}
-
-.hsub{
-  display:flex;align-items:center;gap:2rem;
-  margin-top:2rem;z-index:2;position:relative;
-}
+.hsub{display:flex;align-items:center;gap:2rem;margin-top:2rem;z-index:2;position:relative;}
 .hsubt{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--g5);}
 .hsubt em{font-style:normal;color:var(--white);}
 .hline{flex:1;height:1px;background:var(--g3);}
-.hcta{
-  font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--g5);border:1px solid var(--g3);padding:.7rem 1.5rem;
-  position:relative;overflow:hidden;transition:color .3s;
-}
+.hcta{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--g5);border:1px solid var(--g3);padding:.7rem 1.5rem;position:relative;overflow:hidden;transition:color .3s;}
 .hcta::before{content:'';position:absolute;inset:0;background:var(--white);transform:translateX(-100%);transition:transform .35s;}
 .hcta:hover::before{transform:translateX(0);}
 .hcta:hover{color:var(--black);}
 .hcta span{position:relative;z-index:1;}
+.hcoords{position:absolute;right:2.5rem;bottom:4rem;font-size:.58rem;letter-spacing:.08em;color:var(--g4);text-align:right;line-height:2;z-index:2;}
 
-.hcoords{
-  position:absolute;right:2.5rem;bottom:4rem;
-  font-size:.58rem;letter-spacing:.08em;color:var(--g4);
-  text-align:right;line-height:2;z-index:2;
-}
-
-/* Sections */
+/* ============================================================
+   SECTION COMMUNE
+============================================================ */
 section{position:relative;padding:6rem 2.5rem;z-index:1;border-top:1px solid rgba(255,255,255,.06);}
-.snum{
-  position:absolute;left:2.5rem;top:50%;transform:translateY(-50%);
-  font-family:var(--ff-t);font-size:clamp(6rem,15vw,14rem);font-weight:900;
-  color:rgba(255,255,255,.018);pointer-events:none;user-select:none;line-height:1;
-}
+.snum{position:absolute;left:2.5rem;top:50%;transform:translateY(-50%);font-family:var(--ff-t);font-size:clamp(6rem,15vw,14rem);font-weight:900;color:rgba(255,255,255,.018);pointer-events:none;user-select:none;line-height:1;}
 .shdr{display:flex;align-items:center;gap:1.5rem;margin-bottom:4rem;}
 .stag{font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:var(--g5);white-space:nowrap;}
 .stag::before{content:'[ ';color:var(--g4);}
@@ -157,50 +100,135 @@ section{position:relative;padding:6rem 2.5rem;z-index:1;border-top:1px solid rgb
 .sl{flex:1;height:1px;background:var(--g3);}
 .sidx{font-size:.58rem;letter-spacing:.1em;color:var(--g4);}
 
-/* Videos */
-#videos{background:var(--black);}
-.vtitle{
-  font-family:var(--ff-t);font-size:clamp(3rem,7vw,7rem);
-  font-weight:900;text-transform:uppercase;letter-spacing:-.01em;
-  line-height:.9;margin-bottom:4rem;
+/* ============================================================
+   SECTION VIDÉOS — FEED PLEIN ÉCRAN
+============================================================ */
+#videos{
+  background:var(--black);
+  padding-left:0;padding-right:0;   /* la section elle-même sans marges */
+  padding-top:4rem;padding-bottom:0;
 }
-.vgrid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(min(100%,520px),1fr));
-  gap:1px;background:var(--g3);border:1px solid var(--g3);
-}
-.vcard{background:var(--black);position:relative;transition:background .2s;}
-.vcard:first-child{grid-column:1/-1;}
-.vcard:hover{background:var(--g1);}
-.vcard::before{content:'';position:absolute;top:0;right:0;width:20px;height:20px;border-top:1px solid rgba(255,255,255,.25);border-right:1px solid rgba(255,255,255,.25);pointer-events:none;z-index:2;transition:width .4s,height .4s;}
-.vcard::after{content:'';position:absolute;bottom:0;left:0;width:20px;height:20px;border-bottom:1px solid rgba(255,255,255,.1);border-left:1px solid rgba(255,255,255,.1);pointer-events:none;z-index:2;transition:width .4s,height .4s;}
-.vcard:hover::before,.vcard:hover::after{width:56px;height:56px;}
+#videos .shdr,#videos .vtitle{ padding-left:2.5rem;padding-right:2.5rem; }
+.vtitle{font-family:var(--ff-t);font-size:clamp(3rem,7vw,7rem);font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:.9;margin-bottom:4rem;}
 
-.vwrap{position:relative;padding-top:56.25%;background:var(--g1);overflow:hidden;}
-.vwrap iframe{position:absolute;inset:0;width:100%;height:100%;border:none;}
-.vph{
+/* -------- FEED -------- */
+#vfeed{
+  display:flex;
+  flex-direction:column;
+  /* Chaque item est séparé par une ligne */
+  border-top:1px solid var(--g3);
+}
+
+/* -------- ITEM -------- */
+.vitem{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:5rem 2.5rem 4rem;
+  border-bottom:1px solid var(--g3);
+  background:var(--black);
+  transition:background .3s;
+}
+.vitem:nth-child(even){ background:var(--g1); }
+.vitem:hover{ background:var(--g2); }
+
+/* Numéro de vidéo flottant à gauche */
+.vitem-num{
+  position:absolute;
+  left:2.5rem;top:5rem;
+  font-family:var(--ff-t);
+  font-size:clamp(4rem,10vw,9rem);
+  font-weight:900;
+  color:rgba(255,255,255,.04);
+  line-height:1;
+  user-select:none;
+  pointer-events:none;
+  letter-spacing:-.02em;
+}
+
+/* Métadonnées au-dessus de la vidéo */
+.vitem-meta{
+  width:100%;
+  max-width:1400px;
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  margin-bottom:1.4rem;
+  gap:2rem;
+}
+.vitem-idx{font-size:.58rem;letter-spacing:.2em;color:var(--g4);}
+.vitem-title{
+  font-family:var(--ff-t);
+  font-size:clamp(1.4rem,3vw,2.8rem);
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.02em;
+  line-height:1;
+}
+.vitem-tag{font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:var(--g4);border:1px solid var(--g3);padding:.3rem .75rem;white-space:nowrap;flex-shrink:0;}
+
+/* -------- WRAPPER VIDÉO -------- */
+.vwrap{
+  position:relative;
+  width:100%;
+  max-width:1400px;       /* largeur max confortable */
+  aspect-ratio:16/9;
+  background:var(--g2);
+  overflow:hidden;
+}
+
+/* iframe preview (muette, en boucle) */
+.vwrap iframe.vbg{
   position:absolute;inset:0;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;
-  background:var(--g1);cursor:pointer;transition:background .2s;
+  width:100%;height:100%;
+  border:none;
+  pointer-events:none;
 }
-.vph:hover{background:var(--g2);}
-.vscan{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);animation:scanv 3.5s ease-in-out infinite;pointer-events:none;}
-@keyframes scanv{0%{top:0;opacity:0}10%{opacity:1}90%{opacity:1}100%{top:100%;opacity:0}}
-.pring{position:relative;width:62px;height:62px;display:flex;align-items:center;justify-content:center;}
-.pring::before{content:'';position:absolute;inset:0;border:1px solid rgba(255,255,255,.18);border-radius:50%;animation:rpulse 2s ease-out infinite;}
-.pring::after{content:'';position:absolute;inset:8px;border:1px solid rgba(255,255,255,.45);border-radius:50%;}
-@keyframes rpulse{0%{transform:scale(1);opacity:.5}100%{transform:scale(1.8);opacity:0}}
-.pring svg{position:relative;z-index:1;margin-left:4px;}
-.plabel{font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:var(--g5);}
 
-.vinfo{padding:1.3rem 1.6rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;}
-.vmeta{flex:1;}
-.vidx{font-size:.58rem;letter-spacing:.18em;color:var(--g4);margin-bottom:.4rem;}
-.vtit{font-family:var(--ff-t);font-size:1.25rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;line-height:1.1;}
-.vdesc{font-size:.62rem;color:var(--g5);margin-top:.4rem;}
-.vext{font-size:.58rem;letter-spacing:.1em;color:var(--g4);padding-top:.3rem;}
+/* Overlay du bouton play */
+.voverlay{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  z-index:2;
+  background:rgba(0,0,0,.18);
+  transition:background .35s;
+  cursor:pointer;
+}
+.vitem:hover .voverlay{background:rgba(0,0,0,.04);}
 
-/* About */
+/* Scanline traversante */
+.vscan{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);animation:scanv 4s ease-in-out infinite;pointer-events:none;}
+@keyframes scanv{0%{top:0;opacity:0}8%{opacity:1}92%{opacity:1}100%{top:100%;opacity:0}}
+
+/* Bouton play radar — plus grand car vidéo plus grande */
+.pring{position:relative;width:88px;height:88px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .35s;}
+.vitem:hover .pring{transform:scale(1.1);}
+.pring::before{content:'';position:absolute;inset:0;border:1px solid rgba(255,255,255,.18);border-radius:50%;animation:rpulse 2.4s ease-out infinite;}
+.pring::after{content:'';position:absolute;inset:12px;border:1px solid rgba(255,255,255,.45);border-radius:50%;background:rgba(0,0,0,.4);backdrop-filter:blur(6px);}
+@keyframes rpulse{0%{transform:scale(1);opacity:.45}100%{transform:scale(2);opacity:0}}
+.pring svg{position:relative;z-index:1;margin-left:6px;}
+
+/* Description sous la vidéo */
+.vitem-desc{
+  width:100%;
+  max-width:1400px;
+  margin-top:1.2rem;
+  display:flex;
+  align-items:center;
+  gap:2rem;
+}
+.vitem-desc-text{font-size:.65rem;color:var(--g5);letter-spacing:.03em;flex:1;}
+.vitem-ext{font-size:.55rem;letter-spacing:.15em;color:var(--g4);}
+
+/* Coins décoratifs sci-fi sur le wrapper */
+.vwrap::before{content:'';position:absolute;top:0;right:0;width:28px;height:28px;border-top:1px solid rgba(255,255,255,.3);border-right:1px solid rgba(255,255,255,.3);z-index:3;pointer-events:none;transition:width .5s,height .5s;}
+.vwrap::after{content:'';position:absolute;bottom:0;left:0;width:28px;height:28px;border-bottom:1px solid rgba(255,255,255,.15);border-left:1px solid rgba(255,255,255,.15);z-index:3;pointer-events:none;transition:width .5s,height .5s;}
+.vitem:hover .vwrap::before,.vitem:hover .vwrap::after{width:80px;height:80px;}
+
+/* ============================================================
+   ABOUT
+============================================================ */
 #about{background:var(--g1);}
 .agrid{display:grid;grid-template-columns:1fr 1.15fr;gap:5rem;align-items:start;}
 @media(max-width:800px){.agrid{grid-template-columns:1fr;gap:3rem;}}
@@ -208,35 +236,25 @@ section{position:relative;padding:6rem 2.5rem;z-index:1;border-top:1px solid rgb
 .albl::after{content:'';flex:1;height:1px;background:var(--g3);}
 .abody p{font-size:.78rem;color:var(--g6);line-height:2.1;margin-bottom:1.4rem;}
 .abody p strong{color:var(--white);}
-
 .skillrow{display:flex;align-items:center;gap:1rem;margin-top:1.6rem;}
 .sklbl{font-size:.58rem;letter-spacing:.08em;color:var(--g5);width:76px;flex-shrink:0;}
 .skbar{flex:1;height:1px;background:var(--g3);position:relative;overflow:hidden;}
 .skfill{position:absolute;left:0;top:0;bottom:0;background:var(--white);width:0%;transition:width 1.5s cubic-bezier(.16,1,.3,1);}
 .skpct{font-size:.58rem;color:var(--g4);width:30px;text-align:right;}
-
-.statblock{
-  font-size:.62rem;color:var(--g4);
-  border:1px solid var(--g3);padding:2rem;position:relative;
-}
-.statblock::before{
-  content:'SYSTEM.STATUS';position:absolute;top:-.45em;left:1rem;
-  background:var(--g1);padding:0 .5rem;font-size:.52rem;letter-spacing:.2em;color:var(--g4);
-}
+.statblock{font-size:.62rem;color:var(--g4);border:1px solid var(--g3);padding:2rem;position:relative;}
+.statblock::before{content:'SYSTEM.STATUS';position:absolute;top:-.45em;left:1rem;background:var(--g1);padding:0 .5rem;font-size:.52rem;letter-spacing:.2em;color:var(--g4);}
 .strow{display:flex;align-items:baseline;gap:1rem;padding:.85rem 0;border-bottom:1px solid rgba(255,255,255,.04);}
 .strow:last-child{border-bottom:none;}
 .stkey{color:var(--g4);flex:1;font-size:.62rem;}
 .stval{font-family:var(--ff-t);font-size:2rem;font-weight:900;color:var(--white);line-height:1;}
 .stunit{font-size:.6rem;color:var(--g5);margin-left:.3rem;}
 
-/* Services */
+/* ============================================================
+   SERVICES
+============================================================ */
 #services{background:var(--black);}
 .svctbl{border:1px solid var(--g3);overflow:hidden;}
-.svcrow{
-  display:grid;grid-template-columns:4rem 1fr auto;align-items:center;gap:2rem;
-  padding:1.6rem 2rem;border-bottom:1px solid rgba(255,255,255,.04);
-  transition:background .2s;cursor:default;
-}
+.svcrow{display:grid;grid-template-columns:4rem 1fr auto;align-items:center;gap:2rem;padding:1.6rem 2rem;border-bottom:1px solid rgba(255,255,255,.04);transition:background .2s;cursor:default;}
 .svcrow:last-child{border-bottom:none;}
 .svcrow:hover{background:var(--g1);}
 .svcrow:hover .sname{letter-spacing:.06em;}
@@ -245,20 +263,14 @@ section{position:relative;padding:6rem 2.5rem;z-index:1;border-top:1px solid rgb
 .scat{font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--g4);border:1px solid var(--g3);padding:.32rem .7rem;white-space:nowrap;transition:border-color .2s,color .2s;}
 .svcrow:hover .scat{border-color:rgba(255,255,255,.25);color:var(--white);}
 
-/* Contact */
+/* ============================================================
+   CONTACT
+============================================================ */
 #contact{background:var(--black);text-align:center;padding:8rem 2.5rem;}
 .cpre{font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--g4);margin-bottom:2rem;display:flex;align-items:center;justify-content:center;gap:1rem;}
 .cpre::before,.cpre::after{content:'';width:3rem;height:1px;background:var(--g3);}
-.cbig{
-  font-family:var(--ff-t);font-size:clamp(4rem,12vw,11rem);
-  font-weight:900;text-transform:uppercase;letter-spacing:-.02em;
-  line-height:.9;margin-bottom:3rem;display:inline-block;
-}
-.cemailw{
-  display:inline-flex;align-items:center;gap:1rem;
-  border:1px solid var(--g3);padding:1.2rem 2rem;
-  position:relative;overflow:hidden;transition:border-color .3s;
-}
+.cbig{font-family:var(--ff-t);font-size:clamp(4rem,12vw,11rem);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:.9;margin-bottom:3rem;display:inline-block;}
+.cemailw{display:inline-flex;align-items:center;gap:1rem;border:1px solid var(--g3);padding:1.2rem 2rem;position:relative;overflow:hidden;transition:border-color .3s;}
 .cemailw::before{content:'';position:absolute;inset:0;background:var(--white);transform:scaleX(0);transform-origin:left;transition:transform .4s;}
 .cemailw:hover::before{transform:scaleX(1);}
 .cemailw:hover{border-color:var(--white);}
@@ -267,13 +279,10 @@ section{position:relative;padding:6rem 2.5rem;z-index:1;border-top:1px solid rgb
 .carr{position:relative;z-index:1;font-size:1rem;color:var(--g4);transition:transform .3s,color .3s;}
 .cemailw:hover .carr{transform:translateX(5px);}
 
-/* Footer */
-footer{
-  border-top:1px solid rgba(255,255,255,.06);
-  padding:1.8rem 2.5rem;
-  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
-  background:var(--black);position:relative;z-index:1;
-}
+/* ============================================================
+   FOOTER
+============================================================ */
+footer{border-top:1px solid rgba(255,255,255,.06);padding:1.8rem 2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;background:var(--black);position:relative;z-index:1;}
 .fm{font-size:.58rem;letter-spacing:.1em;color:var(--g4);}
 .flinks{list-style:none;display:flex;gap:1.5rem;}
 .flinks a{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--g4);transition:color .2s;}
@@ -283,12 +292,17 @@ footer{
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .8s,transform .8s;}
 .reveal.visible{opacity:1;transform:none;}
 
-@media(max-width:600px){
+@media(max-width:700px){
   nav{padding:1rem 1.2rem;}
   .nlinks{gap:1rem;}
   #hero{padding:0 1.2rem 3rem;}
   #boot{left:1.2rem;}
   section{padding:4rem 1.2rem;}
+  #videos .shdr,#videos .vtitle{padding-left:1.2rem;padding-right:1.2rem;}
+  .vitem{padding:3rem 1.2rem 3rem;}
+  .vitem-num{left:1.2rem;top:3rem;}
+  .vitem-meta{flex-wrap:wrap;gap:1rem;}
+  .vitem-tag{display:none;}
   .svcrow{grid-template-columns:3rem 1fr;}
   .scat{display:none;}
 }
@@ -301,20 +315,22 @@ footer{
 <div class="cring" id="cring"></div>
 <div id="gbg"><canvas id="gc"></canvas></div>
 
+<!-- OVERLAY PLEIN ÉCRAN -->
+<div id="playerOverlay">
+  <div class="overlay-bg" id="overlayBg"></div>
+  <iframe id="overlayPlayer" src="" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+  <button id="closePlayer" onclick="closeOverlay()">&#10005; FERMER</button>
+</div>
+
 <!-- NAV -->
 <nav>
   <div class="nlogo">
-    <!--
-      LOGO : place logo.png dans le même dossier.
-      Si absent, le texte SYNPATIK s'affiche automatiquement.
-    -->
-    <img src="logo.png" alt="Synpatik"
-         onerror="this.style.display='none';document.getElementById('nlf').style.display='block'"/>
+    <img src="logo.png" alt="Synpatik" onerror="this.style.display='none';document.getElementById('nlf').style.display='block'"/>
     <span id="nlf" style="display:none">SYNPATIK</span>
     <span class="nblink"></span>
   </div>
   <ul class="nlinks">
-    <li><a href="#videos">Œuvres</a></li>
+    <li><a href="#videos">&#338;uvres</a></li>
     <li><a href="#about">Studio</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -331,36 +347,29 @@ footer{
     <div class="bl">SYN://VISION_PIPELINE ............ OK</div>
     <div class="bl">SYN://CREATIVE_ENGINE ............ <span style="color:#fff">RUNNING</span></div>
   </div>
-
   <h1 class="htitle">
     <span class="gw" data-t="SYN">SYN</span>
     <span class="gw" data-t="PA">PA</span>
     <span class="gw" data-t="TIK">TIK</span>
   </h1>
-
   <div class="hsub">
-    <span class="hsubt"><em>Studio</em> iA Générative</span>
+    <span class="hsubt"><em>Studio</em> iA G&#233;n&#233;rative</span>
     <div class="hline"></div>
-    <a href="#videos" class="hcta"><span>Voir les créations →</span></a>
+    <a href="#videos" class="hcta"><span>Voir les cr&#233;ations &#8594;</span></a>
   </div>
-
-  <div class="hcoords">
-    48°51'N, 2°21'E — PARIS<br/>
-    <span id="clk"></span>
-  </div>
+  <div class="hcoords">48&#176;51'N, 2&#176;21'E &#8212; PARIS<br/><span id="clk"></span></div>
 </section>
 
-
-<!-- VIDEOS -->
+<!-- VIDEOS : FEED PLEIN ÉCRAN -->
 <section id="videos">
   <div class="snum">01</div>
   <div class="shdr reveal">
-    <span class="stag">Œuvres vidéo</span>
+    <span class="stag">&#338;uvres vid&#233;o</span>
     <div class="sl"></div>
     <span class="sidx">SECTION_01</span>
   </div>
-  <h2 class="vtitle reveal">Créations<br/>récentes</h2>
-  <div class="vgrid" id="vgrid"></div>
+  <h2 class="vtitle reveal">Cr&#233;ations<br/>r&#233;centes</h2>
+  <div id="vfeed"></div>
 </section>
 
 <!-- ABOUT -->
@@ -375,27 +384,24 @@ footer{
     <div>
       <div class="albl">MANIFESTE</div>
       <div class="abody reveal">
-        <!-- ↓↓↓ MODIFIER LE TEXTE ICI ↓↓↓ -->
-        <p><strong>Synpatik</strong> est un studio de création indépendant spécialisé dans l'image générée par intelligence artificielle. Nous explorons les nouvelles formes visuelles nées de la rencontre entre algorithme et sensibilité humaine.</p>
-        <p>Chaque projet est une recherche : questionner la nature de l'image, de l'auteur, de la machine — et trouver dans cet espace hybride quelque chose d'<strong>authentique</strong>.</p>
-        <p>Nous collaborons avec des marques, des institutions culturelles et des artistes qui souhaitent intégrer l'iA générative dans leur univers créatif.</p>
+        <p><strong>Synpatik</strong> est un studio de cr&#233;ation ind&#233;pendant sp&#233;cialis&#233; dans l'image g&#233;n&#233;r&#233;e par intelligence artificielle. Nous explorons les nouvelles formes visuelles n&#233;es de la rencontre entre algorithme et sensibilit&#233; humaine.</p>
+        <p>Chaque projet est une recherche : questionner la nature de l'image, de l'auteur, de la machine &#8212; et trouver dans cet espace hybride quelque chose d'<strong>authentique</strong>.</p>
+        <p>Nous collaborons avec des marques, des institutions culturelles et des artistes qui souhaitent int&#233;grer l'iA g&#233;n&#233;rative dans leur univers cr&#233;atif.</p>
       </div>
-      <!-- ↓↓↓ COMPÉTENCES — modifier les % ↓↓↓ -->
       <div style="margin-top:3rem" class="reveal">
-        <div class="albl" style="margin-bottom:.8rem">CAPACITÉS</div>
-        <div class="skillrow"><span class="sklbl">Vidéo IA</span><div class="skbar"><div class="skfill" data-w="92"></div></div><span class="skpct">92%</span></div>
+        <div class="albl" style="margin-bottom:.8rem">CAPACIT&#201;S</div>
+        <div class="skillrow"><span class="sklbl">Vid&#233;o IA</span><div class="skbar"><div class="skfill" data-w="92"></div></div><span class="skpct">92%</span></div>
         <div class="skillrow"><span class="sklbl">Image gen.</span><div class="skbar"><div class="skfill" data-w="97"></div></div><span class="skpct">97%</span></div>
         <div class="skillrow"><span class="sklbl">D.A. iA</span><div class="skbar"><div class="skfill" data-w="88"></div></div><span class="skpct">88%</span></div>
         <div class="skillrow"><span class="sklbl">Conseil</span><div class="skbar"><div class="skfill" data-w="80"></div></div><span class="skpct">80%</span></div>
       </div>
     </div>
-    <!-- ↓↓↓ CHIFFRES — modifier ici ↓↓↓ -->
     <div class="statblock reveal" style="transition-delay:.15s">
-      <div class="strow"><span class="stkey">// PROJETS RÉALISÉS</span><span class="stval">12<span class="stunit">+</span></span></div>
-      <div class="strow"><span class="stkey">// ANNÉES D'EXPERTISE</span><span class="stval">3</span></div>
+      <div class="strow"><span class="stkey">// PROJETS R&#201;ALIS&#201;S</span><span class="stval">12<span class="stunit">+</span></span></div>
+      <div class="strow"><span class="stkey">// ANN&#201;ES D'EXPERTISE</span><span class="stval">3</span></div>
       <div class="strow"><span class="stkey">// CLIENTS PARTENAIRES</span><span class="stval">8</span></div>
-      <div class="strow"><span class="stkey">// MODÈLES MAÎTRISÉS</span><span class="stval">20<span class="stunit">+</span></span></div>
-      <div class="strow"><span class="stkey">// POSSIBILITÉS</span><span class="stval">∞</span></div>
+      <div class="strow"><span class="stkey">// MOD&#200;LES MA&#206;TRIS&#201;S</span><span class="stval">20<span class="stunit">+</span></span></div>
+      <div class="strow"><span class="stkey">// POSSIBILIT&#201;S</span><span class="stval">&#8734;</span></div>
     </div>
   </div>
 </section>
@@ -408,13 +414,12 @@ footer{
     <div class="sl"></div>
     <span class="sidx">SECTION_03</span>
   </div>
-  <!-- ↓↓↓ MODIFIER LES SERVICES ICI ↓↓↓ -->
   <div class="svctbl reveal" style="transition-delay:.1s">
-    <div class="svcrow"><span class="sn">01</span><span class="sname">Direction artistique iA</span><span class="scat">Création</span></div>
-    <div class="svcrow"><span class="sn">02</span><span class="sname">Vidéos génératives</span><span class="scat">Production</span></div>
+    <div class="svcrow"><span class="sn">01</span><span class="sname">Direction artistique iA</span><span class="scat">Cr&#233;ation</span></div>
+    <div class="svcrow"><span class="sn">02</span><span class="sname">Vid&#233;os g&#233;n&#233;ratives</span><span class="scat">Production</span></div>
     <div class="svcrow"><span class="sn">03</span><span class="sname">Images &amp; visuels IA</span><span class="scat">Design</span></div>
     <div class="svcrow"><span class="sn">04</span><span class="sname">Conseil &amp; formation</span><span class="scat">Expertise</span></div>
-    <div class="svcrow"><span class="sn">05</span><span class="sname">Installations &amp; expériences</span><span class="scat">Événementiel</span></div>
+    <div class="svcrow"><span class="sn">05</span><span class="sname">Installations &amp; exp&#233;riences</span><span class="scat">&#201;v&#233;nementiel</span></div>
   </div>
 </section>
 
@@ -423,192 +428,214 @@ footer{
   <div class="cpre">Transmettez votre signal</div>
   <div class="cbig reveal">On<br/>Parle&nbsp;?</div>
   <br/><br/>
-  <!-- ↓↓↓ REMPLACER L'EMAIL ICI ↓↓↓ -->
   <a href="mailto:hello@synpatik.com" class="cemailw">
     <span class="cemail">hello@synpatik.com</span>
-    <span class="carr">→</span>
+    <span class="carr">&#8594;</span>
   </a>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <span class="fm">© <span id="yr"></span> SYNPATIK — TOUS DROITS RÉSERVÉS</span>
+  <span class="fm">&#169; <span id="yr"></span> SYNPATIK &#8212; TOUS DROITS R&#201;SERV&#201;S</span>
   <ul class="flinks">
-    <!-- ↓↓↓ LIENS RÉSEAUX — modifier ici ↓↓↓ -->
     <li><a href="https://vimeo.com/" target="_blank">Vimeo</a></li>
     <li><a href="https://instagram.com/" target="_blank">Instagram</a></li>
     <li><a href="https://linkedin.com/" target="_blank">LinkedIn</a></li>
   </ul>
-  <span class="fm">SYN://v1.0.0 — PARIS, FR</span>
+  <span class="fm">SYN://v1.0.0 &#8212; PARIS, FR</span>
 </footer>
 
+<script src="https://player.vimeo.com/api/player.js"></script>
 <script>
 /* ==============================================================
-   ▼▼▼ VIDÉOS — MODIFIER CETTE LISTE ▼▼▼
+   ▼▼▼  VIDÉOS — MODIFIER CETTE LISTE  ▼▼▼
 
    id    → chiffres à la fin de l'URL Vimeo
            Ex: https://vimeo.com/123456789  →  id: "123456789"
    title → titre affiché
-   desc  → description courte (laisser "" si aucune)
+   desc  → description courte  ("" si aucune)
 
-   La PREMIÈRE vidéo s'affiche en pleine largeur.
    Ajouter autant de blocs { … } que nécessaire.
+   Chaque vidéo s'affiche en pleine largeur, l'une sous l'autre.
 ============================================================== */
-const VIDEOS = [
-  {
-    id:    "1176641273",
-    title: "Pumma rabbits",
-    desc:  "fausse pub pour PUMA"
-  },
-  {
-    id:    "1176507066",
-    title: "Geisha Spring",
-    desc:  "variation printanière"
-  },
-  {
-    id:    "1159611153",
-    title: "Tag heuer AI",
-    desc:  "fausse pub Tag heuer AI inspiréé de la célébre pub des années 80"
-  },
-
-  {
-    id:    "1176271004",
-    title: "Mamie Cannes",
-    desc:  "Bande annonce pour l'émission de Groland spéciel Cannes 2026"
-  },
-
-  {
-    id:    "1176114060",
-    title: "Papys Brindillette",
-    desc:  "Bande annonce pour l'émission de Groland spéciel Cannes 2026"
-  },
-
-{
-    id:    "1172962666",
-    title: "Mamie c'est la fête",
-    desc:  "Bande annonce pour l'émission de Groland spéciel Cannes 2026"
-  },
-
-  */
-  /* Pour ajouter une vidéo, copier ce bloc :
-  {
-    id:    "XXXXXXXXX",
-    title: "Titre",
-    desc:  "Description"
-  },
-  */
+var VIDEOS = [
+  { id:"1176641273", title:"Puma Rabbits",       desc:"Fausse pub pour PUMA" },
+  { id:"1176507066", title:"Geisha Spring",       desc:"Variation printanière" },
+  { id:"1159611153", title:"Tag Heuer AI",        desc:"Fausse pub Tag Heuer inspirée de la célèbre pub des années 80" },
+  { id:"1176271004", title:"Mamie Cannes",        desc:"Bande annonce Groland spécial Cannes 2026" },
+  { id:"1176114060", title:"Papys Brindillette",  desc:"Bande annonce Groland spécial Cannes 2026" },
+  { id:"1172962666", title:"Mamie c'est la fête", desc:"Bande annonce Groland spécial Cannes 2026" }
+  /* Ajouter : , { id:"XXXXXXXXX", title:"Titre", desc:"Description" } */
 ];
-/* ▲▲▲ FIN ZONE À MODIFIER ▲▲▲ */
+/* ▲▲▲  FIN ZONE À MODIFIER  ▲▲▲ */
 
 
-/* Génère les cartes */
-function buildVideos(){
-  const g=document.getElementById('vgrid');
-  VIDEOS.forEach((v,i)=>{
-    const c=document.createElement('div');
-    c.className='vcard reveal';
-    c.style.transitionDelay=(i*.07)+'s';
-    c.innerHTML=`
-      <div class="vwrap">
-        <div class="vph" data-id="${v.id}" onclick="loadV(this)">
-          <div class="vscan"></div>
-          <div class="pring"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 3l11 6-11 6V3z" fill="white"/></svg></div>
-          <span class="plabel">Lancer la vidéo</span>
-        </div>
-      </div>
-      <div class="vinfo">
-        <div class="vmeta">
-          <div class="vidx">FILE_${String(i+1).padStart(2,'0')}.MP4</div>
-          <div class="vtit">${v.title}</div>
-          ${v.desc?`<div class="vdesc">${v.desc}</div>`:''}
-        </div>
-        <div class="vext">VIMEO</div>
-      </div>`;
-    g.appendChild(c);
+/* ------------ OVERLAY ------------ */
+function openOverlay(id) {
+  var o = document.getElementById('playerOverlay');
+  var p = document.getElementById('overlayPlayer');
+  p.src = 'https://player.vimeo.com/video/'+id+'?autoplay=1&color=ffffff&title=0&byline=0&portrait=0';
+  o.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeOverlay() {
+  var o = document.getElementById('playerOverlay');
+  var p = document.getElementById('overlayPlayer');
+  o.classList.remove('active');
+  setTimeout(function(){ p.src=''; }, 450);
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeOverlay(); });
+document.getElementById('overlayBg').addEventListener('click', closeOverlay);
+
+
+/* ------------ CONSTRUCTION DU FEED ------------ */
+function buildFeed() {
+  var feed = document.getElementById('vfeed');
+  VIDEOS.forEach(function(v, i) {
+    var item = document.createElement('div');
+    item.className = 'vitem reveal';
+    item.style.transitionDelay = '0s'; // reveal immédiat pour le feed
+
+    item.innerHTML =
+      '<div class="vitem-num">' + String(i+1).padStart(2,'0') + '</div>' +
+
+      '<div class="vitem-meta">' +
+        '<span class="vitem-idx">FILE_' + String(i+1).padStart(2,'0') + '.MP4</span>' +
+        '<span class="vitem-title">' + v.title + '</span>' +
+        '<span class="vitem-tag">VIMEO</span>' +
+      '</div>' +
+
+      '<div class="vwrap" data-id="' + v.id + '">' +
+        '<div class="voverlay" onclick="openOverlay(\'' + v.id + '\')">' +
+          '<div class="vscan"></div>' +
+          '<div class="pring">' +
+            '<svg width="24" height="24" viewBox="0 0 24 24" fill="none">' +
+              '<path d="M7 4l14 8-14 8V4z" fill="white"/>' +
+            '</svg>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+
+      (v.desc ?
+        '<div class="vitem-desc">' +
+          '<span class="vitem-desc-text">' + v.desc + '</span>' +
+          '<span class="vitem-ext">SYNPATIK STUDIO</span>' +
+        '</div>'
+      : '');
+
+    feed.appendChild(item);
   });
+
+  initScrollPlay();
 }
 
-function loadV(ph){
-  const id=ph.dataset.id;
-  const w=ph.parentElement;
-  const f=document.createElement('iframe');
-  f.src=`https://player.vimeo.com/video/${id}?autoplay=1&color=ffffff&title=0&byline=0&portrait=0`;
-  f.allow='autoplay; fullscreen; picture-in-picture';
-  f.allowFullscreen=true;
-  ph.replaceWith(f);
+
+/* ------------ LECTURE AUTO AU SCROLL ------------ */
+/* Quand la vidéo est visible à 30%, on injecte la preview muette.
+   Quand elle sort du viewport, on la retire pour libérer la connexion. */
+function initScrollPlay() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      var wrap = entry.target;
+      var id   = wrap.dataset.id;
+
+      if (entry.isIntersecting) {
+        if (!wrap.querySelector('iframe.vbg')) {
+          var iframe       = document.createElement('iframe');
+          iframe.className = 'vbg';
+          /* background=1 : muet, boucle, sans UI Vimeo */
+          iframe.src       = 'https://player.vimeo.com/video/'+id+'?autoplay=1&muted=1&loop=1&background=1&title=0&byline=0&portrait=0';
+          iframe.allow     = 'autoplay; fullscreen; picture-in-picture';
+          /* Insérer avant l'overlay pour rester en dessous */
+          wrap.insertBefore(iframe, wrap.querySelector('.voverlay'));
+        }
+      } else {
+        var existing = wrap.querySelector('iframe.vbg');
+        if (existing) existing.remove();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.vwrap[data-id]').forEach(function(w){ observer.observe(w); });
 }
 
-/* Grid canvas */
-function initGrid(){
-  const c=document.getElementById('gc');
-  const ctx=c.getContext('2d');
-  let W,H,t=0;
-  function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;}
-  resize();window.addEventListener('resize',resize);
-  const SZ=60;
+
+/* ------------ GRILLE FOND ANIMÉE ------------ */
+function initGrid() {
+  var c   = document.getElementById('gc');
+  var ctx = c.getContext('2d');
+  var W, H, t = 0;
+  function resize(){ W = c.width = window.innerWidth; H = c.height = window.innerHeight; }
+  resize(); window.addEventListener('resize', resize);
+  var SZ = 60;
   function draw(){
     ctx.clearRect(0,0,W,H);
-    ctx.strokeStyle='rgba(255,255,255,1)';ctx.lineWidth=.5;
-    const ox=(t*.25)%SZ,oy=(t*.12)%SZ;
-    for(let i=0;i<Math.ceil(W/SZ)+1;i++){ctx.beginPath();ctx.moveTo(i*SZ-ox,0);ctx.lineTo(i*SZ-ox,H);ctx.stroke();}
-    for(let i=0;i<Math.ceil(H/SZ)+1;i++){ctx.beginPath();ctx.moveTo(0,i*SZ-oy);ctx.lineTo(W,i*SZ-oy);ctx.stroke();}
-    t++;requestAnimationFrame(draw);
+    ctx.strokeStyle='rgba(255,255,255,1)'; ctx.lineWidth=.5;
+    var ox=(t*.25)%SZ, oy=(t*.12)%SZ;
+    for(var i=0;i<Math.ceil(W/SZ)+1;i++){ ctx.beginPath(); ctx.moveTo(i*SZ-ox,0); ctx.lineTo(i*SZ-ox,H); ctx.stroke(); }
+    for(var j=0;j<Math.ceil(H/SZ)+1;j++){ ctx.beginPath(); ctx.moveTo(0,j*SZ-oy); ctx.lineTo(W,j*SZ-oy); ctx.stroke(); }
+    t++; requestAnimationFrame(draw);
   }
   draw();
 }
 
-/* Boot sequence */
-function runBoot(){
-  document.querySelectorAll('.bl').forEach((l,i)=>{
-    setTimeout(()=>l.classList.add('s'),300+i*220);
+
+/* ------------ BOOT ------------ */
+function runBoot() {
+  document.querySelectorAll('.bl').forEach(function(l,i){
+    setTimeout(function(){ l.classList.add('s'); }, 300+i*220);
   });
 }
 
-/* Scroll progress */
-window.addEventListener('scroll',()=>{
-  const p=window.scrollY/(document.documentElement.scrollHeight-window.innerHeight);
-  document.getElementById('pbar').style.width=(p*100)+'%';
+
+/* ------------ SCROLL PROGRESS ------------ */
+window.addEventListener('scroll', function(){
+  var p = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+  document.getElementById('pbar').style.width = (p*100)+'%';
 });
 
-/* Cursor */
-function initCursor(){
-  const dot=document.getElementById('cdot'),ring=document.getElementById('cring');
-  let rx=0,ry=0,mx=0,my=0;
-  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
-  (function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
-  document.querySelectorAll('a,button,.vph,.svcrow,.cemailw').forEach(el=>{
-    el.addEventListener('mouseenter',()=>ring.classList.add('on'));
-    el.addEventListener('mouseleave',()=>ring.classList.remove('on'));
+
+/* ------------ CURSEUR ------------ */
+function initCursor() {
+  var dot  = document.getElementById('cdot');
+  var ring = document.getElementById('cring');
+  var rx=0, ry=0, mx=0, my=0;
+  document.addEventListener('mousemove', function(e){ mx=e.clientX; my=e.clientY; dot.style.left=mx+'px'; dot.style.top=my+'px'; });
+  (function loop(){ rx+=(mx-rx)*.12; ry+=(my-ry)*.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(loop); })();
+  document.querySelectorAll('a,button,.voverlay,.svcrow,.cemailw').forEach(function(el){
+    el.addEventListener('mouseenter', function(){ ring.classList.add('on'); });
+    el.addEventListener('mouseleave', function(){ ring.classList.remove('on'); });
   });
 }
 
-/* Reveal */
-function initReveal(){
-  const io=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
+
+/* ------------ REVEAL ------------ */
+function initReveal() {
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
       if(e.isIntersecting){
         e.target.classList.add('visible');
-        e.target.querySelectorAll('.skfill').forEach(f=>f.style.width=f.dataset.w+'%');
+        e.target.querySelectorAll('.skfill').forEach(function(f){ f.style.width=f.dataset.w+'%'; });
         io.unobserve(e.target);
       }
     });
-  },{threshold:.1});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  }, {threshold:.08});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 }
 
-/* Clock */
+
+/* ------------ HORLOGE ------------ */
 function tick(){
-  const n=new Date(),h=String(n.getHours()).padStart(2,'0'),m=String(n.getMinutes()).padStart(2,'0'),s=String(n.getSeconds()).padStart(2,'0');
-  const el=document.getElementById('clk');
-  if(el)el.textContent=h+':'+m+':'+s+' CET';
+  var n=new Date(), h=String(n.getHours()).padStart(2,'0'), m=String(n.getMinutes()).padStart(2,'0'), s=String(n.getSeconds()).padStart(2,'0');
+  var el=document.getElementById('clk'); if(el) el.textContent=h+':'+m+':'+s+' CET';
 }
-tick();setInterval(tick,1000);
+tick(); setInterval(tick,1000);
+document.getElementById('yr').textContent = new Date().getFullYear();
 
-/* Year */
-document.getElementById('yr').textContent=new Date().getFullYear();
 
-/* Init */
-buildVideos();
+/* ------------ INIT ------------ */
+buildFeed();
 initGrid();
 runBoot();
 initCursor();
