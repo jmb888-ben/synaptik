@@ -66,9 +66,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:ce
 /* ============================================================
    HERO
 ============================================================ */
+.logo-main{
+  width:clamp(220px, 80vw, 600px);
+  ;
+  opacity:0;
+  transform:translateY(40px) scale(0.95);
+  animation:logoHeroIn 1.2s ease forwards;
+}
+
+@keyframes logoHeroIn{
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
 #hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 2.5rem 4rem;position:relative;z-index:1;}
-#boot{position:absolute;top:2rem;left:2.5rem;font-size:.6rem;color:var(--g4);line-height:2.2;letter-spacing:.05em;z-index:2;}
-.bl{opacity:0.5;transition:opacity .2s;}
+#boot{position:absolute;top:6rem;left:2.5rem;font-size:.68rem;color:var(--g4);line-height:2.2;letter-spacing:.05em;z-index:2;}
+.bl{opacity:0;transition:opacity .2s;}
 .bl.s{opacity:1;}
 .htitle{font-family:var(--ff-t);font-size:clamp(3rem,8vw,8rem);font-weight:900;letter-spacing:0.02em;line-height:1;text-transform:uppercase;position:relative;z-index:2;user-select:none;}
 .gw{display:block;position:relative;}
@@ -306,6 +320,82 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:1.8rem 2.5rem;display:
   .svcrow{grid-template-columns:3rem 1fr;}
   .scat{display:none;}
 }
+/* ================= HERO LOGO CENTER ================= */
+
+#hero{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+/* container */
+.hero-logo{
+  position:relative;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* logo principal */
+.logo-main{
+  width:50vw;
+  max-width:none;
+  position:relative;
+  z-index:3;
+}
+
+.logo-glitch{
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:50vw;
+
+  opacity:0;
+  pointer-events:none;
+  mix-blend-mode:screen;
+
+  z-index:2;
+}
+
+/* glitch layers */
+.logo-glitch{
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:50vw;
+
+  opacity:0;              /* invisible par défaut */
+  pointer-events:none;    /* évite bugs hover */
+  mix-blend-mode:screen;
+}
+
+.hero-logo:hover .g1{
+  animation:glitch1 .4s infinite;
+  opacity:.6;
+}
+
+.hero-logo:hover .g2{
+  animation:glitch2 .4s infinite;
+  opacity:.6;
+}
+
+/* animations */
+
+@keyframes glitch1{
+  0%, 95%, 100% { opacity:0; transform:translateX(-50%); }
+  96% { opacity:.6; transform:translateX(calc(-50% - 6px)); }
+  97% { opacity:.8; transform:translateX(calc(-50% + 6px)); }
+}
+
+@keyframes glitch2{
+  0%, 96%, 100% { opacity:0; transform:translateX(-50%); }
+  97% { opacity:.5; transform:translateX(calc(-50% + 8px)); }
+  98% { opacity:.7; transform:translateX(calc(-50% - 8px)); }
+}
 </style>
 </head>
 <body>
@@ -347,11 +437,11 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:1.8rem 2.5rem;display:
     <div class="bl">SYN://VISION_PIPELINE ............ OK</div>
     <div class="bl">SYN://CREATIVE_ENGINE ............ <span style="color:#fff">RUNNING</span></div>
   </div>
-  <h1 class="htitle">
-    <span class="gw" data-t="SYN">SYN</span>
-    <span class="gw" data-t="PA">PA</span>
-    <span class="gw" data-t="TIK">TIK</span>
-  </h1>
+<div class="hero-logo">
+  <img src="https://jmb888-ben.github.io/synaptik/logo.png" class="logo-main">
+  <img src="https://jmb888-ben.github.io/synaptik/logo.png" class="logo-glitch g1">
+  <img src="https://jmb888-ben.github.io/synaptik/logo.png" class="logo-glitch g2">
+</div>
   <div class="hsub">
     <span class="hsubt"><em>Studio</em> iA G&#233;n&#233;rative</span>
     <div class="hline"></div>
