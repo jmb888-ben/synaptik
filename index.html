@@ -45,7 +45,9 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 #playerOverlay{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s ease;}
 #playerOverlay.active{opacity:1;pointer-events:auto;}
 .overlay-bg{position:absolute;inset:0;background:rgba(0,0,0,.97);backdrop-filter:blur(12px);}
-#overlayPlayer{position:relative;z-index:1;width:92vw;height:calc(92vw * 9/16);max-width:1500px;max-height:90vh;border:none;transform:scale(.97);opacity:0;transition:all .5s cubic-bezier(.16,1,.3,1);}
+#overlayPlayer{
+  width:100vw;height:100vh;border:none;
+};border:none;transform:scale(.97);opacity:0;transition:all .5s cubic-bezier(.16,1,.3,1);}
 #playerOverlay.active #overlayPlayer{transform:scale(1);opacity:1;}
 #closePlayer{position:absolute;top:1.5rem;right:1.5rem;z-index:2;background:none;border:1px solid rgba(255,255,255,.2);color:white;font-family:var(--ff-m);font-size:.62rem;letter-spacing:.18em;padding:.6rem 1.1rem;cursor:pointer;transition:background .2s,color .2s,border-color .2s;}
 #closePlayer:hover{background:var(--white);color:var(--black);border-color:var(--white);}
@@ -145,7 +147,8 @@ section{position:relative;padding:6rem 2.5rem;z-index:1;border-top:1px solid rgb
   transition:background .3s;
 }
 .vitem:nth-child(even){ background:var(--g1); }
-.vitem:hover{ background:var(--g2); }
+.vitem:hover{ background:transparent;
+}
 
 /* Numéro de vidéo flottant à gauche */
 .vitem-num{
@@ -637,7 +640,7 @@ function initScrollPlay() {
           var iframe       = document.createElement('iframe');
           iframe.className = 'vbg';
           /* background=1 : muet, boucle, sans UI Vimeo */
-          iframe.src       = 'https://player.vimeo.com/video/'+id+'?autoplay=1&muted=1&loop=1&background=1&title=0&byline=0&portrait=0';
+          iframe.src = 'https://player.vimeo.com/video/'+id+'?autoplay=1&muted=1&loop=1&background=1&color=000000&transparent=0';
           iframe.allow     = 'autoplay; fullscreen; picture-in-picture';
           /* Insérer avant l'overlay pour rester en dessous */
           wrap.insertBefore(iframe, wrap.querySelector('.voverlay'));
