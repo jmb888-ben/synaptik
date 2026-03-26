@@ -119,7 +119,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:ce
 @keyframes g1{0%,93%{opacity:0;transform:none}94%{opacity:.9;transform:translate(-4px,0)}95%{opacity:.9;transform:translate(5px,0)}96%{opacity:0;transform:none}}
 @keyframes g2{0%,90%{opacity:0;transform:none}91%{opacity:.7;transform:translate(6px,0)}92%{opacity:.7;transform:translate(-5px,0)}93%{opacity:0;transform:none}}
 .hsub{display:flex;align-items:center;gap:2rem;margin-top:2rem;z-index:2;position:relative;}
-.hsubt{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--g5);}
+.hsubt{font-size:1.2rem;letter-spacing:.2em;text-transform:uppercase;color:var(--g5);}
 .hsubt em{font-style:normal;color:var(--white);}
 .hline{flex:1;height:1px;background:var(--g3);}
 .hcta{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--g5);border:1px solid var(--g3);padding:.7rem 1.5rem;position:relative;overflow:hidden;transition:color .3s;}
@@ -260,7 +260,24 @@ section{position:relative;padding:6rem 2.5rem;z-index:1;border-top:1px solid rgb
   align-items:center;
   gap:2rem;
 }
-.vitem-desc-text{font-size:.65rem;color:var(--g5);letter-spacing:.03em;flex:1;}
+.vitem-desc{
+  margin-top:1.8rem;
+  align-items:flex-start;
+}
+
+.vitem-desc-text::before{
+  content:"// ";
+  color:var(--g4);
+  margin-right:6px;
+}
+.vitem-desc-text{
+  font-family:var(--ff-t);
+  font-size:clamp(1rem,1.6vw,1.4rem);
+  color:var(--white);
+  letter-spacing:.02em;
+  line-height:1.4;
+  max-width:900px;
+}
 .vitem-ext{font-size:.55rem;letter-spacing:.15em;color:var(--g4);}
 
 /* Coins décoratifs sci-fi sur le wrapper */
@@ -451,7 +468,7 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:1.8rem 2.5rem;display:
     <span class="nblink"></span>
   </div>
   <ul class="nlinks">
-    <li><a href="#videos">&#338;uvres</a></li>
+    <li><a href="#videos">Créations</a></li>
     <li><a href="#about">Studio</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -485,7 +502,7 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:1.8rem 2.5rem;display:
 <section id="videos">
   <div class="snum">01</div>
   <div class="shdr reveal">
-    <span class="stag">&#338;uvres vid&#233;o</span>
+    <span class="stag">Créations</span>
     <div class="sl"></div>
     <span class="sidx">SECTION_01</span>
   </div>
@@ -538,8 +555,6 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:1.8rem 2.5rem;display:
     <div class="svcrow"><span class="sn">01</span><span class="sname">Direction artistique iA</span><span class="scat">Cr&#233;ation</span></div>
     <div class="svcrow"><span class="sn">02</span><span class="sname">Vid&#233;os g&#233;n&#233;ratives</span><span class="scat">Production</span></div>
     <div class="svcrow"><span class="sn">03</span><span class="sname">Images &amp; visuels IA</span><span class="scat">Design</span></div>
-    <div class="svcrow"><span class="sn">04</span><span class="sname">Conseil &amp; formation</span><span class="scat">Expertise</span></div>
-    <div class="svcrow"><span class="sn">05</span><span class="sname">Installations &amp; exp&#233;riences</span><span class="scat">&#201;v&#233;nementiel</span></div>
   </div>
 </section>
 
@@ -548,8 +563,8 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:1.8rem 2.5rem;display:
   <div class="cpre">Transmettez votre signal</div>
   <div class="cbig reveal">On<br/>Parle&nbsp;?</div>
   <br/><br/>
-  <a href="mailto:hello@synpatik.com" class="cemailw">
-    <span class="cemail">hello@synpatik.com</span>
+  <a href="mailto:hello.synaptik@gmail.com" class="cemailw">
+    <span class="cemail">hello.synaptik@gmail.com</span>
     <span class="carr">&#8594;</span>
   </a>
 </section>
@@ -559,7 +574,7 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:1.8rem 2.5rem;display:
   <span class="fm">&#169; <span id="yr"></span> SYNPATIK &#8212; TOUS DROITS R&#201;SERV&#201;S</span>
   <ul class="flinks">
     <li><a href="https://vimeo.com/" target="_blank">Vimeo</a></li>
-    <li><a href="https://instagram.com/" target="_blank">Instagram</a></li>
+    <li><a href="https://www.instagram.com/synaptikstudio/" target="_blank">Instagram</a></li>
     <li><a href="https://linkedin.com/" target="_blank">LinkedIn</a></li>
   </ul>
   <span class="fm">SYN://v1.0.0 &#8212; PARIS, FR</span>
