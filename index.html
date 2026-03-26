@@ -54,12 +54,12 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
    NAV
 ============================================================ */
 nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 2.5rem;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(0,0,0,.9);backdrop-filter:blur(6px);}
-.nlogo{display:flex;align-items:center;gap:.1rem;font-family:var(--ff-t);font-size:1.4rem;font-weight:900;letter-spacing:.25em;}
+.nlogo{display:flex;align-items:center;gap:.1rem;font-family:var(--ff-t);font-size:2rem;font-weight:900;letter-spacing:em;}
 .nlogo img{height:60px;width:auto;}
 .nblink{display:inline-block;width:2px;height:1em;background:var(--white);margin-left:2px;vertical-align:middle;animation:blink 1s step-end infinite;}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
 .nlinks{list-style:none;display:flex;gap:2rem;}
-.nlinks a{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--g5);transition:color .2s;}
+.nlinks a{font-size:1.2rem;letter-spacing:.25em;text-transform:uppercase;color:var(--g5);transition:color .2s;}
 .nlinks a::before{content:'// ';color:var(--g4);}
 .nlinks a:hover{color:var(--white);}
 
@@ -415,7 +415,7 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:1.8rem 2.5rem;display:
 <!-- NAV -->
 <nav>
   <div class="nlogo">
-    <img src="https://jmb888-ben.github.io/synaptik/logo.png" alt="Synpatik" style="height:70px;filter:invert(1);display:block;">
+    <img src="https://jmb888-ben.github.io/synaptik/logo.png" alt="Synpatik" style="height:90px;filter:invert(1);display:block;">
     <span id="nlf" style="display:none">SYNPATIK</span>
     <span class="nblink"></span>
   </div>
