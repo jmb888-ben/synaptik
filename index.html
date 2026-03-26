@@ -3,17 +3,22 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Synaptik Studio — Création en IA Générative | Paris</title>
-<meta name="description" content="Synaptik Studio, studio parisien spécialisé en IA générative. Vidéos, images et direction artistique IA pour marques et institutions culturelles."/>
+<title>Synaptik Studio — Studio de création en IA Générative | Paris</title>
+<meta name="description" content="Synaptik Studio, studio parisien spécialisé en IA générative. Vidéos génératives, images IA et direction artistique pour marques et institutions culturelles."/>
 
-<!-- Open Graph -->
+<!-- Indexation -->
+<meta name="robots" content="index, follow"/>
+<meta name="author" content="Synaptik Studio"/>
+<link rel="canonical" href="https://synaptikstudio.fr"/>
+
+<!-- Open Graph (réseaux sociaux) -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Synaptik Studio"/>
 <meta property="og:title" content="Synaptik Studio — Création en IA Générative"/>
 <meta property="og:description" content="Studio parisien spécialisé en vidéos et images générées par intelligence artificielle. Direction artistique IA pour marques et institutions culturelles."/>
-<meta property="og:image" content="https://synaptikstudio.fr/preview.jpg"/>
 <meta property="og:url" content="https://synaptikstudio.fr"/>
-<meta property="og:type" content="website"/>
+<meta property="og:image" content="https://synaptikstudio.fr/preview.jpg"/>
 <meta property="og:locale" content="fr_FR"/>
-<meta property="og:site_name" content="Synaptik Studio"/>
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image"/>
@@ -21,26 +26,36 @@
 <meta name="twitter:description" content="Studio parisien spécialisé en vidéos et images générées par intelligence artificielle."/>
 <meta name="twitter:image" content="https://synaptikstudio.fr/preview.jpg"/>
 
-<!-- Canonical -->
-<link rel="canonical" href="https://synaptikstudio.fr"/>
-
-<!-- Schema.org -->
+<!-- Schema.org JSON-LD -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "ProfessionalService",
   "name": "Synaptik Studio",
   "url": "https://synaptikstudio.fr",
   "logo": "https://synaptikstudio.fr/logo.png",
+  "image": "https://synaptikstudio.fr/preview.jpg",
   "description": "Studio parisien spécialisé en création par intelligence artificielle générative : vidéos IA, images génératives, direction artistique IA.",
   "email": "hello.synaptik@gmail.com",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Paris",
+    "addressRegion": "Île-de-France",
     "addressCountry": "FR"
   },
+  "areaServed": "France",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Services IA Générative",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Direction artistique IA" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Vidéos génératives" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Images & visuels IA" } }
+    ]
+  },
   "sameAs": [
-    "https://www.instagram.com/synaptikstudio/"
+    "https://www.instagram.com/synaptikstudio/",
+    "https://vimeo.com/"
   ]
 }
 </script>
@@ -188,8 +203,8 @@ section{position:relative;padding:6rem 2.5rem;z-index:1;border-top:1px solid rgb
   padding-left:0;padding-right:0;   /* la section elle-même sans marges */
   padding-top:4rem;padding-bottom:0;
 }
-#videos .shdr,#videos .vtitle{ padding-left:2.5rem;padding-right:2.5rem; }
-.vtitle{font-family:var(--ff-t);font-size:clamp(3rem,7vw,7rem);font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:.9;margin-bottom:4rem;}
+#videos .shdr,#videos h2.vtitle{ padding-left:2.5rem;padding-right:2.5rem; }
+h2.vtitle{font-family:var(--ff-t);font-size:clamp(3rem,7vw,7rem);font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:.9;margin-bottom:4rem;}
 
 /* -------- FEED -------- */
 #vfeed{
@@ -399,7 +414,7 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:1.8rem 2.5rem;display:
   #hero{padding:0 1.2rem 3rem;}
   #boot{left:1.2rem;}
   section{padding:4rem 1.2rem;}
-  #videos .shdr,#videos .vtitle{padding-left:1.2rem;padding-right:1.2rem;}
+  #videos .shdr,#videos h2.vtitle{padding-left:1.2rem;padding-right:1.2rem;}
   .vitem{padding:3rem 1.2rem 3rem;}
   .vitem-num{left:1.2rem;top:3rem;}
   .vitem-meta{flex-wrap:wrap;gap:1rem;}
@@ -525,7 +540,7 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:1.8rem 2.5rem;display:
     <div class="bl">SYN://CREATIVE_ENGINE ............ <span style="color:#fff">RUNNING</span></div>
   </div>
 <div class="hero-logo">
-  <img src="https://jmb888-ben.github.io/synaptik/logo.png" class="logo-main" alt="Synaptik Studio — Création en IA Générative">
+  <img src="https://jmb888-ben.github.io/synaptik/logo.png" class="logo-main" alt="Synaptik Studio — IA Générative Paris">
   <img src="https://jmb888-ben.github.io/synaptik/logo.png" class="logo-glitch g1" alt="">
   <img src="https://jmb888-ben.github.io/synaptik/logo.png" class="logo-glitch g2" alt="">
 </div>
@@ -545,6 +560,7 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:1.8rem 2.5rem;display:
     <div class="sl"></div>
     <span class="sidx">SECTION_01</span>
   </div>
+  <h2 class="vtitle">Nos<br/>Créations</h2>
   <div id="vfeed"></div>
 </section>
 
@@ -556,6 +572,7 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:1.8rem 2.5rem;display:
     <div class="sl"></div>
     <span class="sidx">SECTION_02</span>
   </div>
+  <h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Synaptik Studio — À propos du studio de création IA</h2>
   <div class="agrid">
     <div>
       <div class="albl">MANIFESTE</div>
@@ -590,6 +607,7 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:1.8rem 2.5rem;display:
     <div class="sl"></div>
     <span class="sidx">SECTION_03</span>
   </div>
+  <h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Nos services en IA Générative</h2>
   <div class="svctbl reveal" style="transition-delay:.1s">
     <div class="svcrow"><span class="sn">01</span><span class="sname">Direction artistique iA</span><span class="scat">Cr&#233;ation</span></div>
     <div class="svcrow"><span class="sn">02</span><span class="sname">Vid&#233;os g&#233;n&#233;ratives</span><span class="scat">Production</span></div>
@@ -806,10 +824,8 @@ function tick(){
 }
 setInterval(tick,1000); tick();
 
-
 /* ------------ ANNÉE FOOTER ------------ */
 var yrEl=document.getElementById('yr'); if(yrEl) yrEl.textContent=new Date().getFullYear();
-
 
 /* ------------ INIT ------------ */
 window.addEventListener('DOMContentLoaded', function(){
