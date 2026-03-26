@@ -38,20 +38,45 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 /* Grille de fond */
 #gbg{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.03;}
 #gbg canvas{width:100%;height:100%;}
-
+@media(max-width:700px){
+  #overlayPlayer{
+    width:100vw;
+    height:100dvh;
+  }
+}
 /* ============================================================
    OVERLAY PLEIN ÉCRAN
 ============================================================ */
-#playerOverlay{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s ease;}
+#playerOverlay{position:fixed;inset:0;z-index:99999;display:block;opacity:0;pointer-events:none;transition:opacity .4s ease;}
 #playerOverlay.active{opacity:1;pointer-events:auto;}
 .overlay-bg{position:absolute;inset:0;background:rgba(0,0,0,.97);backdrop-filter:blur(12px);}
 #overlayPlayer{
-  width:100vw;height:100vh;border:none;
-};border:none;transform:scale(.97);opacity:0;transition:all .5s cubic-bezier(.16,1,.3,1);}
+  position:absolute;
+  top:0;
+  left:0;
+
+  width:100vw;
+  height:100dvh;
+
+  border:none;
+
+  transform:scale(.97);
+  opacity:0;
+  transition:all .5s cubic-bezier(.16,1,.3,1);
+}
+
 #playerOverlay.active #overlayPlayer{transform:scale(1);opacity:1;}
 #closePlayer{position:absolute;top:1.5rem;right:1.5rem;z-index:2;background:none;border:1px solid rgba(255,255,255,.2);color:white;font-family:var(--ff-m);font-size:.62rem;letter-spacing:.18em;padding:.6rem 1.1rem;cursor:pointer;transition:background .2s,color .2s,border-color .2s;}
 #closePlayer:hover{background:var(--white);color:var(--black);border-color:var(--white);}
+#overlayPlayer{
+  width:100vw;
+  height:100dvh;
 
+  object-fit:cover; /* 🔥 important */
+}
+#overlayPlayer{
+  background:black;
+}
 /* ============================================================
    NAV
 ============================================================ */
@@ -569,7 +594,7 @@ var VIDEOS = [
 function openOverlay(id) {
   var o = document.getElementById('playerOverlay');
   var p = document.getElementById('overlayPlayer');
-  p.src = 'https://player.vimeo.com/video/'+id+'?autoplay=1&color=ffffff&title=0&byline=0&portrait=0';
+  p.src = 'https://player.vimeo.com/video/'+id+'?autoplay=1&playsinline=1&color=ffffff&title=0&byline=0&portrait=0';
   o.classList.add('active');
   document.body.style.overflow = 'hidden';
 }
