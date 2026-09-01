@@ -688,7 +688,8 @@ function openOverlay(id, trigger) {
   var o = document.getElementById('playerOverlay');
   var p = document.getElementById('overlayPlayer');
   overlayTrigger = trigger || document.activeElement;
-  p.src = 'https://player.vimeo.com/video/'+id+'?autoplay=1&playsinline=1&color=ffffff&title=0&byline=0&portrait=0';
+  /* Le clic utilisateur lance la vidéo avec le son activé. */
+  p.src = 'https://player.vimeo.com/video/'+id+'?autoplay=1&muted=0&playsinline=1&color=ffffff&title=0&byline=0&portrait=0';
   o.classList.add('active');
   o.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
