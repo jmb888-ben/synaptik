@@ -1,0 +1,39 @@
+{
+  "languages": {
+    "fr": {
+      "subject": "Synaptik — réalisation, DA et IA générative",
+      "template": "email-templates/fr.html",
+      "cv_url": "https://synaptikstudio.fr/cv/fr/"
+    },
+    "en": {
+      "subject": "Synaptik — directing, art direction & generative AI",
+      "template": "email-templates/en.html",
+      "cv_url": "https://synaptikstudio.fr/cv/en/"
+    },
+    "nl": {
+      "subject": "Synaptik — regie, art direction & generatieve AI",
+      "template": "email-templates/nl.html",
+      "cv_url": "https://synaptikstudio.fr/cv/nl/"
+    },
+    "it": {
+      "subject": "Synaptik — regia, direzione artistica e IA generativa",
+      "template": "email-templates/it.html",
+      "cv_url": "https://synaptikstudio.fr/cv/it/"
+    },
+    "pt": {
+      "subject": "Synaptik — realização, direção artística e IA generativa",
+      "template": "email-templates/pt.html",
+      "cv_url": "https://synaptikstudio.fr/cv/pt/"
+    },
+    "sv": {
+      "subject": "Synaptik — regi, art direction & generativ AI",
+      "template": "email-templates/sv.html",
+      "cv_url": "https://synaptikstudio.fr/cv/sv/"
+    },
+    "es": {
+      "subject": "Synaptik — dirección, dirección de arte e IA generativa",
+      "template": "email-templates/es.html",
+      "cv_url": "https://synaptikstudio.fr/cv/es/"
+    }
+  }
+}
