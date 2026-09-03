@@ -2,38 +2,38 @@
   "languages": {
     "fr": {
       "subject": "Synaptik — réalisation, DA et IA générative",
-      "template": "email-templates/fr.html",
-      "cv_url": "https://synaptikstudio.fr/cv/fr/"
+      "cv_url": "https://synaptikstudio.fr/cv/fr/",
+      "career_line": "J’ai notamment créé et réalisé Les Carnets de Monsieur Manatane (Canal+) avec Benoît Poelvoorde, lancé Soda (M6) et José (OCS), réalisé des publicités et un long métrage. Je collabore toujours à Groland (Canal+)."
     },
     "en": {
       "subject": "Synaptik — directing, art direction & generative AI",
-      "template": "email-templates/en.html",
-      "cv_url": "https://synaptikstudio.fr/cv/en/"
+      "cv_url": "https://synaptikstudio.fr/cv/en/",
+      "career_line": "I notably created and directed Les Carnets de Monsieur Manatane (Canal+) with Benoît Poelvoorde, launched Soda (M6) and José (OCS), directed commercials and a feature film. I still work on Groland (Canal+)."
     },
     "nl": {
       "subject": "Synaptik — regie, art direction & generatieve AI",
-      "template": "email-templates/nl.html",
-      "cv_url": "https://synaptikstudio.fr/cv/nl/"
+      "cv_url": "https://synaptikstudio.fr/cv/nl/",
+      "career_line": "Ik heb onder meer Les Carnets de Monsieur Manatane (Canal+) met Benoît Poelvoorde gecreëerd en geregisseerd, Soda (M6) en José (OCS) gelanceerd, commercials en een speelfilm geregisseerd. Ik werk nog steeds mee aan Groland (Canal+)."
     },
     "it": {
       "subject": "Synaptik — regia, direzione artistica e IA generativa",
-      "template": "email-templates/it.html",
-      "cv_url": "https://synaptikstudio.fr/cv/it/"
+      "cv_url": "https://synaptikstudio.fr/cv/it/",
+      "career_line": "Ho creato e diretto, tra gli altri, Les Carnets de Monsieur Manatane (Canal+) con Benoît Poelvoorde, avviato Soda (M6) e José (OCS), diretto spot pubblicitari e un lungometraggio. Continuo inoltre a collaborare con Groland (Canal+)."
     },
     "pt": {
       "subject": "Synaptik — realização, direção artística e IA generativa",
-      "template": "email-templates/pt.html",
-      "cv_url": "https://synaptikstudio.fr/cv/pt/"
+      "cv_url": "https://synaptikstudio.fr/cv/pt/",
+      "career_line": "Criei e realizei, entre outros, Les Carnets de Monsieur Manatane (Canal+) com Benoît Poelvoorde, lancei Soda (M6) e José (OCS), realizei publicidade e uma longa-metragem. Continuo também a colaborar com Groland (Canal+)."
     },
     "sv": {
       "subject": "Synaptik — regi, art direction & generativ AI",
-      "template": "email-templates/sv.html",
-      "cv_url": "https://synaptikstudio.fr/cv/sv/"
+      "cv_url": "https://synaptikstudio.fr/cv/sv/",
+      "career_line": "Jag har bland annat skapat och regisserat Les Carnets de Monsieur Manatane (Canal+) med Benoît Poelvoorde, lanserat Soda (M6) och José (OCS), regisserat reklamfilmer och en långfilm. Jag samarbetar fortfarande med Groland (Canal+)."
     },
     "es": {
       "subject": "Synaptik — dirección, dirección de arte e IA generativa",
-      "template": "email-templates/es.html",
-      "cv_url": "https://synaptikstudio.fr/cv/es/"
+      "cv_url": "https://synaptikstudio.fr/cv/es/",
+      "career_line": "Entre otros trabajos, creé y dirigí Les Carnets de Monsieur Manatane (Canal+) con Benoît Poelvoorde, lancé Soda (M6) y José (OCS), dirigí publicidad y un largometraje. Sigo colaborando con Groland (Canal+)."
     }
   }
 }
