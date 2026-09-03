@@ -1,2 +1,1 @@
-# synaptik
-IA studio
+Synaptik Studio assets
