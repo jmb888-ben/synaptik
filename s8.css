@@ -119,3 +119,64 @@ body.show-back-top .back-top{
     margin:1.5rem 1rem 3rem;
   }
 }
+
+/* ================= LISIBILITÉ UI =================
+   Remonter légèrement les éléments trop fantômes sans casser
+   l'esthétique sombre et cinématographique.
+================================================== */
+
+/* Navigation */
+.nlinks a{
+  color:rgba(255,255,255,.68) !important;
+  opacity:.86 !important;
+}
+.nlinks a:hover,
+.nlinks a:focus-visible,
+.nlinks a.is-active{
+  color:#fff !important;
+  opacity:1 !important;
+}
+.nlogo{
+  opacity:1 !important;
+}
+
+/* Métadonnées des films */
+.vitem-idx,
+.vitem-tag{
+  opacity:.64 !important;
+  color:rgba(255,255,255,.62) !important;
+}
+.vitem-ext{
+  opacity:.68 !important;
+  color:rgba(255,255,255,.58) !important;
+}
+
+/* Bouton retour en haut */
+.back-top{
+  color:rgba(255,255,255,.78) !important;
+  border-color:rgba(255,255,255,.24) !important;
+  background:rgba(0,0,0,.72) !important;
+}
+body.show-back-top .back-top{
+  opacity:.92 !important;
+}
+.back-top:hover,
+.back-top:focus-visible{
+  color:#fff !important;
+  border-color:rgba(255,255,255,.48) !important;
+  opacity:1 !important;
+}
+
+@media(max-width:700px){
+  .nlinks a{
+    color:rgba(255,255,255,.72) !important;
+    opacity:.9 !important;
+  }
+  .vitem-idx,
+  .vitem-tag{
+    opacity:.6 !important;
+  }
+  .vitem-ext{
+    opacity:.64 !important;
+  }
+}
