@@ -1,0 +1,304 @@
+
+
+/* ================= HIÉRARCHIE REEL / SÉLECTION =================
+   Le reel devient la porte d'entrée. Les autres films suivent comme
+   sélection éditoriale, sans ajouter d'interface lourde.
+================================================================ */
+.reel-intro{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:2rem;
+  padding:0 2.5rem 1.2rem;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.reel-kicker,
+.reel-note{
+  font-family:var(--ff-m);
+  font-size:.62rem;
+  letter-spacing:.09em;
+  text-transform:none;
+}
+.reel-kicker{color:#fff;}
+.reel-note{color:var(--g5);text-align:right;}
+
+/* Premier film = reel principal */
+#vfeed .vitem:first-child{
+  padding-top:2.2rem !important;
+  padding-bottom:6rem !important;
+}
+#vfeed .vitem:first-child .vitem-title{
+  font-size:clamp(1.7rem,3vw,3rem) !important;
+}
+#vfeed .vitem:first-child .vwrap{
+  width:min(100vw, calc(90vh * 16 / 9)) !important;
+  height:min(90vh, calc(100vw * 9 / 16)) !important;
+}
+
+/* Films suivants = sélection */
+#vfeed .vitem:nth-child(n+2){
+  padding-top:4.5rem !important;
+}
+#vfeed .vitem:nth-child(2)::before{
+  content:"Sélection";
+  display:block;
+  padding:0 2.5rem 1rem;
+  font-family:var(--ff-m);
+  font-size:.62rem;
+  letter-spacing:.1em;
+  color:var(--g5);
+  text-transform:none;
+}
+
+@media(max-width:700px){
+  .reel-intro{
+    display:block;
+    padding:0 1rem 1rem;
+  }
+  .reel-note{
+    display:block;
+    text-align:left;
+    margin-top:.35rem;
+    line-height:1.45;
+  }
+  #vfeed .vitem:first-child{
+    padding-bottom:4rem !important;
+  }
+  #vfeed .vitem:nth-child(2)::before{
+    padding:0 1rem .8rem;
+  }
+}
+
+
+/* ================= CRÉDIBILITÉ / REPÈRES =================
+   Un bandeau discret de références, sans logos ni effet "CV".
+============================================================ */
+.cred-strip{
+  margin-top:3.2rem;
+  padding-top:1.2rem;
+  border-top:1px solid rgba(255,255,255,.09);
+  display:grid;
+  grid-template-columns:110px 1fr;
+  gap:1.5rem;
+  align-items:start;
+}
+
+.cred-label{
+  font-family:var(--ff-m);
+  font-size:.58rem;
+  letter-spacing:.1em;
+  color:var(--g5);
+  text-transform:none;
+}
+
+.cred-items{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.7rem 1.4rem;
+  font-family:var(--ff-m);
+  font-size:.68rem;
+  line-height:1.45;
+  color:var(--g6);
+}
+
+.cred-items span{
+  white-space:nowrap;
+}
+
+@media(max-width:700px){
+  .cred-strip{
+    grid-template-columns:1fr;
+    gap:.65rem;
+    margin-top:2.3rem;
+  }
+  .cred-items{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:.45rem;
+  }
+  .cred-items span{
+    white-space:normal;
+  }
+}
+
+
+/* ================= RYTHME GLOBAL =================
+   Ajustements de respiration entre sections.
+   Aucun changement de contenu ni de direction graphique.
+=================================================== */
+
+/* Sections principales : cadence plus régulière */
+#videos,
+#about,
+#services,
+#contact{
+  scroll-margin-top:84px;
+}
+
+/* Créations : éviter l'impression de tunnel trop long */
+#videos{
+  padding-bottom:4.5rem !important;
+}
+
+#videos .abody{
+  margin-bottom:3.2rem !important;
+}
+
+/* Films : réduire légèrement les grands vides entre chapitres */
+.vitem{
+  padding-top:4.2rem !important;
+  padding-bottom:4.8rem !important;
+}
+
+#vfeed .vitem:first-child{
+  padding-bottom:5.2rem !important;
+}
+
+#vfeed .vitem:nth-child(n+2){
+  padding-top:3.8rem !important;
+}
+
+/* Studio : section plus compacte après les vidéos */
+#about{
+  padding-top:5rem !important;
+  padding-bottom:5rem !important;
+}
+
+#about .shdr{
+  margin-bottom:2.4rem !important;
+}
+
+.cred-strip{
+  margin-top:2.6rem !important;
+}
+
+/* Services : rapprocher du Studio */
+#services{
+  padding-top:5rem !important;
+  padding-bottom:5.2rem !important;
+}
+
+#services .shdr{
+  margin-bottom:2.2rem !important;
+}
+
+/* Contact : garder un final ample mais pas vide */
+#contact{
+  padding-top:5.5rem !important;
+  padding-bottom:5.5rem !important;
+}
+
+#contact .cbig{
+  margin-bottom:1.8rem !important;
+}
+
+/* Séparations discrètes entre grandes sections */
+#about,
+#services,
+#contact{
+  border-top:1px solid rgba(255,255,255,.06);
+}
+
+/* Mobile */
+@media(max-width:700px){
+  #videos{
+    padding-bottom:3rem !important;
+  }
+
+  .vitem{
+    padding-top:2.7rem !important;
+    padding-bottom:3.1rem !important;
+  }
+
+  #vfeed .vitem:first-child{
+    padding-bottom:3.5rem !important;
+  }
+
+  #vfeed .vitem:nth-child(n+2){
+    padding-top:2.6rem !important;
+  }
+
+  #about,
+  #services{
+    padding-top:3.8rem !important;
+    padding-bottom:3.8rem !important;
+  }
+
+  #contact{
+    padding-top:4.2rem !important;
+    padding-bottom:4.2rem !important;
+  }
+}
+
+
+/* ================= FINAL POLISH =================
+   Micro-ajustements de cohérence :
+   moins de "tech demo", plus de portfolio.
+================================================== */
+
+/* La grille reste présente mais plus discrète */
+#gc{
+  opacity:.18 !important;
+}
+
+/* Scanlines légèrement atténuées */
+.scanlines{
+  opacity:.10 !important;
+}
+
+/* Les repères techniques restent visibles sans attirer l'oeil */
+.stag,
+.sidx,
+.vitem-idx,
+.vitem-tag,
+.reel-kicker,
+.reel-note,
+.cred-label,
+.fm{
+  opacity:.62;
+}
+
+/* Les titres et textes principaux gardent la priorité */
+.vitem-title,
+.vtitle,
+.sname,
+.cbig,
+.hsubt{
+  opacity:1 !important;
+}
+
+/* Réduire les effets de survol trop "interface" */
+.vitem:hover .vwrap::before,
+.vitem:hover .vwrap::after{
+  width:38px !important;
+  height:38px !important;
+  opacity:.5 !important;
+}
+
+/* Boutons : plus sobres, moins "UI" */
+.hcta{
+  transition:background-color .18s ease, color .18s ease, border-color .18s ease !important;
+}
+.hcta::before,
+.hcta::after{
+  display:none !important;
+}
+
+/* Footer encore plus léger */
+footer{
+  border-top:1px solid rgba(255,255,255,.06) !important;
+}
+footer .flinks a{
+  opacity:.72;
+}
+footer .flinks a:hover{
+  opacity:1;
+}
+
+/* Le contact doit finir le site avec une présence claire */
+#contact .cemailw{
+  border-bottom-color:rgba(255,255,255,.22) !important;
+}
+#contact .cemailw:hover{
+  border-bottom-color:#fff !important;
+}
