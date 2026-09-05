@@ -1,0 +1,323 @@
+
+/* Sur mobile, éviter tout excès décoratif */
+@media(max-width:700px){
+  #gc{
+    opacity:.10 !important;
+  }
+  .scanlines{
+    opacity:.06 !important;
+  }
+}
+
+
+/* ================= INDICATION DE LECTURE =================
+   Discrète : les images restent prioritaires.
+=========================================================== */
+.watch-cue{
+  position:absolute;
+  left:50%;
+  bottom:1.6rem;
+  transform:translate(-50%,8px);
+  z-index:4;
+  padding:.55rem .8rem;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(0,0,0,.48);
+  backdrop-filter:blur(8px);
+  color:#fff;
+  font-family:var(--ff-m);
+  font-size:.58rem;
+  letter-spacing:.08em;
+  white-space:nowrap;
+  opacity:0;
+  transition:opacity .22s ease, transform .22s ease, border-color .22s ease;
+  pointer-events:none;
+}
+
+.vwrap:hover .watch-cue,
+.voverlay:focus-visible .watch-cue{
+  opacity:.88;
+  transform:translate(-50%,0);
+  border-color:rgba(255,255,255,.36);
+}
+
+@media(pointer:coarse){
+  .watch-cue{
+    opacity:.72;
+    transform:translate(-50%,0);
+    bottom:.8rem;
+    font-size:.52rem;
+    background:rgba(0,0,0,.55);
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .watch-cue{
+    transition:none;
+    transform:translate(-50%,0);
+  }
+}
+
+
+/* ================= NAVIGATION — POLISH =================
+   Plus discrète, plus premium, sans changer les liens.
+========================================================= */
+nav{
+  padding:1.1rem 2.5rem !important;
+  background:rgba(0,0,0,.72) !important;
+  backdrop-filter:blur(12px) !important;
+  border-bottom:1px solid rgba(255,255,255,.045) !important;
+}
+
+.nlinks{
+  gap:1.6rem !important;
+}
+
+.nlinks a{
+  position:relative;
+  font-size:.62rem !important;
+  letter-spacing:.08em !important;
+  opacity:.68;
+  transition:opacity .18s ease;
+}
+
+.nlinks a:hover,
+.nlinks a:focus-visible{
+  opacity:1;
+}
+
+.nlinks a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-.38rem;
+  height:1px;
+  background:#fff;
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .2s ease;
+}
+
+.nlinks a:hover::after,
+.nlinks a:focus-visible::after{
+  transform:scaleX(1);
+}
+
+/* Le logo de navigation reste présent mais secondaire */
+.nlogo{
+  opacity:.9;
+}
+
+/* Mobile : barre légère, liens accessibles */
+@media(max-width:700px){
+  nav{
+    padding:.8rem 1rem !important;
+    min-height:60px !important;
+  }
+
+  .nlinks{
+    gap:.8rem !important;
+  }
+
+  .nlinks a{
+    font-size:.54rem !important;
+    letter-spacing:.05em !important;
+  }
+
+  .nlinks a::after{
+    display:none;
+  }
+}
+
+
+/* ================= NAVIGATION ACTIVE =================
+   Indique discrètement la section actuellement visible.
+======================================================= */
+.nlinks a.is-active{
+  opacity:1 !important;
+}
+
+.nlinks a.is-active::after{
+  transform:scaleX(1) !important;
+}
+
+@media(max-width:700px){
+  .nlinks a.is-active{
+    color:#fff !important;
+    opacity:1 !important;
+  }
+}
+
+
+/* ================= ÉQUILIBRE DES DÉTAILS UI =================
+   Les éléments "système" restent présents, mais deviennent
+   secondaires face aux images, titres et textes.
+============================================================== */
+
+/* Boot du hero : visible mais moins bavard visuellement */
+#boot{
+  opacity:.48 !important;
+}
+
+/* Coordonnées et horloge : repère discret */
+.hcoords{
+  opacity:.46 !important;
+}
+
+/* Labels techniques des sections */
+.stag,
+.sidx{
+  opacity:.48 !important;
+}
+
+/* Métadonnées films : utiles mais secondaires */
+.vitem-idx,
+.vitem-tag{
+  opacity:.42 !important;
+}
+
+.vitem-tag{
+  letter-spacing:.11em !important;
+}
+
+/* Les descriptions restent plus lisibles que les labels techniques */
+.vitem-desc-text{
+  opacity:.76 !important;
+}
+
+/* Repères Studio / Services */
+.albl,
+.sn,
+.scat,
+.cred-label{
+  opacity:.52 !important;
+}
+
+/* Footer très discret */
+.fm{
+  opacity:.5 !important;
+}
+
+/* Le contenu éditorial garde toute sa présence */
+.hsubt,
+.vtitle,
+.vitem-title,
+.abody p,
+.sname,
+.cbig,
+.cemail{
+  opacity:1 !important;
+}
+
+@media(max-width:700px){
+  #boot{
+    opacity:.32 !important;
+  }
+
+  .vitem-idx,
+  .vitem-tag,
+  .stag,
+  .sidx{
+    opacity:.38 !important;
+  }
+
+  .hcoords{
+    display:none !important;
+  }
+}
+
+
+/* ================= SCROLL CUE =================
+   Invitation discrète à entrer dans le portfolio.
+================================================ */
+.scroll-cue{
+  position:absolute;
+  left:2.5rem;
+  bottom:1.6rem;
+  z-index:5;
+  display:flex;
+  align-items:center;
+  gap:.7rem;
+  font-family:var(--ff-m);
+  font-size:.55rem;
+  letter-spacing:.1em;
+  color:rgba(255,255,255,.56);
+  transition:opacity .2s ease, color .2s ease;
+}
+
+.scroll-cue:hover,
+.scroll-cue:focus-visible{
+  color:#fff;
+}
+
+.scroll-line{
+  display:block;
+  width:42px;
+  height:1px;
+  background:currentColor;
+  position:relative;
+  overflow:hidden;
+}
+
+.scroll-line::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-60%;
+  width:60%;
+  height:1px;
+  background:#fff;
+  animation:scrollCue 1.8s ease-in-out infinite;
+}
+
+@keyframes scrollCue{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(270%)}
+}
+
+body.scrolled .scroll-cue{
+  opacity:0;
+  pointer-events:none;
+}
+
+@media(max-width:700px){
+  .scroll-cue{
+    left:1rem;
+    bottom:1rem;
+    font-size:.5rem;
+  }
+  .scroll-line{
+    width:32px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .scroll-line::after{
+    animation:none;
+    left:0;
+    width:100%;
+  }
+}
+
+
+/* ================= RETOUR EN HAUT =================
+   Discret, utile sur une page longue.
+==================================================== */
+.back-top{
+  position:fixed;
+  right:1.4rem;
+  bottom:1.4rem;
+  z-index:950;
+  padding:.55rem .7rem;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(0,0,0,.58);
+  backdrop-filter:blur(8px);
+  color:rgba(255,255,255,.62);
+  font-family:var(--ff-m);
+  font-size:.54rem;
+  letter-spacing:.08em;
+  opacity:0;
+  transform:translateY(8px);
+  pointer-events:none;
+  transition:opacity .2s ease, transform .2s ease, color .2s ease, border-color .2s ease;
+}
