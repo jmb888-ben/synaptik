@@ -1,0 +1,166 @@
+
+.hcta{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--g5);border:1px solid var(--g3);padding:.7rem 1.5rem;position:relative;overflow:hidden;transition:color .3s;}
+.hcta::before{content:'';position:absolute;inset:0;background:var(--white);transform:translateX(-100%);transition:transform .35s;}
+.hcta:hover::before{transform:translateX(0);}
+.hcta:hover{color:var(--black);}
+.hcta span{position:relative;z-index:1;}
+.hcoords{position:absolute;right:2.5rem;bottom:4rem;font-size:.58rem;letter-spacing:.08em;color:var(--g4);text-align:right;line-height:2;z-index:2;}
+
+/* ============================================================
+   SECTION COMMUNE
+============================================================ */
+section{position:relative;padding:6rem 2.5rem;z-index:1;border-top:1px solid rgba(255,255,255,.06);}
+.snum{position:absolute;left:2.5rem;top:50%;transform:translateY(-50%);font-family:var(--ff-t);font-size:clamp(6rem,15vw,14rem);font-weight:900;color:rgba(255,255,255,.018);pointer-events:none;user-select:none;line-height:1;}
+.shdr{display:flex;align-items:center;gap:1.5rem;margin-bottom:4rem;}
+.stag{font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:var(--g5);white-space:nowrap;}
+.stag::before{content:'[ ';color:var(--g4);}
+.stag::after{content:' ]';color:var(--g4);}
+.sl{flex:1;height:1px;background:var(--g3);}
+.sidx{font-size:.58rem;letter-spacing:.1em;color:var(--g4);}
+
+/* ============================================================
+   SECTION VIDÉOS — FEED PLEIN ÉCRAN
+============================================================ */
+#videos{
+  background:var(--black);
+  padding-left:0;padding-right:0;   /* la section elle-même sans marges */
+  padding-top:4rem;padding-bottom:0;
+}
+#videos .shdr,#videos h2.vtitle{ padding-left:2.5rem;padding-right:2.5rem; }
+h2.vtitle{font-family:var(--ff-t);font-size:clamp(3rem,7vw,7rem);font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:.9;margin-bottom:4rem;}
+
+/* -------- FEED -------- */
+#vfeed{
+  display:flex;
+  flex-direction:column;
+  /* Chaque item est séparé par une ligne */
+  border-top:1px solid var(--g3);
+}
+
+/* -------- ITEM -------- */
+.vitem{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:5rem 2.5rem 4rem;
+  border-bottom:1px solid var(--g3);
+  background:var(--black);
+  transition:background .3s;
+}
+.vitem:nth-child(even){ background:var(--g1); }
+.vitem:hover{ background:transparent;
+}
+
+/* Numéro de vidéo flottant à gauche */
+.vitem-num{
+  position:absolute;
+  left:2.5rem;top:5rem;
+  font-family:var(--ff-t);
+  font-size:clamp(4rem,10vw,9rem);
+  font-weight:900;
+  color:rgba(255,255,255,.04);
+  line-height:1;
+  user-select:none;
+  pointer-events:none;
+  letter-spacing:-.02em;
+}
+
+/* Métadonnées au-dessus de la vidéo */
+.vitem-meta{
+  width:100%;
+  max-width:1400px;
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  margin-bottom:1.4rem;
+  gap:2rem;
+}
+.vitem-idx{font-size:.58rem;letter-spacing:.2em;color:var(--g4);}
+.vitem-title{
+  font-family:var(--ff-t);
+  font-size:clamp(1.4rem,3vw,2.8rem);
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.02em;
+  line-height:1;
+}
+.vitem-tag{font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:var(--g4);border:1px solid var(--g3);padding:.3rem .75rem;white-space:nowrap;flex-shrink:0;}
+
+/* -------- WRAPPER VIDÉO -------- */
+.vwrap{
+  position:relative;
+  width:100%;
+  max-width:1400px;       /* largeur max confortable */
+  aspect-ratio:16/9;
+  background:var(--g2);
+  overflow:hidden;
+}
+
+/* iframe preview (muette, en boucle) */
+.vwrap iframe.vbg{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  border:none;
+  pointer-events:none;
+}
+
+/* Overlay du bouton play */
+.voverlay{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  z-index:2;
+  background:rgba(0,0,0,.18);
+  transition:background .35s;
+  cursor:pointer;
+  border:0;
+  padding:0;
+  color:inherit;
+  font:inherit;
+}
+.voverlay:focus-visible,#closePlayer:focus-visible,a:focus-visible{outline:2px solid var(--white);outline-offset:4px;}
+.vitem:hover .voverlay{background:rgba(0,0,0,.04);}
+
+/* Scanline traversante */
+.vscan{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);animation:scanv 4s ease-in-out infinite;pointer-events:none;}
+@keyframes scanv{0%{top:0;opacity:0}8%{opacity:1}92%{opacity:1}100%{top:100%;opacity:0}}
+
+/* Bouton play radar — plus grand car vidéo plus grande */
+.pring{position:relative;width:88px;height:88px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .35s;}
+.vitem:hover .pring{transform:scale(1.1);}
+.pring::before{content:'';position:absolute;inset:0;border:1px solid rgba(255,255,255,.18);border-radius:50%;animation:rpulse 2.4s ease-out infinite;}
+.pring::after{content:'';position:absolute;inset:12px;border:1px solid rgba(255,255,255,.45);border-radius:50%;background:rgba(0,0,0,.4);backdrop-filter:blur(6px);}
+@keyframes rpulse{0%{transform:scale(1);opacity:.45}100%{transform:scale(2);opacity:0}}
+.pring svg{position:relative;z-index:1;margin-left:6px;}
+
+/* Description sous la vidéo */
+.vitem-desc{
+  width:100%;
+  max-width:1400px;
+  margin-top:1.2rem;
+  display:flex;
+  align-items:center;
+  gap:2rem;
+}
+.vitem-desc{
+  margin-top:1.8rem;
+  align-items:flex-start;
+}
+
+.vitem-desc-text::before{
+  content:"// ";
+  color:var(--g4);
+  margin-right:6px;
+}
+.vitem-desc-text{
+  font-family:var(--ff-t);
+  font-size:clamp(1rem,1.6vw,1.4rem);
+  color:var(--white);
+  letter-spacing:.02em;
+  line-height:1.4;
+  max-width:900px;
+}
+.vitem-ext{font-size:.55rem;letter-spacing:.15em;color:var(--g4);}
+
+/* Coins décoratifs sci-fi sur le wrapper */
+.vwrap::before{content:'';position:absolute;top:0;right:0;width:28px;height:28px;border-top:1px solid rgba(255,255,255,.3);border-right:1px solid rgba(255,255,255,.3);z-index:3;pointer-events:none;transition:width .5s,height .5s;}
