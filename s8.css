@@ -1,0 +1,121 @@
+
+body.show-back-top .back-top{
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+}
+
+.back-top:hover,
+.back-top:focus-visible{
+  color:#fff;
+  border-color:rgba(255,255,255,.38);
+}
+
+@media(max-width:700px){
+  .back-top{
+    right:.8rem;
+    bottom:.8rem;
+    font-size:.5rem;
+    padding:.5rem .6rem;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .back-top{
+    transition:none;
+    transform:none;
+  }
+}
+
+
+/* ================= CTA APRÈS CRÉATIONS =================
+   Conversion discrète après la démonstration par les films.
+========================================================== */
+.mid-cta{
+  margin:1.5rem 2.5rem 0;
+  padding:1.4rem 0 0;
+  border-top:1px solid rgba(255,255,255,.08);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:2rem;
+}
+
+.mid-cta-copy,
+.mid-cta-link{
+  font-family:var(--ff-m);
+  font-size:.68rem;
+  letter-spacing:.06em;
+}
+
+.mid-cta-copy{
+  color:var(--g6);
+}
+
+.mid-cta-link{
+  color:#fff;
+  position:relative;
+  padding-bottom:.2rem;
+}
+
+.mid-cta-link::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:1px;
+  background:#fff;
+  transform:scaleX(.35);
+  transform-origin:left;
+  transition:transform .2s ease;
+}
+
+.mid-cta-link:hover::after,
+.mid-cta-link:focus-visible::after{
+  transform:scaleX(1);
+}
+
+@media(max-width:700px){
+  .mid-cta{
+    margin:1rem 1rem 0;
+    display:block;
+  }
+  .mid-cta-link{
+    display:inline-block;
+    margin-top:.55rem;
+  }
+}
+
+
+/* Disponibilité géographique — discrète */
+.contact-location{
+  display:inline-block;
+  margin-top:.35rem;
+  font-family:var(--ff-m);
+  font-size:.6rem;
+  letter-spacing:.06em;
+  color:var(--g5);
+  font-weight:400;
+}
+
+
+/* Fallback si JavaScript est désactivé */
+.noscript-fallback{
+  margin:2rem 2.5rem 4rem;
+  padding:1.2rem 0;
+  border-top:1px solid rgba(255,255,255,.08);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  font-family:var(--ff-m);
+  font-size:.72rem;
+  line-height:1.7;
+  color:var(--g6);
+}
+.noscript-fallback a{
+  color:#fff;
+}
+@media(max-width:700px){
+  .noscript-fallback{
+    margin:1.5rem 1rem 3rem;
+  }
+}
