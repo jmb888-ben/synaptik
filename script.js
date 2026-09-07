@@ -17,7 +17,7 @@ var VIDEOS = [
   { id:"1184018270", title:"Fuck IA",              desc:"", page:"" },
   { id:"1195592669", title:"Truc de fou rover",    desc:"Publicité · Truc de Fou", page:"/films/truc-de-fou/" },
   { id:"1195592668", title:"Truc de fou drink",    desc:"Publicité · Truc de Fou", page:"/films/truc-de-fou/" },
-  { id:"1176114048", title:"Fujisan Longboards",   desc:"", page:"/films/fujisan-longboards/" },
+  { id:"1176114048", title:"SPRING 2026",          desc:"Film · IA générative", page:"/films/spring-2026/" },
   { id:"1212243448", title:"Rencontres d'exception", desc:"Publicité · Rencontres d’exception", page:"" },
   { id:"1176641273", title:"Puma Rabbits",         desc:"Spec film · Publicité", page:"" },
   { id:"1176271004", title:"Mamie Cannes",         desc:"Groland · Canal+ · Cannes 2026", page:"" },
@@ -103,6 +103,11 @@ function buildFeed() {
     feed.appendChild(item);
   });
 
+  var hub = document.createElement('div');
+  hub.className = 'vitem-desc reveal';
+  hub.innerHTML = '<span class="vitem-desc-text">Sélection Synaptik</span><a class="vitem-ext" href="/films/">Tous les films →</a>';
+  feed.appendChild(hub);
+
   initScrollPlay();
 }
 
@@ -176,7 +181,7 @@ function initGrid() {
     for(var j=0;j<Math.ceil(H/SZ)+1;j++){
       ctx.beginPath();
       ctx.moveTo(0,j*SZ-oy);
-      ctx.lineTo(W,j*SZ-oy);
+      ctx.lineTo(W,j*SZ-oy,H);
       ctx.stroke();
     }
 
