@@ -5,25 +5,26 @@
            Ex: https://vimeo.com/123456789  →  id: "123456789"
    title → titre affiché
    desc  → description courte  ("" si aucune)
+   page  → page interne SEO du film ("" si aucune)
 
    Ajouter autant de blocs { … } que nécessaire.
    Chaque vidéo s'affiche en pleine largeur, l'une sous l'autre.
 ============================================================== */
 var VIDEOS = [
-  { id:"1223586438", title:"Synaptik reel",         desc:"Reel · 60 sec" },
-  { id:"1208485503", title:"JIL",                desc:"" },
-  { id:"1159611153", title:"Tag Heuer AI",        desc:"Spec film · Publicité" },
-  { id:"1184018270", title:"Fuck IA",            desc:"" },
-  { id:"1195592669", title:"Truc de fou rover",  desc:"Publicité · Truc de Fou" },
-  { id:"1195592668", title:"Truc de fou drink",  desc:"Publicité · Truc de Fou" },
-  { id:"1176114048", title:"Fujisan Longboards", desc:"" },
-  { id:"1212243448", title:"Rencontres d'exception", desc:"Publicité · Rencontres d’exception" },
-  { id:"1176641273", title:"Puma Rabbits",       desc:"Spec film · Publicité" },
-  { id:"1176271004", title:"Mamie Cannes",        desc:"Groland · Canal+ · Cannes 2026" },
-  { id:"1176114060", title:"Papys Brindillette",  desc:"Groland · Canal+ · Cannes 2026" },
-  { id:"1172962666", title:"Mamie c'est la fête", desc:"Groland · Canal+ · Cannes 2026" },
-  { id:"1159610980", title:"AI AKIRA",            desc:"Expérimentation" }
-  /* Ajouter : , { id:"XXXXXXXXX", title:"Titre", desc:"Description" } */
+  { id:"1223586438", title:"Synaptik reel",         desc:"Reel · 60 sec", page:"/films/synaptik-reel/" },
+  { id:"1208485503", title:"JIL",                  desc:"", page:"" },
+  { id:"1159611153", title:"Tag Heuer AI",         desc:"Spec film · Publicité", page:"/films/tag-heuer-ai/" },
+  { id:"1184018270", title:"Fuck IA",              desc:"", page:"" },
+  { id:"1195592669", title:"Truc de fou rover",    desc:"Publicité · Truc de Fou", page:"/films/truc-de-fou/" },
+  { id:"1195592668", title:"Truc de fou drink",    desc:"Publicité · Truc de Fou", page:"/films/truc-de-fou/" },
+  { id:"1176114048", title:"Fujisan Longboards",   desc:"", page:"/films/fujisan-longboards/" },
+  { id:"1212243448", title:"Rencontres d'exception", desc:"Publicité · Rencontres d’exception", page:"" },
+  { id:"1176641273", title:"Puma Rabbits",         desc:"Spec film · Publicité", page:"" },
+  { id:"1176271004", title:"Mamie Cannes",         desc:"Groland · Canal+ · Cannes 2026", page:"" },
+  { id:"1176114060", title:"Papys Brindillette",   desc:"Groland · Canal+ · Cannes 2026", page:"" },
+  { id:"1172962666", title:"Mamie c'est la fête", desc:"Groland · Canal+ · Cannes 2026", page:"" },
+  { id:"1159610980", title:"AI AKIRA",             desc:"Expérimentation", page:"" }
+  /* Ajouter : , { id:"XXXXXXXXX", title:"Titre", desc:"Description", page:"" } */
 ];
 /* ▲▲▲  FIN ZONE À MODIFIER  ▲▲▲ */
 
@@ -63,12 +64,20 @@ function buildFeed() {
     item.className = 'vitem reveal';
     item.style.transitionDelay = '0s'; // reveal immédiat pour le feed
 
+    var titleMarkup = v.page
+      ? '<a class="vitem-title" href="' + v.page + '" aria-label="Voir la fiche ' + v.title + '">' + v.title + '</a>'
+      : '<span class="vitem-title">' + v.title + '</span>';
+
+    var detailLink = v.page
+      ? '<a class="vitem-ext" href="' + v.page + '">Voir la fiche →</a>'
+      : '<span class="vitem-ext">SYNAPTIK STUDIO</span>';
+
     item.innerHTML =
       '<div class="vitem-num">' + String(i+1).padStart(2,'0') + '</div>' +
 
       '<div class="vitem-meta">' +
         '<span class="vitem-idx">FILE_' + String(i+1).padStart(2,'0') + '.MP4</span>' +
-        '<span class="vitem-title">' + v.title + '</span>' +
+        titleMarkup +
         '<span class="vitem-tag">VIMEO</span>' +
       '</div>' +
 
@@ -84,10 +93,10 @@ function buildFeed() {
         '</button>' +
       '</div>' +
 
-      (v.desc ?
+      ((v.desc || v.page) ?
         '<div class="vitem-desc">' +
-          '<span class="vitem-desc-text">' + v.desc + '</span>' +
-          '<span class="vitem-ext">SYNAPTIK STUDIO</span>' +
+          '<span class="vitem-desc-text">' + (v.desc || 'Film · Synaptik Studio') + '</span>' +
+          detailLink +
         '</div>'
       : '');
 
