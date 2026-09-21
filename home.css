@@ -85,6 +85,10 @@ nav{border-bottom-color:var(--accent-dim) !important;}
 .mid-cta-link::after{background:var(--accent);}
 .snum,.vitem-num{color:rgba(109,223,242,.07);}
 #about{background:radial-gradient(ellipse at 0 40%,rgba(57,114,137,.11),transparent 65%);}
+.agrid{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:3rem;}
+.agrid>*{min-width:0;}
+.agrid .abody{width:100% !important;}
+.stval{overflow-wrap:anywhere;}
 #services{background:radial-gradient(ellipse at 100% 60%,rgba(106,76,177,.1),transparent 65%);}
 .svcrow:hover{background:rgba(109,223,242,.035);}
 #contact .cbig{color:var(--accent-violet);}
@@ -103,6 +107,7 @@ nav{border-bottom-color:var(--accent-dim) !important;}
 .vscan{display:none;}
 
 @media(max-width:980px){
+  .agrid{grid-template-columns:1fr;}
   #hero{grid-template-columns:minmax(270px,1fr) minmax(0,1.1fr);gap:1.6rem;padding:6.5rem 1.5rem 4rem;}
   #hero .hsub{display:block !important;}
   #hero .hsubt{max-width:none !important;margin-bottom:1.3rem;}
