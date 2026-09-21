@@ -32,13 +32,17 @@ var VIDEOS = [
 
 /* ------------ OVERLAY ------------ */
 var overlayTrigger = null;
+var syncPreviews = function() {};
+var overlayCloseTimer = null;
 function openOverlay(id, trigger) {
+  clearTimeout(overlayCloseTimer);
   var o = document.getElementById('playerOverlay');
   var p = document.getElementById('overlayPlayer');
   overlayTrigger = trigger || document.activeElement;
   /* Le clic utilisateur lance la vidéo avec le son activé. */
   p.src = 'https://player.vimeo.com/video/'+id+'?autoplay=1&muted=0&playsinline=1&color=ffffff&title=0&byline=0&portrait=0';
   o.classList.add('active');
+  syncPreviews();
   o.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
   document.getElementById('closePlayer').focus();
@@ -48,7 +52,8 @@ function closeOverlay() {
   var p = document.getElementById('overlayPlayer');
   o.classList.remove('active');
   o.setAttribute('aria-hidden', 'true');
-  setTimeout(function(){ p.src=''; }, 450);
+  overlayCloseTimer = setTimeout(function(){ p.src=''; }, 450);
+  syncPreviews();
   document.body.style.overflow = '';
   if (overlayTrigger && typeof overlayTrigger.focus === 'function') overlayTrigger.focus();
   overlayTrigger = null;
@@ -62,8 +67,7 @@ function buildFeed() {
   var feed = document.getElementById('vfeed');
   VIDEOS.forEach(function(v, i) {
     var item = document.createElement('div');
-    item.className = 'vitem reveal';
-    item.style.transitionDelay = '0s'; // reveal immédiat pour le feed
+    item.className = 'vitem';
 
     var titleMarkup = v.page
       ? '<a class="vitem-title" href="' + v.page + '" aria-label="Voir la fiche ' + v.title + '">' + v.title + '</a>'
@@ -83,6 +87,7 @@ function buildFeed() {
       '</div>' +
 
       '<div class="vwrap" data-id="' + v.id + '">' +
+        '<img class="vposter" src="assets/posters/' + v.id + '.jpg" alt="" width="960" height="540" loading="eager" decoding="async" fetchpriority="' + (i === 0 ? 'high' : 'low') + '">' +
         '<button class="voverlay" type="button" aria-label="Lire ' + v.title + '" onclick="openOverlay(\'' + v.id + '\', this)">' +
           '<div class="vscan"></div>' +
           '<div class="pring">' +
@@ -113,36 +118,85 @@ function buildFeed() {
 }
 
 
-/* ------------ LECTURE AUTO AU SCROLL ------------ */
-/* Quand la vidéo est visible à 30%, on injecte la preview muette.
-   Quand elle sort du viewport, on la retire pour libérer la connexion. */
+/* ------------ APERÇUS ANTICIPÉS ------------ */
+/* Les posters sont indépendants de Vimeo. On prépare le film avant son
+   arrivée à l'écran, puis on garde le lecteur pour éviter les rechargements. */
+var vimeoAPI;
+function loadVimeoAPI() {
+  if (!vimeoAPI) {
+    vimeoAPI = new Promise(function(resolve, reject) {
+      if (window.Vimeo && window.Vimeo.Player) return resolve(window.Vimeo);
+      var sdk = document.createElement('script');
+      sdk.src = 'https://player.vimeo.com/api/player.js';
+      sdk.async = true;
+      sdk.onload = function() { resolve(window.Vimeo); };
+      sdk.onerror = reject;
+      document.head.appendChild(sdk);
+    });
+  }
+  return vimeoAPI;
+}
 function initScrollPlay() {
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var saveData = navigator.connection && navigator.connection.saveData;
+  if (reduceMotion.matches || saveData || !('IntersectionObserver' in window)) return;
+
+  var previews = [];
+  function shouldPlay(preview) {
+    return preview.near && !document.hidden && !reduceMotion.matches &&
+      !document.getElementById('playerOverlay').classList.contains('active');
+  }
+  function sync(preview) {
+    if (!preview.player) return;
+    if (shouldPlay(preview)) {
+      preview.player.play().catch(function() {
+        preview.wrap.classList.remove('is-playing');
+      });
+    } else {
+      preview.player.pause().catch(function() {});
+    }
+  }
+  syncPreviews = function() { previews.forEach(sync); };
+  document.addEventListener('visibilitychange', syncPreviews);
+  reduceMotion.addEventListener('change', syncPreviews);
+
+  function prepare(preview) {
+    if (preview.pending || preview.player) return;
+    preview.pending = true;
+    loadVimeoAPI().then(function(Vimeo) {
+      var iframe = document.createElement('iframe');
+      iframe.className = 'vbg';
+      iframe.loading = 'eager';
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+      iframe.title = 'Aperçu muet — ' + preview.wrap.closest('.vitem').querySelector('.vitem-title').textContent;
+      iframe.src = 'https://player.vimeo.com/video/' + preview.wrap.dataset.id +
+        '?autoplay=0&muted=1&loop=1&background=1&autopause=0&playsinline=1&dnt=1';
+      iframe.allow = 'autoplay; fullscreen; picture-in-picture';
+      iframe.tabIndex = -1;
+      iframe.setAttribute('aria-hidden', 'true');
+      preview.wrap.insertBefore(iframe, preview.wrap.querySelector('.voverlay'));
+      preview.player = new Vimeo.Player(iframe);
+      preview.player.on('playing', function() {
+        preview.wrap.classList.add('is-playing');
+        if (!shouldPlay(preview)) sync(preview);
+      });
+      preview.player.on('error', function() { preview.wrap.classList.remove('is-playing'); });
+      preview.player.ready().then(function() { sync(preview); }).catch(function() {});
+    }).catch(function() { /* Le poster et le bouton de lecture restent disponibles. */ });
+  }
+
   var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
-      var wrap = entry.target;
-      var id   = wrap.dataset.id;
-
-      if (entry.isIntersecting) {
-        if (!wrap.querySelector('iframe.vbg')) {
-          var iframe       = document.createElement('iframe');
-          iframe.className = 'vbg';
-          iframe.loading   = 'lazy';
-          iframe.referrerPolicy = 'strict-origin-when-cross-origin';
-          iframe.title     = 'Aperçu vidéo Synaptik';
-          /* background=1 : muet, boucle, sans UI Vimeo */
-          iframe.src = 'https://player.vimeo.com/video/'+id+'?autoplay=1&muted=1&loop=1&background=1&color=000000&transparent=0';
-          iframe.allow     = 'autoplay; fullscreen; picture-in-picture';
-          /* Insérer avant l'overlay pour rester en dessous */
-          wrap.insertBefore(iframe, wrap.querySelector('.voverlay'));
-        }
-      } else {
-        var existing = wrap.querySelector('iframe.vbg');
-        if (existing) existing.remove();
-      }
+      var preview = previews.find(function(p) { return p.wrap === entry.target; });
+      preview.near = entry.isIntersecting;
+      if (preview.near) prepare(preview);
+      sync(preview);
     });
-  }, { threshold: 0.3 });
-
-  document.querySelectorAll('.vwrap[data-id]').forEach(function(w){ observer.observe(w); });
+  }, { rootMargin: '700px 0px', threshold: 0 });
+  document.querySelectorAll('.vwrap[data-id]').forEach(function(w) {
+    previews.push({ wrap:w, near:false, pending:false, player:null });
+    observer.observe(w);
+  });
 }
 
 
@@ -197,7 +251,7 @@ function initGrid() {
 /* ------------ BOOT ------------ */
 function runBoot() {
   document.querySelectorAll('.bl').forEach(function(l,i){
-    setTimeout(function(){ l.classList.add('s'); }, 300+i*220);
+    setTimeout(function(){ l.classList.add('s'); }, 150+i*360);
   });
 }
 
