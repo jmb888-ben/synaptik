@@ -34,11 +34,18 @@ var VIDEOS = [
 var overlayTrigger = null;
 var syncPreviews = function() {};
 var overlayCloseTimer = null;
+var overlayBackground = [];
+var overlayPreviousOverflow = '';
 function openOverlay(id, trigger) {
   clearTimeout(overlayCloseTimer);
   var o = document.getElementById('playerOverlay');
   var p = document.getElementById('overlayPlayer');
   overlayTrigger = trigger || document.activeElement;
+  overlayPreviousOverflow = document.body.style.overflow;
+  overlayBackground = Array.from(document.body.children).filter(function(el) {
+    return el !== o && !el.inert && !/^(SCRIPT|STYLE|LINK)$/.test(el.tagName);
+  });
+  o.inert = false;
   /* Le clic utilisateur lance la vidéo avec le son activé. */
   p.src = 'https://player.vimeo.com/video/'+id+'?autoplay=1&muted=0&playsinline=1&color=ffffff&title=0&byline=0&portrait=0&transparent=0';
   o.classList.add('active');
@@ -46,17 +53,22 @@ function openOverlay(id, trigger) {
   o.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
   document.getElementById('closePlayer').focus();
+  overlayBackground.forEach(function(el) { el.inert = true; });
 }
 function closeOverlay() {
   var o = document.getElementById('playerOverlay');
   var p = document.getElementById('overlayPlayer');
+  if (!o.classList.contains('active')) return;
   o.classList.remove('active');
+  overlayBackground.forEach(function(el) { el.inert = false; });
+  overlayBackground = [];
+  document.body.style.overflow = overlayPreviousOverflow;
+  if (overlayTrigger && typeof overlayTrigger.focus === 'function') overlayTrigger.focus();
+  overlayTrigger = null;
+  o.inert = true;
   o.setAttribute('aria-hidden', 'true');
   overlayCloseTimer = setTimeout(function(){ p.src=''; }, 450);
   syncPreviews();
-  document.body.style.overflow = '';
-  if (overlayTrigger && typeof overlayTrigger.focus === 'function') overlayTrigger.focus();
-  overlayTrigger = null;
 }
 document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeOverlay(); });
 document.getElementById('overlayBg').addEventListener('click', closeOverlay);

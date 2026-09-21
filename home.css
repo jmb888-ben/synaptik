@@ -110,6 +110,10 @@ nav{border-bottom-color:var(--accent-dim) !important;}
 .pring::after{border-color:rgba(130,147,165,.7);}
 .vscan{display:none;}
 
+/* Un lecteur fermé ne doit pas recevoir le focus clavier. */
+#playerOverlay{visibility:hidden;transition:opacity .4s ease,visibility 0s linear .4s;}
+#playerOverlay.active{visibility:visible;transition-delay:0s;}
+
 @media(max-width:980px){
   .agrid{grid-template-columns:1fr;}
   #hero{gap:1rem;padding:6.5rem 1.5rem 4rem;}
