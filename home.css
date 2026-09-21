@@ -14,7 +14,7 @@ nav{border-bottom-color:var(--accent-dim) !important;}
   display:grid;
   grid-template-columns:minmax(0,1fr);
   gap:1rem;
-  align-content:center;
+  align-content:start;
   align-items:center;
   text-align:left;
   background:var(--black);
@@ -22,7 +22,7 @@ nav{border-bottom-color:var(--accent-dim) !important;}
 #boot{
   position:relative;
   top:auto !important;left:auto !important;
-  width:100%;max-width:360px;justify-self:center;
+  width:100%;max-width:360px;justify-self:start;
   padding:.85rem 1rem;
   border:1px solid #363636;
   border-left:2px solid #bdbdbd;
@@ -117,8 +117,8 @@ nav{border-bottom-color:var(--accent-dim) !important;}
   .hero-actions{flex-direction:row;align-items:center;}
 }
 @media(max-width:700px){
-  #hero{display:flex;flex-direction:column;justify-content:center;align-items:stretch;gap:.9rem;padding:5.2rem 1rem 3.1rem !important;}
-  #boot{max-width:360px;align-self:center;flex-shrink:0;padding:.7rem .85rem;font-size:.58rem !important;line-height:1.65 !important;}
+  #hero{display:flex;flex-direction:column;justify-content:flex-start;align-items:stretch;gap:.9rem;padding:5.2rem 1rem 3.1rem !important;}
+  #boot{max-width:360px;align-self:flex-start;flex-shrink:0;padding:.7rem .85rem;font-size:.58rem !important;line-height:1.65 !important;}
   .boot-heading{font-size:.58rem;padding-bottom:.4rem;margin-bottom:.4rem;}
   .boot-progress{margin-top:.55rem;}
   .hero-logo{height:100px;margin:0 auto;flex-shrink:0;}
