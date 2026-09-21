@@ -40,7 +40,7 @@ function openOverlay(id, trigger) {
   var p = document.getElementById('overlayPlayer');
   overlayTrigger = trigger || document.activeElement;
   /* Le clic utilisateur lance la vidéo avec le son activé. */
-  p.src = 'https://player.vimeo.com/video/'+id+'?autoplay=1&muted=0&playsinline=1&color=ffffff&title=0&byline=0&portrait=0';
+  p.src = 'https://player.vimeo.com/video/'+id+'?autoplay=1&muted=0&playsinline=1&color=ffffff&title=0&byline=0&portrait=0&transparent=0';
   o.classList.add('active');
   syncPreviews();
   o.setAttribute('aria-hidden', 'false');
@@ -170,7 +170,7 @@ function initScrollPlay() {
       iframe.referrerPolicy = 'strict-origin-when-cross-origin';
       iframe.title = 'Aperçu muet — ' + preview.wrap.closest('.vitem').querySelector('.vitem-title').textContent;
       iframe.src = 'https://player.vimeo.com/video/' + preview.wrap.dataset.id +
-        '?autoplay=0&muted=1&loop=1&background=1&autopause=0&playsinline=1&dnt=1';
+        '?autoplay=0&muted=1&loop=1&background=1&autopause=0&playsinline=1&dnt=1&transparent=0&preload=auto';
       iframe.allow = 'autoplay; fullscreen; picture-in-picture';
       iframe.tabIndex = -1;
       iframe.setAttribute('aria-hidden', 'true');
