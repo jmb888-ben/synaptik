@@ -1,5 +1,5 @@
 /* Bleu acier : fond sombre, détails discrets et terminal monochrome. */
-:root{--black:#0A0C0E;--white:#E7EAED;--g5:#A7AEB6;--g6:#B2BDC8;--accent:#8293A5;--accent-highlight:#DC8852;--accent-secondary:#B2BDC8;--accent-dim:rgba(130,147,165,.25);}
+:root{--black:#0A0C0E;--white:#E7EAED;--g5:#A7AEB6;--g6:#B2BDC8;--accent:#8293A5;--accent-highlight:#B32D2D;--accent-secondary:#B2BDC8;--accent-dim:rgba(130,147,165,.25);}
 ::selection{background:var(--accent);color:#0A0C0E;}
 body::before{background:radial-gradient(ellipse at center,transparent 65%,rgba(0,0,0,.22) 100%);}
 #pbar{background:linear-gradient(90deg,var(--accent),var(--accent-secondary));}
@@ -66,7 +66,7 @@ nav{border-bottom-color:var(--accent-dim) !important;}
 #hero .hsubt em{display:inline-block;font-size:clamp(2rem,4vw,3.5rem);line-height:1.1;letter-spacing:.02em;margin-bottom:.6rem;color:var(--white);}
 #hero .hsubt span{color:var(--g5);}
 #hero .hline{display:none;}
-/* Orange de la maquette du mail sur trois accroches. */
+/* Rouge plus sombre et atténué sur trois accroches. */
 #hero .hsubt em,#videos .vtitle,#contact .cbig{color:var(--accent-highlight);}
 .hero-actions{flex-direction:column;align-items:stretch;flex-shrink:0;}
 .hero-actions .hcta{padding:.9rem 1.25rem;color:var(--white);background:rgba(130,147,165,.08);border-color:rgba(130,147,165,.55);text-align:center;font-size:.65rem;}
