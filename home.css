@@ -17,7 +17,7 @@ nav{border-bottom-color:var(--accent-dim) !important;}
   align-content:center;
   align-items:center;
   text-align:left;
-  background:transparent;
+  background:var(--black);
 }
 #boot{
   position:relative;
