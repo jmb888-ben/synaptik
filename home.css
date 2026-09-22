@@ -9,7 +9,7 @@ nav{border-bottom-color:var(--accent-dim) !important;}
 .nlinks a.is-active{color:var(--accent) !important;}
 
 #hero{
-  min-height:100svh;
+  min-height:0;
   padding:6.5rem 2.5rem 4.5rem;
   display:grid;
   grid-template-columns:minmax(0,1fr);
@@ -79,6 +79,9 @@ nav{border-bottom-color:var(--accent-dim) !important;}
 .hcoords{bottom:1.6rem;color:var(--g5);opacity:.85 !important;}
 .scroll-cue{color:var(--accent);}
 
+/* Rapprocher les créations de l’introduction sans réserver un écran entier. */
+#videos{padding-top:2rem !important;}
+
 /* Couleurs lisibles tout au long de la page, sur un fond toujours sombre. */
 .stag,.reel-kicker,.sn,.cpre,.albl{color:var(--accent);opacity:1 !important;}
 .sidx,.vitem-idx{color:var(--accent-secondary) !important;opacity:.85 !important;}
@@ -133,7 +136,7 @@ nav{border-bottom-color:var(--accent-dim) !important;}
   #hero .hsubt em{display:inline-block;font-size:1.85rem !important;margin-bottom:.4rem;}
   .hero-actions{gap:.5rem !important;}
   .hero-actions .hcta{font-size:.61rem !important;padding:.75rem .8rem !important;}
-  #videos{padding-left:0 !important;padding-right:0 !important;}
+  #videos{padding-top:1.5rem !important;padding-left:0 !important;padding-right:0 !important;}
   .watch-cue{font-size:.52rem;bottom:.7rem;}
 }
 @media(prefers-reduced-motion:reduce){
