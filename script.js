@@ -12,6 +12,8 @@
 ============================================================== */
 var VIDEOS = [
   { id:"1223586438", title:"Synaptik reel",         desc:"Reel · 60 sec", page:"/films/synaptik-reel/" },
+  { id:"1232085603", title:"Duel", desc:"", page:"" },
+  { id:"1231054783", title:"Fuck it", desc:"", page:"" },
   { id:"1227995438", title:"Après l’oubli",          desc:"Bande-annonce", page:"" },
   { id:"1208485503", title:"JIL",                  desc:"", page:"" },
   { id:"1159611153", title:"Tag Heuer AI",         desc:"Spec film · Publicité", page:"/films/tag-heuer-ai/" },
