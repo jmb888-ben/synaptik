@@ -808,3 +808,11 @@ body{font-size:var(--type-body)}
 /* Menu text +20%, preserving the existing navigation layout. */
 .restored-nav .nlinks a{font-size:.744rem!important}
 @media(max-width:700px){.restored-nav .nlinks a{font-size:.648rem!important}}
+
+
+/* Hero human +10%, keep current right anchor and frame geometry */
+.landing-visual img{
+  right:0!important;
+  transform:scale(1.20175)!important;
+  transform-origin:right top!important;
+}
