@@ -692,3 +692,9 @@ footer{border-top:1px solid rgba(114,216,220,.24)!important;background:#050708!i
   object-fit:contain!important;
   object-position:right top!important;
 }
+
+
+/* Lower internal artwork corner to the divider line under SYSTEM BOOT */
+.landing-visual img{
+  top:-8.5%!important;
+}
