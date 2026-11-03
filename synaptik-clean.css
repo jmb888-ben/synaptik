@@ -186,7 +186,7 @@ button,input,textarea,select{font-family:var(--ff-t)}
 /* Human visual: intentionally very large, below all copy, never clipped. */
 .landing-visual{
   position:absolute!important;
-  right:-10%!important;
+  right:-2%!important;
   top:-4%!important;
   width:88%!important;
   height:94%!important;
