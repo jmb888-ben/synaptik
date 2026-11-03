@@ -821,3 +821,7 @@ body{font-size:var(--type-body)}
   .vitem-desc{flex-wrap:wrap;gap:.75rem}
   #services .svcrow{grid-template-columns:28px minmax(0,1fr)!important;padding:1.2rem!important}
 }
+
+/* Menu text +20%, preserving the existing navigation layout. */
+.restored-nav .nlinks a{font-size:.744rem!important}
+@media(max-width:700px){.restored-nav .nlinks a{font-size:.648rem!important}}
