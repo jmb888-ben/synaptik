@@ -100,6 +100,11 @@ function buildFeed() {
         '<span class="vitem-tag">VIMEO</span>' +
       '</div>' +
 
+      '<div class="video-frame">' +
+        '<span class="video-ruler video-ruler--top" aria-hidden="true"></span>' +
+        '<span class="video-ruler video-ruler--right" aria-hidden="true"></span>' +
+        '<span class="video-ruler video-ruler--bottom" aria-hidden="true"></span>' +
+        '<span class="video-ruler video-ruler--left" aria-hidden="true"></span>' +
       '<div class="vwrap" data-id="' + v.id + '">' +
         '<img class="vposter" src="assets/posters/' + v.id + '.jpg" alt="" width="960" height="540" loading="eager" decoding="async" fetchpriority="' + (i === 0 ? 'high' : 'low') + '">' +
         '<button class="voverlay" type="button" aria-label="Lire ' + v.title + '" onclick="openOverlay(\'' + v.id + '\', this)">' +
@@ -111,6 +116,7 @@ function buildFeed() {
           '</div>' +
           '<span class="watch-cue">Voir le film · avec le son →</span>' +
         '</button>' +
+      '</div>' +
       '</div>' +
 
       ((v.desc || v.page) ?
