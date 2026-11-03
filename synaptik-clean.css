@@ -49,54 +49,27 @@ button,input,textarea,select{font-family:var(--ff-t)}
 #playerOverlay.active{visibility:visible;transition-delay:0s}
 
 /* ========================= NAV ========================= */
-.landing-nav{
-  position:sticky!important;
-  top:0!important;
-  left:0!important;right:0!important;
-  z-index:1000!important;
-  height:72px!important;
-  padding:0 4.2vw!important;
-  display:grid!important;
-  grid-template-columns:1fr auto 1fr!important;
-  align-items:center!important;
-  background:rgba(5,7,8,.96)!important;
-  border-bottom:1px solid var(--hud-line)!important;
-  backdrop-filter:blur(8px)!important;
+/* Restore the navigation shown before the November 3 redesign.
+   Keep its historical fonts and colours local to this navigation. */
+.restored-nav{
+  --ff-t:"Barlow Condensed",sans-serif;
+  --ff-m:"Space Mono",monospace;
+  --white:#E7EAED;
+  --g5:#A7AEB6;
+  --accent:#8293A5;
+  --accent-dim:rgba(130,147,165,.25);
+  color:var(--white);
+  font-family:var(--ff-m);
+  font-weight:400;
+  border-bottom-color:var(--accent-dim)!important;
 }
-.landing-nav::before,.landing-nav::after{
-  content:"";
-  position:absolute;
-  bottom:11px;
-  width:14px;height:14px;
-  opacity:.7;
-}
-.landing-nav::before{left:2.5vw;border-left:1px solid var(--hud);border-bottom:1px solid var(--hud)}
-.landing-nav::after{right:2.5vw;border-right:1px solid var(--hud);border-bottom:1px solid var(--hud)}
-.landing-brand{
-  display:flex;align-items:center;gap:15px;
-  font:500 24px/1 var(--ff-t);
-  letter-spacing:.25em;color:var(--white);white-space:nowrap;
-}
-.landing-brand-slash{color:var(--hud);font-size:1.15em;letter-spacing:0}
-.landing-nav-links{
-  list-style:none;display:flex;align-items:center;gap:46px;margin:0;padding:0;
-}
-.landing-nav-links a{
-  position:relative;
-  font:300 13px/1 var(--ff-t);
-  text-transform:none;letter-spacing:.02em;color:var(--white);
-}
-.landing-nav-links a::after{
-  content:"";position:absolute;left:0;right:0;bottom:-25px;height:1px;
-  background:var(--hud);transform:scaleX(0);transition:transform .2s ease;
-}
-.landing-nav-links a:hover::after,.landing-nav-links a.is-active::after{transform:scaleX(1)}
-.landing-nav-links a.is-active{color:var(--hud)!important}
-.landing-online{
-  justify-self:end;display:flex;align-items:center;gap:8px;
-  font:400 8px/1 var(--ff-m);letter-spacing:.16em;color:rgba(205,235,236,.78)
-}
-.landing-online-dot{width:5px;height:5px;border-radius:50%;background:var(--hud);box-shadow:0 0 7px rgba(114,216,220,.8)}
+.restored-nav .nblink,
+.restored-nav .nlinks a::after{background:var(--accent);}
+.restored-nav .nlinks a::before{color:var(--accent);}
+.restored-nav .nlinks a.is-active{color:var(--accent)!important;}
+/* Preserve the current hero position while the restored bar remains fixed. */
+.nav-layout-spacer{height:72px;}
+@media(max-width:700px){.nav-layout-spacer{height:66px;}}
 
 /* ========================= HERO ========================= */
 .hero-anchor{position:absolute;top:0;left:0;width:1px;height:1px;pointer-events:none}
