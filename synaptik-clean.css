@@ -500,3 +500,26 @@ footer{border-top:1px solid rgba(114,216,220,.24)!important;background:#050708!i
   .landing-boot-row{opacity:1;transform:none}
   .landing-boot-progress span{transform:scaleX(1);animation:none}
 }
+
+
+/* SYSTEM BOOT +30% */
+.landing-boot{width:371px!important}
+.landing-boot-title{
+  gap:13px!important;
+  padding-bottom:12px!important;
+  margin-bottom:10px!important;
+  font-size:13px!important;
+}
+.landing-boot-square{width:9px!important;height:9px!important}
+.landing-boot-row{
+  gap:26px!important;
+  font-size:10.4px!important;
+}
+.landing-boot-progress{margin-top:10px!important;height:1.3px!important}
+
+@media(max-width:1050px) and (min-width:701px){
+  .landing-boot{width:319px!important}
+}
+@media(max-width:700px){
+  .landing-boot{width:min(338px,100%)!important}
+}
