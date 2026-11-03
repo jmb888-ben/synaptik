@@ -216,3 +216,34 @@ body,.abody,.sdesc,.cemail{font-weight:300!important}
 @media(max-width:700px){
   .contact-reference{right:-28%!important;top:26%!important;width:90%!important;opacity:.22!important}
 }
+
+
+/* Larger Earth in final section */
+.contact-reference{
+  right:-3%!important;
+  top:2%!important;
+  width:61%!important;
+  height:96%!important;
+}
+.contact-reference img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  object-position:center!important;
+}
+@media(max-width:900px){
+  .contact-reference{
+    right:-12%!important;
+    top:8%!important;
+    width:72%!important;
+    height:88%!important;
+  }
+}
+@media(max-width:700px){
+  .contact-reference{
+    right:-38%!important;
+    top:18%!important;
+    width:108%!important;
+    height:78%!important;
+  }
+}

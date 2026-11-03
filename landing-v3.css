@@ -523,3 +523,25 @@
   transform:none!important;
   opacity:.88!important;
 }
+
+
+/* Larger hero schematic */
+.landing-visual{
+  right:-1.5%!important;
+  top:1.2%!important;
+  width:58.5%!important;
+  height:88%!important;
+}
+.landing-visual img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  object-position:center center!important;
+}
+@media(max-width:1050px) and (min-width:701px){
+  .landing-visual{
+    right:-2%!important;
+    width:56%!important;
+    height:86%!important;
+  }
+}
