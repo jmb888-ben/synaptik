@@ -700,7 +700,12 @@ footer{border-top:1px solid rgba(114,216,220,.24)!important;background:#050708!i
 }
 
 
-/* Ensure the human artwork is fully visible at the top */
+/* Enlarge the human artwork by 15% from its fixed top-right anchor. */
+.landing-visual{
+  overflow:visible!important;
+}
 .landing-visual img{
   top:0!important;
+  transform:scale(1.15)!important;
+  transform-origin:right top!important;
 }
