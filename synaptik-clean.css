@@ -630,3 +630,23 @@ footer{border-top:1px solid rgba(114,216,220,.24)!important;background:#050708!i
   margin-right:0!important;
   flex:0 0 auto!important;
 }
+
+
+/* Align human artwork top with SYSTEM BOOT while preserving the fixed frame */
+.landing-visual{
+  position:absolute!important;
+}
+.landing-visual img{
+  position:absolute!important;
+  top:3.45%!important;
+  right:0!important;
+  left:auto!important;
+  bottom:auto!important;
+  width:auto!important;
+  height:85%!important;
+  max-width:85%!important;
+  max-height:85%!important;
+  margin:0!important;
+  object-fit:contain!important;
+  object-position:right top!important;
+}
