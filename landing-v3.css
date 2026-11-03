@@ -545,3 +545,55 @@
     height:86%!important;
   }
 }
+
+
+/* Hero copy enlarged to match the visual weight of “Des films, pas des démos.” */
+.landing-copy{
+  left:5.55%!important;
+  top:36.5%!important;
+  width:50%!important;
+}
+.landing-copy h1{
+  font-size:clamp(58px,5.35vw,92px)!important;
+  line-height:.96!important;
+  margin-bottom:clamp(9px,.75vw,13px)!important;
+}
+.landing-role{
+  font-size:clamp(19px,1.95vw,32px)!important;
+}
+.landing-tagline{
+  font-size:clamp(15px,1.48vw,24px)!important;
+}
+.landing-formats{
+  font-size:clamp(14px,1.34vw,22px)!important;
+}
+.landing-actions{
+  margin-top:clamp(19px,1.9vw,31px)!important;
+  gap:clamp(20px,2.2vw,36px)!important;
+}
+.landing-btn{
+  height:clamp(46px,4.25vw,68px)!important;
+  min-width:clamp(245px,22vw,370px)!important;
+  font-size:clamp(14px,1.38vw,22px)!important;
+}
+.landing-btn-secondary{
+  min-width:clamp(220px,19.8vw,335px)!important;
+}
+@media(max-width:1050px) and (min-width:701px){
+  .landing-copy{
+    top:38%!important;
+    width:53%!important;
+  }
+  .landing-copy h1{
+    font-size:clamp(46px,5.8vw,62px)!important;
+  }
+  .landing-role{font-size:clamp(16px,1.9vw,20px)!important}
+  .landing-tagline{font-size:clamp(13px,1.45vw,16px)!important}
+  .landing-formats{font-size:clamp(12px,1.3vw,15px)!important}
+  .landing-btn{
+    min-width:190px!important;
+    height:42px!important;
+    font-size:12.5px!important;
+  }
+  .landing-btn-secondary{min-width:175px!important}
+}
