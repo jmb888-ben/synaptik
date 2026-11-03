@@ -320,6 +320,66 @@ h2.vtitle{
 .vitem:nth-child(even){background:rgba(114,216,220,.015)!important}
 .vwrap{border:1px solid rgba(114,216,220,.18)!important}
 
+/* Graduated frames around the portfolio players. */
+.video-frame{
+  --frame-ink:rgba(160,240,241,.8);
+  --ruler-ink:rgba(114,216,220,.52);
+  position:relative;
+  box-sizing:border-box;
+  width:min(calc(100% - 40px),calc(88vh * 16 / 9 + 40px));
+  min-width:0;
+  padding:20px;
+  margin:0 auto;
+}
+.video-frame::before{
+  content:"";
+  position:absolute;inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(var(--frame-ink),var(--frame-ink)) left top/18px 1px no-repeat,
+    linear-gradient(var(--frame-ink),var(--frame-ink)) left top/1px 18px no-repeat,
+    linear-gradient(var(--frame-ink),var(--frame-ink)) right top/18px 1px no-repeat,
+    linear-gradient(var(--frame-ink),var(--frame-ink)) right top/1px 18px no-repeat,
+    linear-gradient(var(--frame-ink),var(--frame-ink)) left bottom/18px 1px no-repeat,
+    linear-gradient(var(--frame-ink),var(--frame-ink)) left bottom/1px 18px no-repeat,
+    linear-gradient(var(--frame-ink),var(--frame-ink)) right bottom/18px 1px no-repeat,
+    linear-gradient(var(--frame-ink),var(--frame-ink)) right bottom/1px 18px no-repeat;
+}
+.video-ruler{position:absolute;display:block;pointer-events:none;user-select:none}
+.video-ruler--top,.video-ruler--bottom{
+  left:28px;right:28px;height:8px;
+  background:
+    repeating-linear-gradient(90deg,var(--ruler-ink) 0 1px,transparent 1px 60px) left bottom/100% 8px no-repeat,
+    repeating-linear-gradient(90deg,var(--ruler-ink) 0 1px,transparent 1px 12px) left bottom/100% 4px no-repeat;
+  border-bottom:1px solid rgba(114,216,220,.25);
+}
+.video-ruler--top{top:4px}
+.video-ruler--bottom{bottom:4px;transform:scaleY(-1)}
+.video-ruler--left,.video-ruler--right{
+  top:28px;bottom:28px;width:8px;
+  background:
+    repeating-linear-gradient(0deg,var(--ruler-ink) 0 1px,transparent 1px 60px) right top/8px 100% no-repeat,
+    repeating-linear-gradient(0deg,var(--ruler-ink) 0 1px,transparent 1px 12px) right top/4px 100% no-repeat;
+  border-right:1px solid rgba(114,216,220,.25);
+}
+.video-ruler--left{left:4px}
+.video-ruler--right{right:4px;transform:scaleX(-1)}
+.video-frame .vwrap{
+  width:100%!important;height:auto!important;
+  max-width:none!important;aspect-ratio:16/9!important;
+  margin:0!important;
+}
+.video-frame .vwrap::before,.video-frame .vwrap::after{display:none!important}
+@media(min-width:701px) and (max-width:1100px){
+  .video-frame{width:min(calc(100% - 32px),calc(72vh * 16 / 9 + 40px))}
+}
+@media(max-width:700px){
+  .video-frame{width:calc(100% - 20px);padding:16px}
+  .video-ruler--top,.video-ruler--bottom{left:24px;right:24px}
+  .video-ruler--left,.video-ruler--right{top:24px;bottom:24px}
+}
+
+
 .agrid{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)!important;gap:3rem!important}
 .statblock,.cred-strip{border-color:rgba(114,216,220,.2)!important}
 
@@ -374,7 +434,8 @@ h2.vtitle{
   object-position:center right!important;
   opacity:.92!important;
   filter:none!important;
-  transform:none!important;
+  transform:scale(.7)!important;
+  transform-origin:center center!important;
 }
 #contact::after{
   content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
