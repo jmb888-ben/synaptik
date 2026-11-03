@@ -1,0 +1,146 @@
+/* Synaptik global visual language — reference typography */
+
+:root{
+  --ff-t:"Inter",Arial,sans-serif;
+  --ff-m:"IBM Plex Mono","Space Mono",monospace;
+}
+body{
+  font-family:"Inter",Arial,sans-serif!important;
+  font-weight:400;
+  color:#edf3f3;
+}
+button,input,textarea,select{font-family:"Inter",Arial,sans-serif}
+
+/* Section architecture in the same restrained language as the landing */
+.snum{display:none!important}
+.shdr{
+  min-height:72px!important;
+  margin:0 2.5rem 2.5rem!important;
+  padding:0 0 1.1rem!important;
+  gap:1.25rem!important;
+  border-bottom:1px solid rgba(114,216,220,.24)!important;
+}
+.stag{
+  font-family:"Inter",Arial,sans-serif!important;
+  font-size:clamp(1.9rem,3.2vw,3.25rem)!important;
+  font-weight:400!important;
+  line-height:1!important;
+  letter-spacing:-.025em!important;
+  text-transform:none!important;
+  color:#edf3f3!important;
+}
+.stag::before{
+  font-family:"IBM Plex Mono",monospace!important;
+  font-size:.42em!important;
+  letter-spacing:.08em!important;
+  color:#9bdadd!important;
+  vertical-align:middle!important;
+  margin-right:.65rem!important;
+}
+#videos .stag::before{content:"01 / "!important}
+#about .stag::before{content:"02 / "!important}
+#services .stag::before{content:"03 / "!important}
+.stag::after{
+  content:""!important;
+  display:inline-block!important;
+  width:42px!important;
+  height:1px!important;
+  margin-left:.8rem!important;
+  vertical-align:middle!important;
+  background:#72d8dc!important;
+}
+.sl{display:none!important}
+.sidx{
+  margin-left:auto!important;
+  font-family:"IBM Plex Mono",monospace!important;
+  font-size:.52rem!important;
+  letter-spacing:.12em!important;
+  color:rgba(180,220,222,.68)!important;
+}
+
+/* Main copy and display typography */
+h2.vtitle{
+  font-family:"Inter",Arial,sans-serif!important;
+  font-size:clamp(2.5rem,5vw,5rem)!important;
+  font-weight:500!important;
+  line-height:.98!important;
+  letter-spacing:-.045em!important;
+  text-transform:none!important;
+  color:#eef4f4!important;
+  margin-bottom:2rem!important;
+}
+.abody{
+  font-family:"Inter",Arial,sans-serif!important;
+  font-size:clamp(.95rem,1.05vw,1.15rem)!important;
+  line-height:1.65!important;
+  color:#cbd6d7!important;
+}
+.abody strong{color:#eef4f4!important;font-weight:500!important}
+.albl,.reel-kicker,.reel-note,.vitem-idx,.vitem-tag,.vitem-ext,.sn,.scat,.stkey,.fm,.flinks a,.cpre{
+  font-family:"IBM Plex Mono",monospace!important;
+}
+.albl,.reel-kicker,.sn,.cpre{
+  color:#72d8dc!important;
+  letter-spacing:.1em!important;
+}
+.vitem-title{
+  font-family:"Inter",Arial,sans-serif!important;
+  font-size:clamp(1.35rem,2.6vw,2.7rem)!important;
+  font-weight:500!important;
+  line-height:1.05!important;
+  letter-spacing:-.025em!important;
+  text-transform:none!important;
+}
+.sname{
+  font-family:"Inter",Arial,sans-serif!important;
+  font-size:clamp(1.15rem,2vw,1.8rem)!important;
+  font-weight:500!important;
+  line-height:1.1!important;
+  letter-spacing:-.02em!important;
+  text-transform:none!important;
+}
+.sdesc{
+  font-family:"Inter",Arial,sans-serif!important;
+  font-weight:400!important;
+  line-height:1.5!important;
+}
+.cbig{
+  font-family:"Inter",Arial,sans-serif!important;
+  font-size:clamp(3rem,7vw,7rem)!important;
+  font-weight:500!important;
+  line-height:.95!important;
+  letter-spacing:-.05em!important;
+  text-transform:none!important;
+  color:#eef4f4!important;
+}
+.cemail{
+  font-family:"Inter",Arial,sans-serif!important;
+  font-size:1rem!important;
+  letter-spacing:0!important;
+}
+
+/* Softer panels and metadata, no heavy condensed-display look */
+.vitem-num{font-family:"Inter",Arial,sans-serif!important;font-weight:500!important}
+.vitem-meta,.vitem-desc{font-family:"Inter",Arial,sans-serif!important}
+.svcrow:hover .sname{letter-spacing:-.02em!important}
+
+/* Contact aligns with the technical reference rather than giant poster typography */
+#contact{
+  text-align:left!important;
+}
+#contact .cpre{
+  justify-content:flex-start!important;
+}
+#contact .cpre::before{display:none!important}
+#contact .cpre::after{width:3.5rem!important;background:#72d8dc!important}
+#contact .cemailw{
+  font-family:"Inter",Arial,sans-serif!important;
+}
+
+/* Active nav selector for the rebuilt nav */
+.landing-nav-links a.is-active{color:#72d8dc!important}
+
+@media(max-width:700px){
+  .shdr{margin-left:1rem!important;margin-right:1rem!important}
+  h2.vtitle{font-size:2.6rem!important}
+}
