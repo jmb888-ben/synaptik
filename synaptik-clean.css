@@ -704,6 +704,10 @@ footer{border-top:1px solid rgba(114,216,220,.24)!important;background:#050708!i
 .landing-visual{
   overflow:visible!important;
 }
+/* Keep the existing fade over the enlarged artwork's left edge. */
+.landing-visual::after{
+  left:-1.2%;
+}
 .landing-visual img{
   top:0!important;
   transform:scale(1.15)!important;
