@@ -1,0 +1,14 @@
+/* Shared editorial scale: display / section / title / lead / body / supporting / technical. */
+:root{
+  --type-display:clamp(2.5rem,5.2vw,5.25rem);
+  --type-section:clamp(1.9rem,3.1vw,3rem);
+  --type-title:clamp(1.5rem,2.35vw,2.25rem);
+  --type-subtitle:clamp(1.125rem,1.75vw,1.75rem);
+  --type-lead:clamp(1.375rem,2.2vw,2rem);
+  --type-body:clamp(1.0625rem,1.35vw,1.25rem);
+  --type-small:clamp(.875rem,1vw,1rem);
+  --type-label:clamp(.6875rem,.82vw,.8125rem);
+  --type-micro:clamp(.625rem,.74vw,.75rem);
+  --type-action:clamp(1rem,1.12vw,1.125rem);
+  --type-editorial:"itc-avant-garde-gothic-pro",Arial,sans-serif;
+}
