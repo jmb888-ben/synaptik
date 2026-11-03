@@ -342,7 +342,7 @@ window.addEventListener('DOMContentLoaded', function(){
 
 /* ------------ NAVIGATION ACTIVE ------------ */
 (function(){
-  var navLinks = Array.from(document.querySelectorAll('.nlinks a[href^="#"]'));
+  var navLinks = Array.from(document.querySelectorAll('.landing-nav-links a[href^="#"], .nlinks a[href^="#"]'));
   if(!navLinks.length) return;
 
   var linkById = {};
