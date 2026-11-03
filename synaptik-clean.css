@@ -140,21 +140,6 @@ button,input,textarea,select{font-family:var(--ff-t)}
 }
 @keyframes landingBootProgress{to{transform:scaleX(1)}}
 
-.landing-core{
-  position:absolute;
-  left:36.5%;
-  top:7.5%;
-  width:132px;
-  padding:6px 0 5px 16px;
-  border-left:1px solid rgba(178,219,221,.42);
-  z-index:8;
-  display:flex;flex-direction:column;gap:5px;
-}
-.landing-core div{
-  display:grid;grid-template-columns:44px 1fr;gap:8px;
-  font:400 7px/1.15 var(--ff-m);color:rgba(205,229,230,.74)
-}
-.landing-core b{font-weight:400;color:var(--white)}
 
 /* Human visual: intentionally very large, below all copy, never clipped. */
 .landing-visual{
@@ -484,7 +469,6 @@ footer{border-top:1px solid rgba(114,216,220,.24)!important;background:#050708!i
   .landing-nav{padding:0 3vw!important}
   .landing-nav-links{gap:28px}
   .landing-online{display:none}
-  .landing-core{display:none}
   .landing-hero{height:700px!important;min-height:700px!important}
   .landing-boot{left:4%;width:245px}
   .landing-copy{left:4%!important;top:38%!important;width:58%!important}
@@ -519,7 +503,6 @@ footer{border-top:1px solid rgba(114,216,220,.24)!important;background:#050708!i
   }
   .landing-hero::before{inset:10px!important}
   .landing-boot{position:relative!important;left:auto!important;top:auto!important;width:260px!important;order:1!important}
-  .landing-core{display:none!important}
   .landing-visual{
     position:absolute!important;
     right:-55%!important;top:8%!important;
