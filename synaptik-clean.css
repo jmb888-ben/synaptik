@@ -364,7 +364,7 @@ h2.vtitle{
 }
 .video-ruler--left{left:4px}
 .video-ruler--right{right:4px;transform:scaleX(-1)}
-.video-frame .vwrap{
+#vfeed .vitem .video-frame .vwrap{
   width:100%!important;height:auto!important;
   max-width:none!important;aspect-ratio:16/9!important;
   margin:0!important;
