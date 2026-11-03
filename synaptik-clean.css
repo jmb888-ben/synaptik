@@ -541,3 +541,23 @@ footer{border-top:1px solid rgba(114,216,220,.24)!important;background:#050708!i
   object-position:center right!important;
   flex:0 0 auto!important;
 }
+
+
+/* Human artwork +10% inside the same fixed four-corner box */
+.landing-visual{
+  right:-2%!important;
+  top:-4%!important;
+  width:70.4%!important;
+  height:94%!important;
+  overflow:hidden!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+}
+.landing-visual img{
+  width:93.5%!important;
+  height:93.5%!important;
+  max-width:93.5%!important;
+  object-fit:contain!important;
+  object-position:center right!important;
+  flex:0 0 auto!important;
+}
