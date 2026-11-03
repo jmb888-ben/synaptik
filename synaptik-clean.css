@@ -650,3 +650,30 @@ footer{border-top:1px solid rgba(114,216,220,.24)!important;background:#050708!i
   object-fit:contain!important;
   object-position:right top!important;
 }
+
+
+/* Align the actual hero artwork top with the SYSTEM BOOT top line.
+   The four-corner hero frame remains untouched. */
+.landing-hero{--boot-top:7.5%}
+.landing-visual{
+  right:var(--hero-frame-x)!important;
+  top:var(--boot-top)!important;
+  bottom:var(--hero-frame-bottom)!important;
+  width:70.4%!important;
+  height:auto!important;
+  overflow:hidden!important;
+}
+.landing-visual img{
+  position:absolute!important;
+  top:0!important;
+  right:0!important;
+  left:auto!important;
+  bottom:auto!important;
+  width:auto!important;
+  height:88%!important;
+  max-width:88%!important;
+  max-height:88%!important;
+  margin:0!important;
+  object-fit:contain!important;
+  object-position:right top!important;
+}
