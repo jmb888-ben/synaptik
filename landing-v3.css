@@ -44,7 +44,7 @@
   display:flex;
   align-items:center;
   gap:clamp(11px,.95vw,18px);
-  font-family:"avenir-next-lt-pro",sans-serif;
+  font-family:"itc-avant-garde-gothic-pro",sans-serif;
   font-size:clamp(21px,2.1vw,34px);
   font-weight:500;
   line-height:1;
@@ -68,7 +68,7 @@
 }
 .landing-nav-links a{
   position:relative;
-  font-family:"avenir-next-lt-pro",sans-serif;
+  font-family:"itc-avant-garde-gothic-pro",sans-serif;
   font-size:clamp(12px,1.15vw,18px);
   font-weight:400;
   line-height:1;
@@ -213,7 +213,7 @@
 }
 .landing-copy h1{
   margin:0 0 clamp(6px,.6vw,10px);
-  font-family:"avenir-next-lt-pro",sans-serif;
+  font-family:"itc-avant-garde-gothic-pro",sans-serif;
   font-size:clamp(48px,4.55vw,78px);
   font-weight:500;
   line-height:.96;
@@ -222,7 +222,7 @@
   white-space:nowrap;
 }
 .landing-role{
-  font-family:"avenir-next-lt-pro",sans-serif;
+  font-family:"itc-avant-garde-gothic-pro",sans-serif;
   font-size:clamp(16px,1.72vw,28px);
   font-weight:400;
   line-height:1.36;
@@ -230,7 +230,7 @@
 }
 .landing-tagline{
   margin-top:clamp(3px,.25vw,5px);
-  font-family:"avenir-next-lt-pro",sans-serif;
+  font-family:"itc-avant-garde-gothic-pro",sans-serif;
   font-size:clamp(13px,1.3vw,21px);
   font-weight:400;
   line-height:1.42;
@@ -238,7 +238,7 @@
 }
 .landing-formats{
   margin-top:clamp(2px,.2vw,4px);
-  font-family:"avenir-next-lt-pro",sans-serif;
+  font-family:"itc-avant-garde-gothic-pro",sans-serif;
   font-size:clamp(12px,1.18vw,19px);
   font-weight:400;
   line-height:1.42;
@@ -259,7 +259,7 @@
   gap:12px;
   border:1px solid rgba(114,216,220,.7);
   background:#050708;
-  font:400 clamp(12px,1.22vw,19px)/1 "avenir-next-lt-pro",sans-serif;
+  font:400 clamp(12px,1.22vw,19px)/1 "itc-avant-garde-gothic-pro",sans-serif;
   color:#eef4f4;
   letter-spacing:0;
 }
@@ -454,7 +454,7 @@
 
 /* Avenir Next calibration against approved reference */
 .landing-copy h1{
-  font-family:"avenir-next-lt-pro",sans-serif!important;
+  font-family:"itc-avant-garde-gothic-pro",sans-serif!important;
   font-weight:400!important;
   letter-spacing:.01em!important;
 }
@@ -464,7 +464,62 @@
 .landing-btn,
 .landing-nav-links a,
 .landing-brand{
-  font-family:"avenir-next-lt-pro",sans-serif!important;
+  font-family:"itc-avant-garde-gothic-pro",sans-serif!important;
 }
 .landing-role{font-weight:400!important}
 .landing-brand{font-weight:500!important}
+
+
+/* ITC Avant Garde Gothic Pro — approved editorial system */
+.landing-brand,
+.landing-nav-links a,
+.landing-copy h1,
+.landing-role,
+.landing-tagline,
+.landing-formats,
+.landing-btn{
+  font-family:"itc-avant-garde-gothic-pro",sans-serif!important;
+}
+.landing-copy h1{
+  font-weight:300!important;
+  letter-spacing:.055em!important;
+}
+.landing-role,
+.landing-tagline,
+.landing-formats,
+.landing-nav-links a{
+  font-weight:300!important;
+}
+.landing-brand,
+.landing-btn{
+  font-weight:500!important;
+}
+
+/* Show the complete approved human schematic: no clipping top or left */
+.landing-visual{
+  right:2.6%!important;
+  top:4.2%!important;
+  width:50.5%!important;
+  height:77.5%!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  overflow:visible!important;
+  background:transparent!important;
+}
+.landing-visual::after{
+  background:linear-gradient(90deg,#050708 0%,rgba(5,7,8,.18) 5%,transparent 13%,transparent 100%)!important;
+}
+.landing-visual img{
+  position:relative!important;
+  inset:auto!important;
+  left:auto!important;
+  top:auto!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:100%!important;
+  object-fit:contain!important;
+  object-position:center center!important;
+  transform:none!important;
+  opacity:.88!important;
+}
