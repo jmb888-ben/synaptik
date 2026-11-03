@@ -1,7 +1,7 @@
 /* =========================================================
    SYNAPTIK — CLEAN VISUAL SYSTEM
    Single active override layer.
-   Editorial: ITC Avant Garde Gothic Pro
+   Editorial: IBM Plex Mono
    Technical: IBM Plex Mono
 ========================================================= */
 
@@ -14,7 +14,7 @@
   --hud-soft:#a7e5e7;
   --hud-line:rgba(114,216,220,.34);
   --hud-dim:rgba(114,216,220,.17);
-  --ff-t:"itc-avant-garde-gothic-pro",Arial,sans-serif;
+  --ff-t:"IBM Plex Mono",monospace;
   --ff-m:"IBM Plex Mono",monospace;
   --accent:var(--hud);
   --accent-secondary:var(--hud-soft);
