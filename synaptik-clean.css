@@ -561,3 +561,58 @@ footer{border-top:1px solid rgba(114,216,220,.24)!important;background:#050708!i
   object-position:center right!important;
   flex:0 0 auto!important;
 }
+
+
+/* =========================================================
+   HERO FRAME GEOMETRY — canonical alignment
+   One frame controls both the four corner markers and the human visual.
+========================================================= */
+.landing-hero{
+  --hero-frame-x:2.7%;
+  --hero-frame-top:4.5%;
+  --hero-frame-bottom:8.5%;
+}
+.landing-hero::before{
+  inset:var(--hero-frame-top) var(--hero-frame-x) var(--hero-frame-bottom)!important;
+  z-index:24!important;
+}
+
+/* The human reference is now contained by the exact right/top/bottom frame edges.
+   Its own right-side corner markers land on the same coordinates as the hero frame. */
+.landing-visual{
+  right:var(--hero-frame-x)!important;
+  top:var(--hero-frame-top)!important;
+  bottom:var(--hero-frame-bottom)!important;
+  width:70.4%!important;
+  height:auto!important;
+  overflow:hidden!important;
+  align-items:stretch!important;
+  justify-content:flex-end!important;
+  z-index:1!important;
+}
+.landing-visual img{
+  position:relative!important;
+  width:auto!important;
+  height:100%!important;
+  max-width:100%!important;
+  max-height:100%!important;
+  flex:0 0 auto!important;
+  object-fit:contain!important;
+  object-position:right center!important;
+  transform:none!important;
+}
+
+/* Keep the editorial copy and controls above the artwork; frame corners stay visible above both. */
+.landing-copy{z-index:12!important}
+.landing-actions{z-index:20!important}
+.landing-bottom-tech{z-index:30!important}
+
+@media(max-width:1050px) and (min-width:701px){
+  .landing-visual{
+    right:var(--hero-frame-x)!important;
+    top:var(--hero-frame-top)!important;
+    bottom:var(--hero-frame-bottom)!important;
+    width:76%!important;
+    height:auto!important;
+  }
+}
