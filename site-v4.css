@@ -144,3 +144,13 @@ h2.vtitle{
   .shdr{margin-left:1rem!important;margin-right:1rem!important}
   h2.vtitle{font-size:2.6rem!important}
 }
+
+
+/* Remove double top offset before the landing */
+.landing-nav{
+  position:sticky!important;
+  top:0!important;
+}
+.landing-hero{
+  margin-top:0!important;
+}
