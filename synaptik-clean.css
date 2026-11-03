@@ -188,7 +188,7 @@ button,input,textarea,select{font-family:var(--ff-t)}
   position:absolute!important;
   right:-2%!important;
   top:-4%!important;
-  width:88%!important;
+  width:70.4%!important;
   height:94%!important;
   z-index:1!important;
   pointer-events:none!important;
@@ -438,7 +438,7 @@ footer{border-top:1px solid rgba(114,216,220,.24)!important;background:#050708!i
   .landing-formats{font-size:13px!important}
   .landing-btn{min-width:190px;height:44px;font-size:12px}
   .landing-btn-secondary{min-width:170px}
-  .landing-visual{right:-18%!important;width:100%!important;height:90%!important}
+  .landing-visual{right:-18%!important;width:80%!important;height:90%!important}
   .agrid{grid-template-columns:1fr!important}
   #contact{padding-right:30%!important}
   .contact-reference{right:-35%!important;width:130%!important}
@@ -467,7 +467,7 @@ footer{border-top:1px solid rgba(114,216,220,.24)!important;background:#050708!i
   .landing-visual{
     position:absolute!important;
     right:-55%!important;top:8%!important;
-    width:150%!important;height:70%!important;
+    width:120%!important;height:70%!important;
     z-index:1!important;opacity:.48!important;
   }
   .landing-copy{
