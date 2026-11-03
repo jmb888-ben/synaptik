@@ -677,3 +677,18 @@ footer{border-top:1px solid rgba(114,216,220,.24)!important;background:#050708!i
   object-fit:contain!important;
   object-position:right top!important;
 }
+
+
+/* Calibrate the artwork's own upper-left corner to the SYSTEM BOOT top.
+   Frame geometry, artwork size and right alignment stay unchanged. */
+.landing-visual img{
+  top:-12.5%!important;
+  right:0!important;
+  left:auto!important;
+  width:auto!important;
+  height:88%!important;
+  max-width:88%!important;
+  max-height:88%!important;
+  object-fit:contain!important;
+  object-position:right top!important;
+}
