@@ -44,7 +44,7 @@
   display:flex;
   align-items:center;
   gap:clamp(11px,.95vw,18px);
-  font-family:"Space Grotesk",sans-serif;
+  font-family:"Inter",sans-serif;
   font-size:clamp(21px,2.1vw,34px);
   font-weight:500;
   line-height:1;
@@ -68,7 +68,7 @@
 }
 .landing-nav-links a{
   position:relative;
-  font-family:"Space Grotesk",sans-serif;
+  font-family:"Inter",sans-serif;
   font-size:clamp(12px,1.15vw,18px);
   font-weight:400;
   line-height:1;
@@ -213,7 +213,7 @@
 }
 .landing-copy h1{
   margin:0 0 clamp(6px,.6vw,10px);
-  font-family:"Space Grotesk",sans-serif;
+  font-family:"Inter",sans-serif;
   font-size:clamp(48px,4.55vw,78px);
   font-weight:500;
   line-height:.96;
@@ -222,7 +222,7 @@
   white-space:nowrap;
 }
 .landing-role{
-  font-family:"Space Grotesk",sans-serif;
+  font-family:"Inter",sans-serif;
   font-size:clamp(16px,1.72vw,28px);
   font-weight:400;
   line-height:1.36;
@@ -230,7 +230,7 @@
 }
 .landing-tagline{
   margin-top:clamp(3px,.25vw,5px);
-  font-family:"Space Grotesk",sans-serif;
+  font-family:"Inter",sans-serif;
   font-size:clamp(13px,1.3vw,21px);
   font-weight:400;
   line-height:1.42;
@@ -238,7 +238,7 @@
 }
 .landing-formats{
   margin-top:clamp(2px,.2vw,4px);
-  font-family:"Space Grotesk",sans-serif;
+  font-family:"Inter",sans-serif;
   font-size:clamp(12px,1.18vw,19px);
   font-weight:400;
   line-height:1.42;
@@ -259,7 +259,7 @@
   gap:12px;
   border:1px solid rgba(114,216,220,.7);
   background:#050708;
-  font:400 clamp(12px,1.22vw,19px)/1 "Space Grotesk",sans-serif;
+  font:400 clamp(12px,1.22vw,19px)/1 "Inter",sans-serif;
   color:#eef4f4;
   letter-spacing:0;
 }
@@ -395,4 +395,59 @@
   .landing-actions{flex-direction:column;gap:10px}
   .landing-btn,.landing-btn-secondary{width:100%;min-width:0}
   .landing-bottom-tech{display:none}
+}
+
+
+/* Interactions and boot animation */
+.landing-visual,
+.landing-hero::before{pointer-events:none}
+.landing-copy,.landing-actions,.landing-btn{pointer-events:auto}
+.landing-copy{z-index:20}
+.landing-actions{position:relative;z-index:30}
+.landing-btn{
+  position:relative;
+  cursor:pointer;
+  transition:background .2s ease,color .2s ease,border-color .2s ease,transform .2s ease;
+}
+.landing-btn:hover{
+  background:rgba(114,216,220,.10);
+  border-color:#72d8dc;
+  transform:translateY(-1px);
+}
+.landing-btn:focus-visible{
+  outline:1px solid #72d8dc;
+  outline-offset:4px;
+}
+.landing-btn-secondary:hover{
+  background:rgba(255,255,255,.06);
+  border-color:rgba(238,244,244,.85);
+}
+.landing-boot-row{
+  opacity:0;
+  transform:translateY(2px);
+  transition:opacity .18s ease,transform .18s ease;
+}
+.landing-boot-row.s{
+  opacity:1;
+  transform:none;
+}
+.landing-boot-progress{
+  height:1px;
+  margin-top:8px;
+  background:rgba(114,216,220,.12);
+  overflow:hidden;
+}
+.landing-boot-progress span{
+  display:block;
+  width:100%;
+  height:100%;
+  transform:scaleX(0);
+  transform-origin:left;
+  background:#72d8dc;
+  animation:landingBootProgress 2.45s .15s steps(12,end) forwards;
+}
+@keyframes landingBootProgress{to{transform:scaleX(1)}}
+@media(prefers-reduced-motion:reduce){
+  .landing-boot-row{opacity:1;transform:none}
+  .landing-boot-progress span{transform:scaleX(1);animation:none}
 }
