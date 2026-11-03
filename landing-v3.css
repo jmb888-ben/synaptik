@@ -44,7 +44,7 @@
   display:flex;
   align-items:center;
   gap:clamp(11px,.95vw,18px);
-  font-family:"Inter",sans-serif;
+  font-family:"Manrope",sans-serif;
   font-size:clamp(21px,2.1vw,34px);
   font-weight:500;
   line-height:1;
@@ -68,7 +68,7 @@
 }
 .landing-nav-links a{
   position:relative;
-  font-family:"Inter",sans-serif;
+  font-family:"Manrope",sans-serif;
   font-size:clamp(12px,1.15vw,18px);
   font-weight:400;
   line-height:1;
@@ -213,7 +213,7 @@
 }
 .landing-copy h1{
   margin:0 0 clamp(6px,.6vw,10px);
-  font-family:"Inter",sans-serif;
+  font-family:"Manrope",sans-serif;
   font-size:clamp(48px,4.55vw,78px);
   font-weight:500;
   line-height:.96;
@@ -222,7 +222,7 @@
   white-space:nowrap;
 }
 .landing-role{
-  font-family:"Inter",sans-serif;
+  font-family:"Manrope",sans-serif;
   font-size:clamp(16px,1.72vw,28px);
   font-weight:400;
   line-height:1.36;
@@ -230,7 +230,7 @@
 }
 .landing-tagline{
   margin-top:clamp(3px,.25vw,5px);
-  font-family:"Inter",sans-serif;
+  font-family:"Manrope",sans-serif;
   font-size:clamp(13px,1.3vw,21px);
   font-weight:400;
   line-height:1.42;
@@ -238,7 +238,7 @@
 }
 .landing-formats{
   margin-top:clamp(2px,.2vw,4px);
-  font-family:"Inter",sans-serif;
+  font-family:"Manrope",sans-serif;
   font-size:clamp(12px,1.18vw,19px);
   font-weight:400;
   line-height:1.42;
@@ -259,7 +259,7 @@
   gap:12px;
   border:1px solid rgba(114,216,220,.7);
   background:#050708;
-  font:400 clamp(12px,1.22vw,19px)/1 "Inter",sans-serif;
+  font:400 clamp(12px,1.22vw,19px)/1 "Manrope",sans-serif;
   color:#eef4f4;
   letter-spacing:0;
 }
