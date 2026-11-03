@@ -1,15 +1,15 @@
 /* Synaptik global visual language — reference typography */
 
 :root{
-  --ff-t:"Inter",Arial,sans-serif;
+  --ff-t:"Manrope",Arial,sans-serif;
   --ff-m:"IBM Plex Mono","Space Mono",monospace;
 }
 body{
-  font-family:"Inter",Arial,sans-serif!important;
+  font-family:"Manrope",Arial,sans-serif!important;
   font-weight:400;
   color:#edf3f3;
 }
-button,input,textarea,select{font-family:"Inter",Arial,sans-serif}
+button,input,textarea,select{font-family:"Manrope",Arial,sans-serif}
 
 /* Section architecture in the same restrained language as the landing */
 .snum{display:none!important}
@@ -21,7 +21,7 @@ button,input,textarea,select{font-family:"Inter",Arial,sans-serif}
   border-bottom:1px solid rgba(114,216,220,.24)!important;
 }
 .stag{
-  font-family:"Inter",Arial,sans-serif!important;
+  font-family:"Manrope",Arial,sans-serif!important;
   font-size:clamp(1.9rem,3.2vw,3.25rem)!important;
   font-weight:400!important;
   line-height:1!important;
@@ -60,7 +60,7 @@ button,input,textarea,select{font-family:"Inter",Arial,sans-serif}
 
 /* Main copy and display typography */
 h2.vtitle{
-  font-family:"Inter",Arial,sans-serif!important;
+  font-family:"Manrope",Arial,sans-serif!important;
   font-size:clamp(2.5rem,5vw,5rem)!important;
   font-weight:500!important;
   line-height:.98!important;
@@ -70,7 +70,7 @@ h2.vtitle{
   margin-bottom:2rem!important;
 }
 .abody{
-  font-family:"Inter",Arial,sans-serif!important;
+  font-family:"Manrope",Arial,sans-serif!important;
   font-size:clamp(.95rem,1.05vw,1.15rem)!important;
   line-height:1.65!important;
   color:#cbd6d7!important;
@@ -84,7 +84,7 @@ h2.vtitle{
   letter-spacing:.1em!important;
 }
 .vitem-title{
-  font-family:"Inter",Arial,sans-serif!important;
+  font-family:"Manrope",Arial,sans-serif!important;
   font-size:clamp(1.35rem,2.6vw,2.7rem)!important;
   font-weight:500!important;
   line-height:1.05!important;
@@ -92,7 +92,7 @@ h2.vtitle{
   text-transform:none!important;
 }
 .sname{
-  font-family:"Inter",Arial,sans-serif!important;
+  font-family:"Manrope",Arial,sans-serif!important;
   font-size:clamp(1.15rem,2vw,1.8rem)!important;
   font-weight:500!important;
   line-height:1.1!important;
@@ -100,12 +100,12 @@ h2.vtitle{
   text-transform:none!important;
 }
 .sdesc{
-  font-family:"Inter",Arial,sans-serif!important;
+  font-family:"Manrope",Arial,sans-serif!important;
   font-weight:400!important;
   line-height:1.5!important;
 }
 .cbig{
-  font-family:"Inter",Arial,sans-serif!important;
+  font-family:"Manrope",Arial,sans-serif!important;
   font-size:clamp(3rem,7vw,7rem)!important;
   font-weight:500!important;
   line-height:.95!important;
@@ -114,14 +114,14 @@ h2.vtitle{
   color:#eef4f4!important;
 }
 .cemail{
-  font-family:"Inter",Arial,sans-serif!important;
+  font-family:"Manrope",Arial,sans-serif!important;
   font-size:1rem!important;
   letter-spacing:0!important;
 }
 
 /* Softer panels and metadata, no heavy condensed-display look */
-.vitem-num{font-family:"Inter",Arial,sans-serif!important;font-weight:500!important}
-.vitem-meta,.vitem-desc{font-family:"Inter",Arial,sans-serif!important}
+.vitem-num{font-family:"Manrope",Arial,sans-serif!important;font-weight:500!important}
+.vitem-meta,.vitem-desc{font-family:"Manrope",Arial,sans-serif!important}
 .svcrow:hover .sname{letter-spacing:-.02em!important}
 
 /* Contact aligns with the technical reference rather than giant poster typography */
@@ -134,7 +134,7 @@ h2.vtitle{
 #contact .cpre::before{display:none!important}
 #contact .cpre::after{width:3.5rem!important;background:#72d8dc!important}
 #contact .cemailw{
-  font-family:"Inter",Arial,sans-serif!important;
+  font-family:"Manrope",Arial,sans-serif!important;
 }
 
 /* Active nav selector for the rebuilt nav */
