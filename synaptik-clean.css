@@ -523,3 +523,21 @@ footer{border-top:1px solid rgba(114,216,220,.24)!important;background:#050708!i
 @media(max-width:700px){
   .landing-boot{width:min(338px,100%)!important}
 }
+
+
+/* Reduce only the human artwork by 15%; keep the visual box corners fixed */
+.landing-visual{
+  right:-2%!important;
+  top:-4%!important;
+  width:70.4%!important;
+  height:94%!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+}
+.landing-visual img{
+  width:85%!important;
+  height:85%!important;
+  object-fit:contain!important;
+  object-position:center right!important;
+  flex:0 0 auto!important;
+}
