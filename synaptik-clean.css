@@ -777,7 +777,7 @@ body{font-size:var(--type-body)}
   font-size:var(--type-display)!important;line-height:1.08!important;
 }
 .stag{font-size:var(--type-section)!important;line-height:1.15!important}
-#vfeed .vitem .vitem-title,.sname{
+#vfeed .vitem .vitem-meta .vitem-title,.sname{
   font-size:var(--type-title)!important;line-height:1.2!important;
 }
 .landing-role{font-size:var(--type-subtitle)!important;line-height:1.4!important}
