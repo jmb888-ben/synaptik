@@ -20,6 +20,7 @@ var VIDEOS = [
   { id:"1184018270", title:"Fuck IA",              desc:"", page:"" },
   { id:"1195592669", title:"Truc de fou rover",    desc:"Publicité · Truc de Fou", page:"/films/truc-de-fou/" },
   { id:"1195592668", title:"Truc de fou drink",    desc:"Publicité · Truc de Fou", page:"/films/truc-de-fou/" },
+  { id:"1244693830", title:"Le procès de Saturnin", desc:"Groland · Canal+ · Sketch 3 min · 100 % IA", page:"/films/saturnin-groland/", poster:"https://vumbnail.com/1244693830.jpg" },
   { id:"1176114048", title:"SPRING 2026",          desc:"Film · IA générative", page:"/films/spring-2026/" },
   { id:"1212243448", title:"Rencontres d'exception", desc:"Publicité · Rencontres d’exception", page:"" },
   { id:"1176641273", title:"Puma Rabbits",         desc:"Spec film · Publicité", page:"" },
@@ -106,7 +107,7 @@ function buildFeed() {
         '<span class="video-ruler video-ruler--bottom" aria-hidden="true"></span>' +
         '<span class="video-ruler video-ruler--left" aria-hidden="true"></span>' +
       '<div class="vwrap" data-id="' + v.id + '">' +
-        '<img class="vposter" src="assets/posters/' + v.id + '.jpg" alt="" width="960" height="540" loading="eager" decoding="async" fetchpriority="' + (i === 0 ? 'high' : 'low') + '">' +
+        '<img class="vposter" src="' + (v.poster || ('assets/posters/' + v.id + '.jpg')) + '" alt="" width="960" height="540" loading="eager" decoding="async" fetchpriority="' + (i === 0 ? 'high' : 'low') + '">' +
         '<button class="voverlay" type="button" aria-label="Lire ' + v.title + '" onclick="openOverlay(\'' + v.id + '\', this)">' +
           '<div class="vscan"></div>' +
           '<div class="pring">' +
