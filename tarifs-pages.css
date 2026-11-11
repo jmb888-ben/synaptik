@@ -1,0 +1,178 @@
+/* Synaptik — offer and contact pages. Scoped to these pages only. */
+.sp-offer-page{margin:0;background:#050708;color:#eef4f4;font:300 16px/1.65 "itc-avant-garde-gothic-pro",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.sp-offer-page *,.sp-offer-page *::before,.sp-offer-page *::after{box-sizing:border-box}
+.sp-offer-page [hidden]{display:none!important}
+.sp-offer-page a{color:inherit;text-underline-offset:4px}
+.sp-offer-page button,.sp-offer-page input,.sp-offer-page textarea,.sp-offer-page select{font:inherit}
+.sp-offer-page a:focus-visible,.sp-offer-page button:focus-visible,.sp-offer-page input:focus-visible,.sp-offer-page textarea:focus-visible,.sp-offer-page select:focus-visible{outline:2px solid #72d8dc;outline-offset:5px}
+.sp-offer-page .sp-skip-link{position:absolute;left:20px;top:12px;z-index:20;padding:10px 16px;background:#72d8dc;color:#050708;transform:translateY(-200%)}
+.sp-offer-page .sp-skip-link:focus{transform:none}
+.sp-offer-page .sp-site-header{max-width:1360px;margin:auto;padding:26px 40px;display:flex;align-items:center;justify-content:space-between;gap:30px;border-bottom:1px solid rgba(114,216,220,.19)}
+.sp-offer-page .sp-site-brand{display:block;flex-shrink:0;line-height:0}
+.sp-offer-page .sp-site-logo{display:block;width:170px;max-width:100%;height:auto}
+.sp-offer-page .sp-site-nav{margin-left:auto}
+.sp-offer-page .sp-nav-links{list-style:none;display:flex;align-items:center;gap:28px;margin:0;padding:0;font:400 11px/1.5 "IBM Plex Mono",monospace}
+.sp-offer-page .sp-nav-links a{display:block;padding:7px 0;color:#b8c4c6;text-decoration:none}
+.sp-offer-page .sp-nav-links a:hover,.sp-offer-page .sp-nav-links a[aria-current]{color:#72d8dc}
+.sp-offer-page .sp-nav-toggle{display:none;padding:10px 15px;border:1px solid rgba(114,216,220,.45);background:transparent;color:#eef4f4;cursor:pointer;font:400 11px/1.5 "IBM Plex Mono",monospace}
+.sp-offer-page .sp-offer-main{min-height:70vh}
+.sp-offer-page .sp-offer-shell{max-width:1280px;margin:auto;padding:0 40px}
+.sp-offer-page .sp-offer-back{display:inline-flex;align-items:center;gap:14px;margin-top:32px;font:400 10px/1.6 "IBM Plex Mono",monospace;letter-spacing:.04em;color:#a6babc;text-decoration:none}
+.sp-offer-page .sp-offer-back span{color:#72d8dc;font-size:16px}
+.sp-offer-page .sp-offer-back:hover{color:#72d8dc}
+.sp-offer-page .sp-offer-hero{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(260px,.85fr);gap:70px;padding:62px 0 64px;align-items:center;border-bottom:1px solid rgba(114,216,220,.24)}
+.sp-offer-page .sp-offer-hero .sp-eyebrow{margin-bottom:22px}
+.sp-offer-page .sp-offer-hero h1{font-size:clamp(48px,6.6vw,84px);line-height:1.06;font-weight:300;letter-spacing:-.045em;margin:0}
+.sp-offer-page .sp-offer-hero h1 span{color:#72d8dc}
+.sp-offer-page .sp-offer-lead{max-width:570px;margin-top:25px;font-size:19px;line-height:1.65;color:#c3d1d2}
+.sp-offer-page .sp-offer-price-panel{border-left:1px solid rgba(114,216,220,.3);padding:8px 0 8px 35px}
+.sp-offer-page .sp-offer-price-panel .sp-price-label{font-size:12px;margin-bottom:13px}
+.sp-offer-page .sp-offer-price-panel .sp-price{font-size:clamp(48px,5.4vw,68px)}
+.sp-offer-page .sp-offer-price-panel .sp-monthly-period{margin-top:10px}
+.sp-offer-page .sp-offer-price-panel .sp-button{margin-top:27px;max-width:330px;font-size:13px}
+.sp-offer-page .sp-offer-price-note{font-size:11px;line-height:1.8;color:#9db2b4;margin-top:16px;max-width:300px}
+.sp-offer-page .sp-offer-specs{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.sp-offer-page .sp-offer-specs span{padding:7px 11px;border:1px solid rgba(114,216,220,.25);color:#d0ddde;font:400 10px/1.5 "IBM Plex Mono",monospace}
+.sp-offer-page .sp-offer-details{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:70px;padding:58px 0 62px}
+.sp-offer-page .sp-offer-details h2,.sp-offer-page .sp-offer-scope h2,.sp-offer-page .sp-related h2{font-size:clamp(25px,2.8vw,34px);font-weight:300;line-height:1.2;letter-spacing:-.025em;margin:0 0 24px}
+.sp-offer-page .sp-offer-needs p{font-size:16px;line-height:1.8;color:#c1cfd0;max-width:550px}
+.sp-offer-page .sp-offer-included{padding:28px 30px 23px;border:1px solid rgba(114,216,220,.25);background:rgba(114,216,220,.025);align-self:start}
+.sp-offer-page .sp-offer-included .sp-eyebrow{margin-bottom:16px}
+.sp-offer-page .sp-offer-included h2{font-size:29px;margin-bottom:10px}
+.sp-offer-page .sp-offer-list{list-style:none;margin:0;padding:0;font-size:14px;color:#d0d9da}
+.sp-offer-page .sp-offer-list li{position:relative;padding:15px 0 15px 20px;border-bottom:1px solid rgba(114,216,220,.12);line-height:1.7}
+.sp-offer-page .sp-offer-list li:last-child{border-bottom:0}
+.sp-offer-page .sp-offer-list li::before{content:"";position:absolute;top:25px;left:0;width:6px;height:6px;border-left:1px solid #72d8dc;border-bottom:1px solid #72d8dc;transform:rotate(-45deg)}
+.sp-offer-page .sp-offer-materials{margin-top:40px}
+.sp-offer-page .sp-offer-materials h2{font-size:25px;margin-bottom:10px}
+.sp-offer-page .sp-offer-materials .sp-offer-list{font-size:13px;color:#b8c8ca}
+.sp-offer-page .sp-offer-materials .sp-offer-list li{padding-top:10px;padding-bottom:10px}
+.sp-offer-page .sp-offer-materials .sp-offer-list li::before{top:20px}
+.sp-offer-page .sp-offer-scope{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.3fr);gap:70px;padding:40px 0 47px;border-top:1px solid rgba(114,216,220,.24);border-bottom:1px solid rgba(114,216,220,.24)}
+.sp-offer-page .sp-offer-scope .sp-eyebrow{margin-bottom:17px}
+.sp-offer-page .sp-offer-scope h2{max-width:360px;margin-bottom:0}
+.sp-offer-page .sp-offer-scope-copy p{font-size:13px;line-height:1.85;color:#b5c6c8;margin:0 0 15px}
+.sp-offer-page .sp-offer-scope-copy p:last-child{margin-bottom:0}
+.sp-offer-page .sp-offer-brief{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.3fr);gap:70px;padding:66px 0 68px;scroll-margin-top:30px}
+.sp-offer-page .sp-offer-brief-heading h2{font-size:clamp(30px,3.6vw,45px);font-weight:300;line-height:1.15;letter-spacing:-.035em;margin:20px 0 23px;max-width:390px}
+.sp-offer-page .sp-offer-brief-heading h2 span{color:#72d8dc}
+.sp-offer-page .sp-offer-brief-heading p:not(.sp-eyebrow){font-size:15px;color:#b8c8ca;line-height:1.8;max-width:340px}
+.sp-offer-page .sp-direct-contact{margin-top:30px;padding-top:23px;border-top:1px solid rgba(114,216,220,.2);max-width:350px}
+.sp-offer-page .sp-direct-contact>a{display:inline-block;font-size:16px;color:#72d8dc;text-decoration:none;overflow-wrap:anywhere}
+.sp-offer-page .sp-direct-contact .sp-contact-person{margin-top:16px;font-size:12px;color:#c4d3d4}
+.sp-offer-page .sp-direct-contact .sp-contact-place{margin-top:9px;font:400 10px/1.6 "IBM Plex Mono",monospace;color:#9db2b4}
+.sp-offer-page .sp-project-form{margin:0;padding:0}
+.sp-offer-page .sp-form-required{font-size:11px;line-height:1.7;color:#9db2b4;margin-bottom:19px}
+.sp-offer-page .sp-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.sp-offer-page .sp-form-field{margin-bottom:21px;min-width:0}
+.sp-offer-page .sp-project-form label{display:block;font-size:12px;line-height:1.5;margin:0 0 9px;color:#d0ddde}
+.sp-offer-page .sp-form-optional{color:#92aaad;font-size:11px}
+.sp-offer-page .sp-project-form input,.sp-offer-page .sp-project-form select,.sp-offer-page .sp-project-form textarea{display:block;width:100%;max-width:100%;border:1px solid rgba(114,216,220,.31);border-radius:0;background:#071013;color:#eef4f4;padding:13px 14px;font:300 14px/1.7 "itc-avant-garde-gothic-pro",Arial,sans-serif;color-scheme:dark}
+.sp-offer-page .sp-project-form input::placeholder,.sp-offer-page .sp-project-form textarea::placeholder{color:#829b9f;opacity:1}
+.sp-offer-page .sp-project-form textarea{resize:vertical;min-height:130px}
+.sp-offer-page .sp-project-form input:focus,.sp-offer-page .sp-project-form select:focus,.sp-offer-page .sp-project-form textarea:focus{border-color:#72d8dc}
+.sp-offer-page .sp-field-hint{font-size:10px;line-height:1.7;color:#9db2b4;margin-top:8px}
+.sp-offer-page .sp-project-form>.sp-button{max-width:100%;font-size:13px;margin-top:6px}
+.sp-offer-page .sp-form-help{font-size:11px;line-height:1.8;color:#9db2b4;margin-top:16px}
+.sp-offer-page .sp-form-help a{color:#c1dcde}
+.sp-offer-page .sp-form-result{margin-top:28px;padding:25px;border:1px solid #72d8dc;background:rgba(114,216,220,.035)}
+.sp-offer-page .sp-form-result h3{font-size:23px;font-weight:300;line-height:1.3;margin:0 0 10px}
+.sp-offer-page .sp-form-result>p{font-size:12px;line-height:1.8;color:#b8c8ca;margin:0 0 18px}
+.sp-offer-page .sp-form-result textarea.sp-brief-preview{min-height:250px;background:#050b0d;font:400 12px/1.8 "IBM Plex Mono",monospace;margin-bottom:18px}
+.sp-offer-page .sp-result-actions{display:flex;align-items:center;gap:15px;flex-wrap:wrap}
+.sp-offer-page .sp-result-actions .sp-email-link{width:100%;margin-bottom:4px}
+.sp-offer-page .sp-result-actions .sp-copy-brief,.sp-offer-page .sp-download-brief{padding:3px 0;background:transparent;border:0;color:#bde5e7;font:400 11px/1.6 "IBM Plex Mono",monospace;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+.sp-offer-page .sp-form-result .sp-copy-status{margin:12px 0 0;font-size:11px;color:#72d8dc;min-height:1.5em}
+.sp-offer-page .sp-related{padding:43px 0 50px;border-top:1px solid rgba(114,216,220,.24)}
+.sp-offer-page .sp-related-heading{display:flex;justify-content:space-between;align-items:center;gap:25px;margin-bottom:23px}
+.sp-offer-page .sp-related-heading h2{margin:0;font-size:27px}
+.sp-offer-page .sp-related-heading>a{font-size:12px;color:#b7dadd;text-decoration:none;white-space:nowrap}
+.sp-offer-page .sp-related-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.sp-offer-page .sp-related-grid.sp-related-four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.sp-offer-page .sp-related-offer{display:flex;flex-direction:column;gap:19px;padding:23px;border:1px solid rgba(114,216,220,.23);text-decoration:none;background:rgba(114,216,220,.015);transition:background .18s,border-color .18s}
+.sp-offer-page .sp-related-offer:hover{background:rgba(114,216,220,.05);border-color:rgba(114,216,220,.6)}
+.sp-offer-page .sp-related-offer-name{display:flex;justify-content:space-between;gap:12px;font-size:19px;line-height:1.3;letter-spacing:-.02em}
+.sp-offer-page .sp-related-offer-name>span:last-child{color:#72d8dc}
+.sp-offer-page .sp-related-offer-price{font:400 11px/1.7 "IBM Plex Mono",monospace;color:#adc4c6}
+.sp-offer-page .sp-site-footer{max-width:1280px;margin:0 auto;padding:26px 40px 32px;border-top:1px solid rgba(114,216,220,.2);display:flex;justify-content:space-between;gap:25px;color:#9db2b4;font:400 10px/1.7 "IBM Plex Mono",monospace}
+.sp-offer-page .sp-site-footer-links{display:flex;gap:24px;flex-wrap:wrap}
+.sp-offer-page .sp-site-footer a{text-decoration:none}
+.sp-offer-page .sp-site-footer a:hover{color:#72d8dc}
+.sp-offer-page .sp-contact-hero{padding:57px 0 15px;max-width:850px}
+.sp-offer-page .sp-contact-hero h1{font-size:clamp(48px,6.3vw,80px);line-height:1.08;font-weight:300;letter-spacing:-.045em;margin:21px 0 24px}
+.sp-offer-page .sp-contact-hero h1 span{color:#72d8dc}
+.sp-offer-page .sp-contact-hero .sp-offer-lead{max-width:660px;margin:0;font-size:18px}
+.sp-offer-page .sp-contact-layout{padding-top:45px}
+.sp-offer-page .sp-contact-layout .sp-offer-brief-heading h2{font-size:30px;max-width:320px}
+@media(max-width:1050px){
+  .sp-offer-page .sp-nav-links{gap:20px;font-size:10px}
+  .sp-offer-page .sp-offer-hero,.sp-offer-page .sp-offer-details,.sp-offer-page .sp-offer-scope,.sp-offer-page .sp-offer-brief{gap:40px}
+  .sp-offer-page .sp-offer-price-panel{padding-left:25px}
+  .sp-offer-page .sp-related-grid.sp-related-four{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sp-offer-page .sp-related-offer{padding:20px}
+}
+@media(max-width:760px){
+  .sp-offer-page .sp-site-header{position:relative;z-index:30;padding:20px 22px;flex-wrap:wrap;gap:17px}
+  .sp-offer-page .sp-site-header.sp-nav-enhanced{flex-wrap:nowrap}
+  .sp-offer-page .sp-site-logo{width:136px}
+  .sp-offer-page .sp-site-nav{flex:1;min-width:0;display:flex;justify-content:flex-end;flex-wrap:wrap}
+  .sp-offer-page .sp-nav-links{justify-content:flex-end;gap:9px 18px;flex-wrap:wrap;font-size:10px}
+  .sp-offer-page .sp-nav-enhanced .sp-site-nav{position:static;flex:0 0 auto;flex-wrap:nowrap}
+  .sp-offer-page .sp-nav-enhanced .sp-nav-links{display:none;position:absolute;left:0;right:0;top:100%;z-index:31;max-height:calc(100dvh - 100px);overflow-y:auto;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;width:auto;padding:10px 22px 14px;border-top:1px solid rgba(114,216,220,.2);border-bottom:1px solid rgba(114,216,220,.35);background:#050708;box-shadow:0 20px 30px rgba(0,0,0,.4);font-size:12px}
+  .sp-offer-page .sp-nav-enhanced .sp-nav-links li{width:100%}
+  .sp-offer-page .sp-nav-enhanced .sp-nav-links a{display:flex;align-items:center;min-height:44px;padding:10px 6px;border-bottom:1px solid rgba(114,216,220,.12);font-size:12px}
+  .sp-offer-page .sp-nav-enhanced .sp-nav-links li:last-child a{border-bottom:0}
+  .sp-offer-page .sp-nav-enhanced .sp-nav-toggle:not([hidden]){display:block}
+  .sp-offer-page [data-sp-nav].is-open .sp-nav-links,.sp-offer-page .sp-nav-enhanced .sp-nav-links.is-open{display:flex}
+  .sp-offer-page .sp-offer-shell{padding:0 22px}
+  .sp-offer-page .sp-offer-back{margin-top:25px}
+  .sp-offer-page .sp-offer-hero{grid-template-columns:1fr;padding:40px 0 43px;gap:35px}
+  .sp-offer-page .sp-offer-hero h1{font-size:clamp(45px,8.8vw,70px)}
+  .sp-offer-page .sp-offer-hero .sp-eyebrow{margin-bottom:20px}
+  .sp-offer-page .sp-offer-lead{font-size:17px;margin-top:22px}
+  .sp-offer-page .sp-offer-price-panel{padding:25px 0 0;border-left:0;border-top:1px solid rgba(114,216,220,.24)}
+  .sp-offer-page .sp-offer-price-panel .sp-price{font-size:58px}
+  .sp-offer-page .sp-offer-price-panel .sp-button{max-width:none}
+  .sp-offer-page .sp-offer-price-note{max-width:100%}
+  .sp-offer-page .sp-offer-details{grid-template-columns:1fr;gap:32px;padding:40px 0}
+  .sp-offer-page .sp-offer-included{grid-row:1;padding:25px}
+  .sp-offer-page .sp-offer-needs p{font-size:15px}
+  .sp-offer-page .sp-offer-materials{margin-top:32px}
+  .sp-offer-page .sp-offer-scope,.sp-offer-page .sp-offer-brief{grid-template-columns:1fr;gap:29px;padding:39px 0}
+  .sp-offer-page .sp-offer-scope h2{max-width:100%}
+  .sp-offer-page .sp-offer-brief-heading h2{font-size:36px;max-width:100%;margin:17px 0}
+  .sp-offer-page .sp-offer-brief-heading p:not(.sp-eyebrow){max-width:100%;font-size:14px}
+  .sp-offer-page .sp-offer-brief-heading .sp-direct-contact{max-width:100%;margin-top:23px;padding-top:19px}
+  .sp-offer-page .sp-form-grid{gap:15px}
+  .sp-offer-page .sp-project-form input,.sp-offer-page .sp-project-form select,.sp-offer-page .sp-project-form textarea{font-size:16px;padding:12px}
+  .sp-offer-page .sp-related-grid{grid-template-columns:1fr}
+  .sp-offer-page .sp-related-offer{flex-direction:row;align-items:center;justify-content:space-between;gap:25px}
+  .sp-offer-page .sp-related-offer-price{max-width:145px;text-align:right}
+  .sp-offer-page .sp-related-offer-name{font-size:18px}
+  .sp-offer-page .sp-related-heading{align-items:flex-start;flex-direction:column;gap:13px}
+  .sp-offer-page .sp-related-grid.sp-related-four{grid-template-columns:1fr}
+  .sp-offer-page .sp-site-footer{padding:24px 22px;flex-direction:column;gap:17px}
+  .sp-offer-page .sp-contact-hero{padding-top:39px}
+  .sp-offer-page .sp-contact-hero h1{font-size:clamp(45px,8.8vw,67px)}
+  .sp-offer-page .sp-contact-hero .sp-offer-lead{font-size:17px}
+  .sp-offer-page .sp-contact-layout{padding-top:30px}
+}
+@media(max-width:440px){
+  .sp-offer-page .sp-site-logo{width:122px}
+  .sp-offer-page .sp-site-header{gap:14px}
+  .sp-offer-page .sp-site-header:not(.sp-nav-enhanced) .sp-site-nav{flex-basis:auto}
+  .sp-offer-page .sp-nav-links{gap:4px 13px;font-size:9px}
+  .sp-offer-page .sp-form-grid{grid-template-columns:1fr;gap:0}
+  .sp-offer-page .sp-offer-hero h1{font-size:47px}
+  .sp-offer-page .sp-offer-specs{gap:8px}
+  .sp-offer-page .sp-offer-specs span{font-size:9px;padding:7px 9px}
+  .sp-offer-page .sp-offer-included{padding:23px}
+  .sp-offer-page .sp-offer-included h2{font-size:27px}
+  .sp-offer-page .sp-offer-list{font-size:13px}
+  .sp-offer-page .sp-offer-brief-heading h2{font-size:32px}
+  .sp-offer-page .sp-related-offer{padding:18px;gap:20px}
+  .sp-offer-page .sp-related-offer-name{font-size:16px}
+  .sp-offer-page .sp-related-offer-price{font-size:10px;max-width:120px}
+  .sp-offer-page .sp-form-result{padding:20px}
+}
+@media(prefers-reduced-motion:reduce){.sp-offer-page *{scroll-behavior:auto!important;transition:none!important}}
