@@ -40,17 +40,18 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(360px, .98fr); align-items: center; gap: clamp(24px, 6vw, 88px);
 }
 .landing-hero::before { inset: 4% 0 0 !important; opacity: .18 !important; z-index: 0 !important; }
-.landing-corners, .landing-bottom-tech { opacity: .38; }
+.landing-corners { position: absolute; inset: 0; pointer-events: none; opacity: .38; }
+.landing-bottom-tech { opacity: .38; }
 .landing-boot { position: absolute !important; top: 18px !important; left: 0 !important; width: 230px !important; padding: 12px 0; font-size: .57rem !important; opacity: .58; }
 .landing-boot-title { border-bottom-color: var(--syn-line) !important; }
 .landing-boot-progress { display: none !important; }
-.landing-copy { position: relative !important; inset: auto !important; z-index: 2 !important; width: auto !important; max-width: 710px !important; }
+.landing-copy { position: relative !important; inset: auto !important; z-index: 2 !important; grid-column: 1 !important; justify-self: start !important; width: auto !important; max-width: 710px !important; margin-left: 0 !important; text-align: left !important; }
 .landing-copy h1 { margin: 0 0 24px !important; font-size: clamp(3.4rem, 8.4vw, 8.2rem) !important; line-height: .9 !important; letter-spacing: -.075em !important; font-weight: 600 !important; }
 .editorial-accent { color: var(--syn-accent) !important; }
 .landing-role { color: #d4dfe2 !important; font-size: clamp(.94rem, 1.4vw, 1.15rem) !important; letter-spacing: .005em !important; }
 .landing-tagline { max-width: 600px; margin-top: 18px !important; color: var(--syn-copy) !important; font-size: clamp(1.17rem, 2.2vw, 1.75rem) !important; line-height: 1.35 !important; letter-spacing: -.035em; }
 .landing-formats { margin-top: 10px; color: var(--syn-muted) !important; font-size: .89rem !important; }
-.landing-actions { gap: 12px !important; margin-top: 34px !important; flex-wrap: wrap; }
+.landing-actions { display: flex !important; justify-content: flex-start !important; gap: 12px !important; margin-top: 34px !important; flex-wrap: wrap; }
 .landing-btn { min-height: 50px; padding: 0 19px !important; border-radius: 999px !important; font-size: .88rem !important; letter-spacing: 0 !important; transition: transform .2s var(--syn-ease), background .2s var(--syn-ease), border-color .2s var(--syn-ease) !important; }
 .landing-btn:hover { transform: translateY(-2px); }
 .landing-btn:active { transform: scale(.985); }
