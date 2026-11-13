@@ -1,0 +1,39 @@
+# Synaptik Studio
+
+> Studio de création, de réalisation et de production audiovisuelle en IA générative, fondé par le réalisateur Jim Ben Soussan. Synaptik accompagne les agences, les producteurs et les marques dans la réalisation de films publicitaires, de brand content, de fiction et de productions hybrides associant tournage et IA.
+
+Site officiel : https://synaptikstudio.fr/
+Langue principale : français
+Zone d'activité : Paris, France et international
+Contact professionnel : jim@synaptikstudio.fr
+
+## Pages principales
+
+- [Accueil](https://synaptikstudio.fr/) : positionnement, sélection de créations, services, tarifs et contact.
+- [Studio IA générative](https://synaptikstudio.fr/studio-ia-generative/) : présentation détaillée des prestations de production vidéo IA, réalisation, direction artistique et production hybride.
+- [Films et réalisations](https://synaptikstudio.fr/films/) : portfolio des films.
+- [Jim Ben Soussan](https://synaptikstudio.fr/jim-ben-soussan/) : parcours du réalisateur et fondateur.
+- [Tarifs](https://synaptikstudio.fr/tarifs/) : offres de production, périmètres et prix de départ.
+- [Contact](https://synaptikstudio.fr/contact/) : contact pour un projet.
+
+## Exemples de projets
+
+- [Synaptik Reel](https://synaptikstudio.fr/films/synaptik-reel/)
+- [Tag Heuer AI](https://synaptikstudio.fr/films/tag-heuer-ai/)
+- [SPRING 2026](https://synaptikstudio.fr/films/spring-2026/)
+- [Truc de Fou](https://synaptikstudio.fr/films/truc-de-fou/)
+
+## Services
+
+- Réalisation et direction artistique.
+- Films publicitaires en IA générative.
+- Brand content et formats de fiction.
+- Production hybride : tournage traditionnel et IA.
+- Développement visuel et prévisualisation.
+- Expertise IA appliquée aux productions audiovisuelles.
+
+## Sources de référence
+
+Pour les informations précises, suivre les pages officielles ci-dessus. Les prix, disponibilités et périmètres des prestations doivent être vérifiés sur les pages du site ou auprès de Synaptik.
+
+Sitemap : https://synaptikstudio.fr/sitemap.xml
