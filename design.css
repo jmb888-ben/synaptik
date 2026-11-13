@@ -6,7 +6,7 @@
   --syn-line: rgba(227, 240, 244, .14);
   --syn-copy: #f0f4f5;
   --syn-muted: #a6b1b5;
-  --syn-accent: #86d8e4;
+  --syn-accent: #86D8E4;
   --syn-ease: cubic-bezier(.2, .72, .25, 1);
   color-scheme: dark;
 }
@@ -20,8 +20,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 /* Shared navigation keeps the existing Synaptik wordmark and section structure. */
 .restored-nav, .seo-nav {
   min-height: 76px; padding: 12px clamp(22px, 5vw, 72px); gap: 36px;
-  background: rgba(8, 11, 13, .82); border-bottom: 1px solid var(--syn-line);
-  backdrop-filter: blur(18px) saturate(125%); -webkit-backdrop-filter: blur(18px) saturate(125%);
+  background: #000 !important; border-bottom: 1px solid var(--syn-line);
+  backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
 }
 .restored-nav { position: fixed; inset: 0 0 auto; z-index: 50; }
 .nav-layout-spacer { height: 76px; }
@@ -36,7 +36,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .landing-hero {
   position: relative !important; z-index: 1 !important; width: 100% !important;
   height: clamp(700px, 48vw, 820px) !important; min-height: clamp(700px, 48vw, 820px) !important;
-  margin: 0 !important; padding: clamp(110px, 17vh, 170px) 2.5rem clamp(80px, 12vh, 124px) !important; overflow: visible !important;
+  margin: 0 !important; padding: clamp(110px, 17vh, 170px) 2.5rem clamp(80px, 12vh, 124px) !important; overflow: visible !important; background: #000 !important;
   display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(360px, .98fr); align-items: center; gap: clamp(24px, 6vw, 88px);
 }
 .landing-hero::before { inset: 4% 0 0 !important; opacity: .18 !important; z-index: 0 !important; }
@@ -56,9 +56,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .landing-btn:hover { transform: translateY(-2px); }
 .landing-btn:active { transform: scale(.985); }
 .landing-btn-primary { color: #081114 !important; background: var(--syn-accent) !important; border-color: var(--syn-accent) !important; }
+.landing-play { color: #72d8dc !important; }
 .landing-btn-secondary { color: var(--syn-copy) !important; background: rgba(255,255,255,.035) !important; border-color: rgba(255,255,255,.22) !important; }
 .landing-visual { position: absolute !important; right: 2.7% !important; top: 7.5% !important; bottom: 8.5% !important; width: 70.4% !important; height: auto !important; max-width: none !important; margin: 0 !important; border: 0; border-radius: 0; overflow: hidden !important; }
-.landing-visual::after { background: linear-gradient(90deg, rgba(8,11,13,.14), transparent 25%, transparent 72%, rgba(8,11,13,.34)) !important; }
+@media (min-width: 901px) { .landing-visual { top: calc(56px - 3.56vw) !important; } }
+.landing-visual::after { background: linear-gradient(90deg, rgba(0,0,0,.14), transparent 25%, transparent 72%, rgba(0,0,0,.34)) !important; }
 .landing-visual img { position: absolute !important; inset: 0 0 auto auto !important; display: block; width: auto !important; height: 88% !important; max-width: 88% !important; max-height: 88% !important; object-fit: contain !important; object-position: right top !important; transform: scale(1.0925); transform-origin: right top; filter: saturate(.82) contrast(1.04); }
 .landing-bottom-tech { inset-inline: 0 !important; bottom: 22px !important; }
 
@@ -78,6 +80,8 @@ main > section:not(.syn-pricing) { padding-block: clamp(82px, 11vw, 156px) !impo
 #vfeed { margin-top: 16px; }
 .vfeed, .v-grid, .video-grid { gap: 16px !important; }
 .vcard, .video-card, .vitem { border: 1px solid var(--syn-line) !important; border-radius: 4px; overflow: hidden; background: var(--syn-panel) !important; transition: border-color .28s var(--syn-ease), transform .4s var(--syn-ease), box-shadow .4s var(--syn-ease); }
+.vitem-title { color: #fff !important; font-family: "itc-avant-garde-gothic-pro", Arial, sans-serif !important; font-weight: 600 !important; letter-spacing: -.045em !important; }
+#vfeed .vitem .vitem-meta .vitem-title { font-size: clamp(3rem, 4.7vw, 4.5rem) !important; line-height: 1.2 !important; }
 .vcard:hover, .video-card:hover, .vitem:hover { border-color: rgba(134,216,228,.45) !important; transform: translateY(-4px); box-shadow: 0 18px 45px rgba(0,0,0,.32); }
 .vcard img, .video-card img, .vitem img { transition: transform .65s var(--syn-ease), filter .65s var(--syn-ease); }
 .vcard:hover img, .video-card:hover img, .vitem:hover img { transform: scale(1.025); filter: saturate(1.06); }
@@ -148,7 +152,7 @@ main > section:not(.syn-pricing) { padding-block: clamp(82px, 11vw, 156px) !impo
   .reveal:not(.visible) { opacity: 1 !important; transform: none !important; }
 }
 @media (prefers-reduced-transparency: reduce) {
-  .restored-nav, .seo-nav { background: #080b0d !important; backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .restored-nav, .seo-nav { background: #000 !important; backdrop-filter: none; -webkit-backdrop-filter: none; }
 }
 @media (max-width: 900px) {
   .landing-hero { grid-template-columns: 1fr; gap: 38px; padding-top: 132px !important; }
