@@ -100,7 +100,7 @@
 <link rel="preload" as="image" href="assets/posters/1223586438.jpg" fetchpriority="high"/>
 
 
-<link rel="stylesheet" href="/design.css?v=20261113-5"/>
+<link rel="stylesheet" href="/design.css?v=20261113-nav-readable"/>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Aller au contenu</a>
@@ -124,13 +124,12 @@
 
 
   <div class="landing-copy">
-    <h1>LA DA DE L’<span class="editorial-accent">IA</span></h1>
-    <div class="landing-role">Réalisation · Direction artistique · <span class="editorial-accent">IA</span> générative</div>
-    <div class="landing-tagline">Les moyens de production évoluent. La direction reste artistique.</div>
-    <div class="landing-formats">Films publicitaires · Brand content · Productions hybrides</div>
+    <h1><span>LA</span> <span>DA</span> <span>DE</span> <span>L’<span class="editorial-accent">IA</span></span></h1>
+    <div class="landing-role"><span>Films publicitaires</span> <span>·</span> <span>Brand content</span> <span>·</span> <span><span class="editorial-accent">IA</span> générative</span></div>
+    <div class="landing-tagline"><span class="landing-tagline-line">Les moyens de <span class="editorial-accent">production</span> évoluent.</span> <span class="landing-tagline-line">La direction reste <span class="editorial-accent landing-tagline-emphasis">artistique</span>.</span></div>
 
     <div class="landing-actions">
-      <a href="#videos" class="landing-btn landing-btn-primary" onclick="openOverlay('1223586438', this); return false;" aria-label="Lire le reel Synaptik de 60 secondes"><span class="landing-play">▶</span><span>Voir le reel — 60 sec</span><span>→</span></a>
+      <a href="#videos" class="landing-btn landing-btn-primary" onclick="openOverlay('1223586438', this); return false;" aria-label="Lire le reel Synaptik de 60 secondes"><span class="landing-play">▶</span><span>Voir le reel</span><span>→</span></a>
       <a href="#contact" class="landing-btn landing-btn-secondary"><span>Parler d’un projet</span><span>→</span></a>
       <a href="#tarifs" class="landing-btn landing-btn-secondary"><span>Voir les tarifs</span><span>→</span></a>
     </div>
@@ -286,5 +285,91 @@
 <footer><span class="fm">&#169; <span id="yr"></span> SYNAPTIK &#8212; PARIS, FR</span><ul class="flinks"><li><a href="#videos" aria-label="Voir les créations">Créations</a></li><li><a href="/studio-ia-generative/">Studio IA</a></li><li><a href="/jim-ben-soussan/">Jim Ben Soussan</a></li><li><a href="/films/synaptik-reel/">Reel</a></li><li><a href="/tarifs/">Tarifs</a></li><li><a href="https://www.instagram.com/synaptikstudio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Synaptik Studio — ouvre un nouvel onglet">Instagram</a></li><li><a href="#contact" aria-label="Aller au contact">Contact</a></li></ul><span class="fm">SYNAPTIKSTUDIO.FR</span></footer>
 <script src="script.js?v=20261107-saturnin-1" defer></script>
 <script src="/tarifs.js?v=20261111-1" defer></script>
+<script>
+(() => {
+  const title = document.querySelector('.landing-copy h1');
+  const copy = title.parentElement;
+
+  function alignTitle() {
+    const tagline = copy.querySelector('.landing-tagline');
+    const measureText = document.createElement('span');
+    measureText.className = 'landing-tagline-measure';
+    measureText.textContent = tagline.innerText.replace(/\s+/g, ' ');
+    copy.append(measureText);
+    const measure = measureText.getBoundingClientRect().width;
+    measureText.remove();
+    const bounds = title.getBoundingClientRect();
+    if (bounds.width) {
+      const role = document.querySelector('.landing-role');
+      const context = document.createElement('canvas').getContext('2d');
+      const glyphInset = (element, character, edge) => {
+        const style = getComputedStyle(element);
+        context.font = `${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
+        const glyph = context.measureText(character);
+        return edge === 'left' ? -glyph.actualBoundingBoxLeft :
+          glyph.width - glyph.actualBoundingBoxRight + (parseFloat(style.letterSpacing) || 0);
+      };
+      const copyLeft = copy.getBoundingClientRect().left;
+      const left = bounds.left + glyphInset(title.firstElementChild, 'L', 'left') / 1.2;
+      title.firstElementChild.style.marginInlineStart =
+        `${left - bounds.left - glyphInset(title.firstElementChild, 'L', 'left')}px`;
+      const titleWidth = Math.min(measure * 1.1, innerWidth - copyLeft * 2);
+      const rightInset = glyphInset(title.lastElementChild, 'A', 'right');
+      const originalTracking = -.075 * parseFloat(getComputedStyle(title).fontSize) / 1.2;
+      const right = copyLeft + titleWidth - rightInset / 1.2 - originalTracking;
+      copy.style.setProperty('--landing-title-width', `${right + rightInset - bounds.left}px`);
+      copy.style.setProperty('--landing-block-offset', `${left - copyLeft}px`);
+      copy.style.setProperty('--landing-block-width', `${right - left}px`);
+      const [firstLine, secondLine] = tagline.children;
+      const emphasis = secondLine.querySelector('.landing-tagline-emphasis');
+      emphasis.style.removeProperty('font-size');
+      tagline.style.removeProperty('--landing-line-size');
+      const availableWidth = innerWidth >= 901 ? right - left : tagline.clientWidth;
+      const longestLine = Math.max(...Array.from(tagline.children, line => {
+        line.style.textAlignLast = 'left';
+        const text = document.createRange();
+        text.selectNodeContents(line);
+        const width = text.getBoundingClientRect().width;
+        line.style.removeProperty('text-align-last');
+        return width;
+      }));
+      if (longestLine && availableWidth > 0) {
+        const size = parseFloat(getComputedStyle(tagline).fontSize);
+        tagline.style.setProperty('--landing-line-size', `${size * Math.min(2, (availableWidth - 1) / longestLine)}px`);
+      }
+      const naturalWidth = line => {
+        line.style.textAlignLast = 'left';
+        const width = document.createRange();
+        width.selectNodeContents(line);
+        const result = width.getBoundingClientRect().width;
+        line.style.removeProperty('text-align-last');
+        return result;
+      };
+      const gapCount = line => line.textContent.trim().split(/\s+/).length - 1;
+      const extraPerGap = (availableWidth - naturalWidth(firstLine)) / gapCount(firstLine);
+      const target = availableWidth - extraPerGap * gapCount(secondLine);
+      const current = naturalWidth(secondLine);
+      const size = parseFloat(getComputedStyle(emphasis).fontSize);
+      const wordWidth = emphasis.getBoundingClientRect().width;
+      if (wordWidth && target > current) {
+        emphasis.style.fontSize = `${size * (1 + (target - current) / wordWidth)}px`;
+      }
+      for (const line of [role]) {
+        const first = line.firstElementChild;
+        const last = line.lastElementChild;
+        const start = left - glyphInset(first, first.textContent[0], 'left');
+        const end = right + glyphInset(last, last.textContent.slice(-1), 'right');
+        line.style.setProperty('--landing-role-offset', `${start - copyLeft}px`);
+        line.style.setProperty('--landing-role-width', `${end - start}px`);
+      }
+    }
+  }
+
+  const observer = new ResizeObserver(alignTitle);
+  observer.observe(title);
+  window.addEventListener('resize', alignTitle);
+  document.fonts.ready.then(alignTitle);
+})();
+</script>
 </body>
 </html>

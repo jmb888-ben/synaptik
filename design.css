@@ -198,3 +198,291 @@ main > section:not(.syn-pricing) { padding-block: clamp(82px, 11vw, 156px) !impo
   .seo-hero { padding: 70px 0 48px !important; }
   .seo-grid { padding: 32px 0 70px !important; }
 }
+
+/* Navigation des pages editoriales */
+.seo-navlinks a {
+  font-family: "Avenir Next", Avenir, system-ui, sans-serif !important;
+}
+
+@media (min-width: 901px) {
+  .landing-copy .landing-tagline {
+    max-width: none;
+    white-space: nowrap;
+  }
+}
+
+
+.landing-copy {
+  --landing-support-size: clamp(1.17rem, 2.2vw, 1.75rem);
+}
+.landing-copy :is(.landing-role, .landing-tagline, .landing-formats) {
+  font-size: var(--landing-support-size) !important;
+}
+
+@media (min-width: 901px) {
+  .landing-copy :is(.landing-role, .landing-formats) {
+    display: flex;
+    justify-content: space-between;
+    width: var(--landing-role-width, max-content);
+    margin-inline-start: var(--landing-role-offset, 0px);
+    white-space: nowrap;
+  }
+}
+
+.landing-copy h1 {
+  margin-bottom: 8px !important;
+}
+
+.landing-copy .landing-tagline {
+  font-weight: 300 !important;
+  letter-spacing: .012em;
+}
+
+.landing-copy .landing-formats {
+  white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+  .landing-copy .landing-formats {
+    font-size: min(var(--landing-support-size), 3.4vw) !important;
+  }
+}
+
+@media (min-width: 901px) {
+  .landing-copy .landing-actions {
+    width: var(--landing-block-width, max-content);
+    max-width: none;
+    margin-inline-start: var(--landing-block-offset, 0px);
+  }
+  .landing-copy .landing-actions {
+    justify-content: space-between !important;
+  }
+  .landing-copy .landing-actions .landing-btn {
+    flex: 0 1 28%;
+  }
+}
+
+@media (min-width: 901px) {
+  .landing-copy h1 {
+    display: flex;
+    justify-content: space-between;
+    font-size: calc(clamp(3.4rem, 8.4vw, 8.2rem) * 1.2) !important;
+    letter-spacing: normal !important;
+    width: var(--landing-title-width, max-content) !important;
+    max-width: none;
+    white-space: nowrap;
+  }
+  .landing-copy .landing-tagline {
+    max-width: none;
+    width: var(--landing-block-width, auto);
+    margin-inline-start: var(--landing-block-offset, 0px);
+    white-space: normal;
+    text-align: left;
+  }
+}
+
+.landing-copy .landing-actions .landing-btn {
+  display: grid;
+  grid-template-columns: 1em minmax(0, 1fr) 1em;
+  align-items: center;
+  column-gap: .5em;
+  min-height: 60px;
+  text-align: center;
+}
+.landing-actions .landing-btn > span:nth-last-child(2) { grid-column: 2; }
+.landing-actions .landing-btn > span:last-child { grid-column: 3; }
+
+.landing-copy .landing-tagline {
+  font: 300 min(var(--landing-support-size), 2.9vw)/1.08 var(--ff-t) !important;
+  letter-spacing: .01em !important;
+  color: var(--white) !important;
+  text-transform: none !important;
+  max-width: none;
+}
+.landing-tagline-measure {
+  position: absolute;
+  visibility: hidden;
+  white-space: nowrap;
+  font: 300 var(--landing-support-size)/1 var(--ff-t);
+  letter-spacing: .012em;
+}
+
+.landing-copy .landing-tagline { white-space: nowrap; }
+@media (min-width: 901px) {
+  .landing-copy .landing-tagline { text-align: left; }
+}
+
+.landing-actions .landing-btn > span:nth-last-child(2) {
+  font-size: 1.3em;
+}
+
+.landing-copy .landing-formats {
+  margin-top: 5lh;
+}
+
+.landing-tagline-line {
+  display: block;
+  width: 100%;
+  font-size: var(--landing-line-size, 1em);
+  text-align: justify;
+  text-align-last: justify;
+}
+
+.landing-tagline .landing-tagline-emphasis {
+  font-size: 1.3em;
+}
+
+@media (min-width: 901px) {
+  .landing-copy { translate: 0 26px; }
+}
+
+#about .shdr .stag {
+  font-size: clamp(1.625rem, 3.12vw, 2.6rem) !important;
+  color: #fff !important;
+  text-transform: uppercase !important;
+}
+
+#about .abody,
+#about .abody p {
+  font-size: clamp(1.76rem, 2.64vw, 2.16rem) !important;
+}
+
+#about .agrid > div:first-child { container-type: inline-size; }
+
+#about .albl {
+  font-size: min(2.208rem, 2.9cqi) !important;
+  white-space: nowrap;
+}
+
+#about .statblock {
+  align-self: start;
+  justify-self: end;
+  width: 85%;
+}
+
+#services .abody,
+#services .abody p {
+  font-size: calc(clamp(1rem, 1.35vw, 1.14rem) * 1.44) !important;
+}
+
+#services .abody {
+  max-width: none !important;
+  container-type: inline-size;
+}
+#services .abody > p:first-child {
+  margin-bottom: .25em;
+  font-size: 1.2em !important;
+}
+#services .abody > p:last-child {
+  max-width: none;
+  font-size: min(1em, 1.45cqi) !important;
+  white-space: nowrap;
+}
+
+#services .sname {
+  font-size: calc(clamp(1.18rem, 2vw, 1.65rem) * 1.2) !important;
+}
+#services .sdesc {
+  font-size: 1.08rem !important;
+}
+
+main > #tarifs .sp-container {
+  max-width: none;
+  padding-inline: 2.5rem;
+}
+
+@media (max-width: 700px) {
+  main > #tarifs .sp-container { padding-inline: 1rem; }
+}
+
+/* Small copy in the homepage pricing section. */
+main > #tarifs :is(.sp-mono, .sp-eyebrow, .sp-specs, .sp-price > small,
+  .sp-price-footnote p, .sp-output-equation, .sp-monthly-small, .sp-monthly-period) {
+  font-size: 14.3px;
+}
+main > #tarifs :is(.sp-section-end, .sp-featured-label, .sp-card-top .sp-mono,
+  .sp-output-label, .sp-version) {
+  font-size: 12.87px;
+}
+main > #tarifs :is(.sp-section-number, .sp-price-label, .sp-card-note, .sp-monthly-detail) {
+  font-size: 15.73px;
+}
+main > #tarifs :is(.sp-text-link, .sp-features, .sp-button,
+  .sp-monthly-copy > p:not(.sp-eyebrow, .sp-monthly-detail), .sp-process p, .sp-faq details p) {
+  font-size: 17.16px;
+}
+main > #tarifs :is(.sp-card-description, .sp-faq summary) {
+  font-size: 18.59px;
+}
+main > #tarifs .sp-secondary { font-size: 20.02px; }
+
+@media (min-width: 801px) and (max-width: 1100px) {
+  main > #tarifs :is(.sp-features, .sp-button, .sp-monthly-copy > p:not(.sp-eyebrow)) { font-size: 15.73px; }
+  main > #tarifs .sp-card-description { font-size: 17.16px; }
+  main > #tarifs .sp-specs { font-size: 12.87px; }
+}
+@media (max-width: 800px) {
+  main > #tarifs :is(.sp-specs, .sp-version) { font-size: 15.73px; }
+  main > #tarifs :is(.sp-features, .sp-button) { font-size: 18.59px; }
+  main > #tarifs .sp-card-note { font-size: 17.16px; }
+}
+
+main > #tarifs .sp-button {
+  position: relative;
+  display: block;
+  padding-inline: 2.25rem;
+  text-align: center;
+  align-content: center;
+}
+main > #tarifs .sp-button > span {
+  position: absolute;
+  inset-inline-end: .85rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#contact :is(.cpre, .contact-location) {
+  font-size: calc(var(--type-label) * 1.2) !important;
+}
+#contact .cbig {
+  font-size: calc(var(--type-display) * 1.2) !important;
+}
+#contact .abody p,
+#contact .cemail {
+  font-size: calc(var(--type-body) * 1.2) !important;
+}
+#contact .sp-contact-entry a {
+  font-size: 15.6px;
+}
+
+.syn-pricing .sp-button-centered {
+  display: grid;
+  grid-template-columns: 1.5rem minmax(0, 1fr) 1.5rem;
+  justify-content: stretch;
+  gap: .5rem;
+  text-align: center;
+}
+.syn-pricing .sp-button-centered > .sp-submit-label {
+  grid-column: 2;
+  font: inherit;
+}
+.syn-pricing .sp-button-centered > [aria-hidden] {
+  grid-column: 3;
+  justify-self: end;
+}
+
+.restored-nav .nlinks a,
+.seo-nav .seo-navlinks a { font-size: 1.0625rem !important; }
+
+.sp-offer-page .sp-nav-links a,
+.restored-nav .sp-nav-toggle,
+.sp-offer-page .sp-nav-toggle { font-size: 16px; }
+
+@media (max-width: 700px) {
+  .seo-nav .seo-navlinks a { font-size: .875rem !important; }
+  .restored-nav.sp-nav-enhanced .nlinks.is-open a { font-size: 17px !important; }
+}
+
+@media (max-width: 760px) {
+  .sp-offer-page .sp-nav-enhanced .sp-nav-links a { font-size: 17px !important; }
+}
