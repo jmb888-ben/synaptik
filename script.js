@@ -107,7 +107,7 @@ function buildFeed() {
         '<span class="video-ruler video-ruler--bottom" aria-hidden="true"></span>' +
         '<span class="video-ruler video-ruler--left" aria-hidden="true"></span>' +
       '<div class="vwrap" data-id="' + v.id + '">' +
-        '<img class="vposter" src="' + (v.poster || ('assets/posters/' + v.id + '.jpg')) + '" alt="" width="960" height="540" loading="eager" decoding="async" fetchpriority="' + (i === 0 ? 'high' : 'low') + '">' +
+        '<img class="vposter" src="' + (v.poster || ('assets/posters/' + v.id + '.jpg')) + '" alt="" width="960" height="540" loading="' + (i === 0 ? 'eager' : 'lazy') + '" decoding="async" fetchpriority="' + (i === 0 ? 'high' : 'low') + '">' +
         '<button class="voverlay" type="button" aria-label="Lire ' + v.title + '" onclick="openOverlay(\'' + v.id + '\', this)">' +
           '<div class="vscan"></div>' +
           '<div class="pring">' +
@@ -227,6 +227,10 @@ function initGrid() {
   var ctx = c.getContext('2d');
   var W, H, t = 0;
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var saveData = navigator.connection && navigator.connection.saveData;
+
+  // The background grid is decorative; do not keep a frame loop for reduced-motion or data-saver users.
+  if (reduceMotion || saveData) return;
 
   function resize(){
     W = c.width = window.innerWidth;
@@ -261,7 +265,7 @@ function initGrid() {
       ctx.stroke();
     }
 
-    if(!reduceMotion) t++;
+    t++;
     requestAnimationFrame(draw);
   }
 
