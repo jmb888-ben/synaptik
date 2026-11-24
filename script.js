@@ -80,6 +80,8 @@ document.getElementById('overlayBg').addEventListener('click', closeOverlay);
 /* ------------ CONSTRUCTION DU FEED ------------ */
 function buildFeed() {
   var feed = document.getElementById('vfeed');
+  var reelFeed = document.getElementById('reel-feed');
+  if (!feed) return;
   VIDEOS.forEach(function(v, i) {
     var item = document.createElement('div');
     item.className = 'vitem';
@@ -127,7 +129,8 @@ function buildFeed() {
         '</div>'
       : '');
 
-    feed.appendChild(item);
+    var destination = reelFeed && v.id === '1223586438' ? reelFeed : feed;
+    destination.appendChild(item);
   });
 
   var hub = document.createElement('div');
@@ -341,7 +344,7 @@ function initReveal() {
 function initSectionMotion() {
   if (!('IntersectionObserver' in window) ||
       window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var sections = Array.from(document.querySelectorAll('#videos, #about, #services, #tarifs'));
+  var sections = Array.from(document.querySelectorAll('#reel, #tarifs, #videos, #about, #services'));
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
       if (!entry.isIntersecting) return;
@@ -415,7 +418,9 @@ window.addEventListener('DOMContentLoaded', function(){
     if (!list) return;
     var links = Array.from(list.querySelectorAll('a[href^="#"]')).map(function(link){
       return {link:link, section:document.getElementById(link.hash.slice(1))};
-    }).filter(function(item){ return item.section; });
+    }).filter(function(item){ return item.section; }).sort(function(a,b){
+      return a.section.compareDocumentPosition(b.section) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
+    });
     if (!links.length) return;
 
     var indicator = document.createElement('li');
