@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Synaptik — Aperçu motion hero</title>
+<link rel="preconnect" href="https://use.typekit.net"/>
+<link rel="stylesheet" href="https://use.typekit.net/iwx0khb.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="s1.css"/>
+<link rel="stylesheet" href="s2.css"/>
+<link rel="stylesheet" href="s3.css"/>
+<link rel="stylesheet" href="s4.css"/>
+<link rel="stylesheet" href="s5.css"/>
+<link rel="stylesheet" href="s6.css"/>
+<link rel="stylesheet" href="s7.css"/>
+<link rel="stylesheet" href="s8.css"/>
+<link rel="stylesheet" href="synaptik-clean.css?v=20261124-motion-preview-1"/>
+<style>
+html,body{margin:0;min-height:100%;background:#050708}
+body.motion-preview{overflow-x:hidden}
+.motion-preview .restored-nav .nlinks a{pointer-events:auto}
+.motion-preview .landing-hero{min-height:calc(100vh - 72px)!important;height:calc(100vh - 72px)!important}
+.motion-preview .landing-visual{pointer-events:none!important}
+.motion-preview .landing-visual::before{
+  content:"";
+  position:absolute;
+  left:4%;
+  right:3%;
+  top:-4%;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(114,216,220,.85),transparent);
+  box-shadow:0 0 12px rgba(114,216,220,.38);
+  opacity:0;
+  z-index:5;
+}
+.motion-preview .landing-hero.motion-on .landing-visual::before{
+  animation:hudScan .72s 1.02s cubic-bezier(.22,1,.36,1) 1 both;
+}
+@keyframes hudScan{
+  0%{top:8%;opacity:0}
+  12%{opacity:.65}
+  80%{opacity:.45}
+  100%{top:88%;opacity:0}
+}
+
+.motion-preview .landing-hero.motion-on::before{
+  animation:frameIn .28s ease-out both;
+}
+@keyframes frameIn{
+  from{opacity:0}
+  to{opacity:.72}
+}
+
+.motion-preview .landing-boot-title{
+  opacity:0;
+  transform:translateY(4px);
+}
+.motion-preview .landing-hero.motion-on .landing-boot-title{
+  animation:rise .18s .08s ease-out forwards;
+}
+.motion-preview .landing-boot-row{
+  opacity:0!important;
+  transform:translateY(3px)!important;
+}
+.motion-preview .landing-hero.motion-on .landing-boot-row:nth-of-type(2){animation:bootLine .18s .24s ease-out forwards}
+.motion-preview .landing-hero.motion-on .landing-boot-row:nth-of-type(3){animation:bootLine .18s .31s ease-out forwards}
+.motion-preview .landing-hero.motion-on .landing-boot-row:nth-of-type(4){animation:bootLine .18s .38s ease-out forwards}
+.motion-preview .landing-hero.motion-on .landing-boot-row:nth-of-type(5){animation:bootLine .18s .45s ease-out forwards}
+.motion-preview .landing-hero.motion-on .landing-boot-row:nth-of-type(6){animation:bootLine .18s .52s ease-out forwards}
+.motion-preview .landing-hero.motion-on .landing-boot-row:nth-of-type(7){animation:bootLine .18s .59s ease-out forwards}
+.motion-preview .landing-boot-progress span{animation:none!important;transform:scaleX(0)!important}
+.motion-preview .landing-hero.motion-on .landing-boot-progress span{
+  animation:previewProgress .72s .2s cubic-bezier(.22,1,.36,1) forwards!important;
+}
+@keyframes previewProgress{to{transform:scaleX(1)}}
+@keyframes bootLine{to{opacity:1;transform:none}}
+
+.motion-preview .landing-visual img{
+  opacity:0!important;
+  transform:translateX(14px) scale(.985)!important;
+  transform-origin:right center!important;
+  filter:brightness(.82);
+}
+.motion-preview .landing-hero.motion-on .landing-visual img{
+  animation:humanIn .55s .73s cubic-bezier(.23,1,.32,1) forwards;
+}
+@keyframes humanIn{
+  to{opacity:.88;transform:translateX(0) scale(1);filter:brightness(1)}
+}
+
+.motion-preview .landing-copy h1,
+.motion-preview .landing-role,
+.motion-preview .landing-tagline,
+.motion-preview .landing-actions{
+  opacity:0;
+  transform:translateY(10px);
+}
+.motion-preview .landing-hero.motion-on .landing-copy h1{animation:rise .32s 1.25s cubic-bezier(.22,1,.36,1) forwards}
+.motion-preview .landing-hero.motion-on .landing-role{animation:rise .3s 1.32s cubic-bezier(.22,1,.36,1) forwards}
+.motion-preview .landing-hero.motion-on .landing-tagline{animation:rise .3s 1.39s cubic-bezier(.22,1,.36,1) forwards}
+.motion-preview .landing-hero.motion-on .landing-actions{animation:rise .3s 1.48s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+
+.motion-preview .landing-btn{
+  transition:background .16s ease,border-color .16s ease,transform .12s ease!important;
+}
+@media(hover:hover) and (pointer:fine){
+  .motion-preview .landing-btn:hover{transform:translateY(-1px)!important}
+  .motion-preview .landing-btn:hover span:last-child{transform:translateX(4px)}
+  .motion-preview .landing-btn span:last-child{transition:transform .16s ease}
+}
+.motion-preview .landing-btn:active{transform:scale(.98)!important}
+
+.preview-controls{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:2000;
+  display:flex;
+  gap:10px;
+}
+.preview-controls button,.preview-controls a{
+  height:38px;
+  padding:0 14px;
+  display:inline-flex;
+  align-items:center;
+  border:1px solid rgba(114,216,220,.5);
+  background:rgba(5,7,8,.88);
+  color:#eef4f4;
+  font:500 11px/1 "IBM Plex Mono",monospace;
+  letter-spacing:.08em;
+  text-decoration:none;
+  cursor:pointer;
+}
+.preview-label{
+  position:fixed;
+  left:20px;
+  bottom:20px;
+  z-index:2000;
+  font:400 10px/1 "IBM Plex Mono",monospace;
+  letter-spacing:.12em;
+  color:rgba(114,216,220,.72);
+}
+@media(prefers-reduced-motion:reduce){
+  .motion-preview *{animation:none!important;transition:none!important}
+  .motion-preview .landing-boot-title,
+  .motion-preview .landing-boot-row,
+  .motion-preview .landing-visual img,
+  .motion-preview .landing-copy h1,
+  .motion-preview .landing-role,
+  .motion-preview .landing-tagline,
+  .motion-preview .landing-actions{opacity:1!important;transform:none!important;filter:none!important}
+}
+</style>
+</head>
+<body class="motion-preview">
+<nav class="restored-nav" aria-label="Navigation principale"><a class="nlogo" href="/" aria-label="Synaptik — Accueil"><img class="nav-brand-logo" src="assets/synaptik-logo-cropped.svg" alt="Synaptik AI Studio" width="851" height="193" decoding="async" fetchpriority="high"/></a><ul class="nlinks sp-nav-links"><li><a href="/#videos">Créations</a></li><li><a href="/#about">Studio</a></li><li><a href="/#services">Services</a></li><li><a href="/#tarifs">Tarifs</a></li><li><a href="/#contact">Contact</a></li></ul></nav>
+
+<main>
+<div class="landing-hero" id="motionHero">
+  <div class="landing-corners" aria-hidden="true"></div>
+
+  <div class="landing-boot">
+    <div class="landing-boot-title"><span class="landing-boot-square"></span><span>SYNAPTIK / SYSTEM BOOT</span></div>
+    <div class="landing-boot-row"><span>SYN://INIT</span><span>OK</span></div>
+    <div class="landing-boot-row"><span>SYN://LOAD_MODULES</span><span>OK</span></div>
+    <div class="landing-boot-row"><span>SYN://GEN_AI_CORE v4.1.0</span><span>OK</span></div>
+    <div class="landing-boot-row"><span>SYN://NEURAL_RENDERER</span><span>OK</span></div>
+    <div class="landing-boot-row"><span>SYN://VISION_PIPELINE</span><span>OK</span></div>
+    <div class="landing-boot-row"><span>SYN://CREATIVE_ENGINE</span><span class="landing-running">RUNNING</span></div>
+    <div class="landing-boot-progress" aria-hidden="true"><span></span></div>
+  </div>
+
+  <div class="landing-copy">
+    <h1><span>LA</span> <span>DA</span> <span>DE</span> <span>L’<span class="editorial-accent">IA</span></span></h1>
+    <div class="landing-role"><span>Films publicitaires</span> <span>·</span> <span>Brand content</span> <span>·</span> <span><span class="editorial-accent">IA</span> générative</span></div>
+    <div class="landing-tagline"><span class="landing-tagline-line">Les moyens de <span class="editorial-accent">production</span> évoluent.</span> <span class="landing-tagline-line">La direction reste <span class="editorial-accent landing-tagline-emphasis">artistique</span>.</span></div>
+    <div class="landing-actions">
+      <a href="/#videos" class="landing-btn landing-btn-primary"><span class="landing-play">▶</span><span>Voir le reel</span><span>→</span></a>
+      <a href="/#contact" class="landing-btn landing-btn-secondary"><span>Parler d’un projet</span><span>→</span></a>
+      <a href="/#tarifs" class="landing-btn landing-btn-secondary"><span>Voir les tarifs</span><span>→</span></a>
+    </div>
+  </div>
+
+  <div class="landing-visual" aria-label="Schéma filaire de l’Homme de Vitruve">
+    <img src="assets/hud/hero-vitruvian-reference.png" alt="Homme de Vitruve traité en schéma filaire cyan avec grilles, graduations et détails techniques" width="1672" height="941" decoding="async" fetchpriority="high" draggable="false"/>
+  </div>
+
+  <div class="landing-bottom-tech" aria-hidden="true">
+    <span>// CREATIVE &nbsp;·&nbsp; AI &nbsp;·&nbsp; FILM &nbsp;·&nbsp; HYBRID</span>
+    <span>TC&nbsp;&nbsp;00:00:00:00&nbsp;&nbsp;&nbsp;&nbsp;||||||||||||</span>
+  </div>
+</div>
+</main>
+
+<div class="preview-label">MOTION TEST / HERO / V01</div>
+<div class="preview-controls">
+  <button type="button" id="replay">REJOUER</button>
+  <a href="/">RETOUR SITE</a>
+</div>
+
+<script>
+(function(){
+  const hero=document.getElementById('motionHero');
+  const replay=document.getElementById('replay');
+  function play(){
+    hero.classList.remove('motion-on');
+    void hero.offsetWidth;
+    requestAnimationFrame(()=>hero.classList.add('motion-on'));
+  }
+  replay.addEventListener('click',play);
+  window.addEventListener('load',()=>setTimeout(play,120));
+})();
+</script>
+</body>
+</html>
