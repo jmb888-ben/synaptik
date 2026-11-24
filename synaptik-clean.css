@@ -273,10 +273,11 @@ section{
   color:var(--hud-soft)!important;
   margin-right:.6rem!important;
 }
-#reel .stag::before{content:"01 / "!important}
-#videos .stag::before{content:"03 / "!important}
-#about .stag::before{content:"04 / "!important}
-#services .stag::before{content:"05 / "!important}
+#creations .stag::before{content:"01 / "!important}
+#reel .stag::before{content:"02 / "!important}
+#videos .stag::before{content:"04 / "!important}
+#about .stag::before{content:"05 / "!important}
+#services .stag::before{content:"06 / "!important}
 .sl{display:none!important}
 .sidx{margin-left:auto!important;font:400 .52rem/1 var(--ff-m)!important;letter-spacing:.12em!important;color:rgba(180,220,222,.68)!important}
 
@@ -757,7 +758,7 @@ footer{border-top:1px solid rgba(114,216,220,.24)!important;background:#050708!i
 
 /* One size hierarchy for editorial content, applied after legacy rules. */
 body{font-size:var(--type-body)}
-.landing-copy h1,#videos h2.vtitle,#contact .cbig{
+.landing-copy h1,#creations h2.vtitle,#contact .cbig{
   font-size:var(--type-display)!important;line-height:1.08!important;
 }
 .stag{font-size:var(--type-section)!important;line-height:1.15!important}
@@ -774,14 +775,14 @@ body{font-size:var(--type-body)}
   font-size:var(--type-small)!important;line-height:1.55!important;
 }
 .landing-btn{font-size:var(--type-action)!important}
-#videos .portfolio-intro{
+#creations .portfolio-intro{
   max-width:1160px;margin:0;padding:0 2.5rem 3.5rem;
 }
-#videos .portfolio-intro,#videos .portfolio-intro p{
+#creations .portfolio-intro,#creations .portfolio-intro p{
   font-size:var(--type-lead)!important;line-height:1.5!important;
 }
-#videos .portfolio-intro p{max-width:36em}
-#videos .portfolio-intro p+p{margin-top:1.05em}
+#creations .portfolio-intro p{max-width:36em}
+#creations .portfolio-intro p+p{margin-top:1.05em}
 .reel-kicker,.reel-note,.vitem-idx,.vitem-tag,.vitem-ext,
 .sn,.scat,.stkey,.cpre,.albl,.cred-label,.contact-location{
   font-size:var(--type-label)!important;line-height:1.5!important;
@@ -799,8 +800,8 @@ body{font-size:var(--type-body)}
 #services .svcrow{min-height:190px!important}
 #services .svcrow .scat{white-space:normal;justify-self:start}
 @media(max-width:700px){
-  #videos .portfolio-intro{padding:0 1rem 2.5rem}
-  .landing-copy h1,#videos h2.vtitle,#contact .cbig{white-space:normal!important}
+  #creations .portfolio-intro{padding:0 1rem 2.5rem}
+  .landing-copy h1,#creations h2.vtitle,#contact .cbig{white-space:normal!important}
   .vitem-meta{flex-wrap:wrap;row-gap:.75rem}
   .vitem-desc{flex-wrap:wrap;gap:.75rem}
   #services .svcrow{grid-template-columns:28px minmax(0,1fr)!important;padding:1.2rem!important}

@@ -132,3 +132,28 @@
   }
   #contact .contact-reference img,#contact.contact-motion:not(.contact-motion-ready) .contact-reference img{opacity:.92!important;scale:1;transition:none!important}
 }
+
+
+/* Creations opens the portfolio before the featured reel. */
+main > #creations {
+  padding-inline:0!important;
+  padding-block:clamp(3rem,6vw,6rem)!important;
+  scroll-margin-top:84px;
+}
+#creations h2.vtitle {
+  padding-inline:2.5rem!important;
+  margin-bottom:1.5rem!important;
+}
+#creations .portfolio-intro {
+  padding-bottom:0!important;
+  margin-bottom:0!important;
+}
+@media(max-width:700px) {
+  #creations h2.vtitle { padding-inline:1rem!important; }
+}
+/* Fit the seventh link without changing the existing mobile menu. */
+@media(min-width:801px) and (max-width:1250px) {
+  .restored-nav .nlinks { gap:clamp(8px,1.25vw,18px)!important; }
+  .restored-nav .nlinks a { font-size:clamp(.75rem,1.18vw,.95rem)!important; }
+  .restored-nav { gap:16px; padding-inline:clamp(16px,2.5vw,32px)!important; }
+}
