@@ -816,3 +816,144 @@ body{font-size:var(--type-body)}
   transform:scale(1.20175)!important;
   transform-origin:right top!important;
 }
+
+
+/* =========================================================
+   VALIDATED HOMEPAGE MOTION — Kowalski-style restrained motion
+   One-shot sequence: frame -> boot -> human -> scan -> copy/CTA
+========================================================= */
+.motion-js .motion-live:not(.motion-ready) .landing-hero::before{
+  opacity:0!important;
+}
+.motion-js .motion-live.motion-ready .landing-hero::before{
+  opacity:.72!important;
+  transition:opacity .26s ease-out!important;
+}
+
+.motion-js .motion-live .landing-boot-title{
+  opacity:0!important;
+  transform:translateY(4px)!important;
+  transition:opacity .18s ease-out,transform .18s ease-out!important;
+  transition-delay:.08s!important;
+}
+.motion-js .motion-live.motion-ready .landing-boot-title{
+  opacity:1!important;
+  transform:none!important;
+}
+
+.motion-js .motion-live .landing-boot-row{
+  opacity:0!important;
+  transform:translateY(3px)!important;
+  transition:opacity .18s ease-out,transform .18s ease-out!important;
+}
+.motion-js .motion-live .landing-boot-row:nth-of-type(2){transition-delay:.24s!important}
+.motion-js .motion-live .landing-boot-row:nth-of-type(3){transition-delay:.31s!important}
+.motion-js .motion-live .landing-boot-row:nth-of-type(4){transition-delay:.38s!important}
+.motion-js .motion-live .landing-boot-row:nth-of-type(5){transition-delay:.45s!important}
+.motion-js .motion-live .landing-boot-row:nth-of-type(6){transition-delay:.52s!important}
+.motion-js .motion-live .landing-boot-row:nth-of-type(7){transition-delay:.59s!important}
+.motion-js .motion-live.motion-ready .landing-boot-row{
+  opacity:1!important;
+  transform:none!important;
+}
+
+.motion-js .motion-live .landing-boot-progress span{
+  animation:none!important;
+  transform:scaleX(0)!important;
+  transition:transform .72s cubic-bezier(.22,1,.36,1)!important;
+  transition-delay:.20s!important;
+}
+.motion-js .motion-live.motion-ready .landing-boot-progress span{
+  transform:scaleX(1)!important;
+}
+
+.motion-js .motion-live .landing-visual{
+  opacity:0!important;
+  transform:translateX(14px) scale(.985)!important;
+  transform-origin:right center!important;
+  transition:
+    opacity .55s cubic-bezier(.23,1,.32,1),
+    transform .55s cubic-bezier(.23,1,.32,1)!important;
+  transition-delay:.73s!important;
+}
+.motion-js .motion-live.motion-ready .landing-visual{
+  opacity:1!important;
+  transform:none!important;
+}
+.motion-js .motion-live .landing-visual::before{
+  content:"";
+  position:absolute;
+  left:4%;
+  right:3%;
+  top:8%;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(114,216,220,.86),transparent);
+  box-shadow:0 0 12px rgba(114,216,220,.38);
+  opacity:0;
+  z-index:5;
+  pointer-events:none;
+}
+.motion-js .motion-live.motion-ready .landing-visual::before{
+  animation:synaptikHudScan .72s 1.02s cubic-bezier(.22,1,.36,1) both;
+}
+@keyframes synaptikHudScan{
+  0%{top:8%;opacity:0}
+  12%{opacity:.65}
+  80%{opacity:.42}
+  100%{top:88%;opacity:0}
+}
+
+.motion-js .motion-live .landing-copy h1,
+.motion-js .motion-live .landing-role,
+.motion-js .motion-live .landing-tagline,
+.motion-js .motion-live .landing-actions{
+  opacity:0!important;
+  transform:translateY(10px)!important;
+}
+.motion-js .motion-live.motion-ready .landing-copy h1{
+  opacity:1!important;transform:none!important;
+  transition:opacity .32s cubic-bezier(.22,1,.36,1),transform .32s cubic-bezier(.22,1,.36,1)!important;
+  transition-delay:1.25s!important;
+}
+.motion-js .motion-live.motion-ready .landing-role{
+  opacity:1!important;transform:none!important;
+  transition:opacity .30s cubic-bezier(.22,1,.36,1),transform .30s cubic-bezier(.22,1,.36,1)!important;
+  transition-delay:1.32s!important;
+}
+.motion-js .motion-live.motion-ready .landing-tagline{
+  opacity:1!important;transform:none!important;
+  transition:opacity .30s cubic-bezier(.22,1,.36,1),transform .30s cubic-bezier(.22,1,.36,1)!important;
+  transition-delay:1.39s!important;
+}
+.motion-js .motion-live.motion-ready .landing-actions{
+  opacity:1!important;transform:none!important;
+  transition:opacity .30s cubic-bezier(.22,1,.36,1),transform .30s cubic-bezier(.22,1,.36,1)!important;
+  transition-delay:1.48s!important;
+}
+
+@media(hover:hover) and (pointer:fine){
+  .motion-live .landing-btn span:last-child{transition:transform .16s ease}
+  .motion-live .landing-btn:hover span:last-child{transform:translateX(4px)}
+}
+.motion-live .landing-btn:active{transform:scale(.98)!important}
+
+@media(prefers-reduced-motion:reduce){
+  .motion-js .motion-live .landing-hero::before,
+  .motion-js .motion-live .landing-boot-title,
+  .motion-js .motion-live .landing-boot-row,
+  .motion-js .motion-live .landing-visual,
+  .motion-js .motion-live .landing-copy h1,
+  .motion-js .motion-live .landing-role,
+  .motion-js .motion-live .landing-tagline,
+  .motion-js .motion-live .landing-actions{
+    opacity:1!important;
+    transform:none!important;
+    transition:none!important;
+    animation:none!important;
+  }
+  .motion-js .motion-live .landing-boot-progress span{
+    transform:scaleX(1)!important;
+    transition:none!important;
+  }
+  .motion-js .motion-live .landing-visual::before{display:none!important}
+}

@@ -95,14 +95,15 @@
 <link rel="stylesheet" href="s7.css"/>
 <link rel="stylesheet" href="s8.css"/>
 <link rel="stylesheet" href="typography.css?v=20261103-scale-1"/>
-<link rel="stylesheet" href="synaptik-clean.css?v=20261103-human-plus10-1"/>
+<link rel="stylesheet" href="synaptik-clean.css?v=20261124-motion-live-1"/>
 <link rel="stylesheet" href="/tarifs.css?v=20261111-1"/>
 <link rel="preload" as="image" href="assets/posters/1223586438.jpg" fetchpriority="high"/>
 
 
 <link rel="stylesheet" href="/design.css?v=20261113-mobile-readability"/>
+<script>document.documentElement.classList.add('motion-js');</script>
 </head>
-<body>
+<body class="motion-live">
 <a class="skip-link" href="#main-content">Aller au contenu</a>
 <div id="pbar"></div><div class="cdot" id="cdot"></div><div class="cring" id="cring"></div><div id="gbg"><canvas id="gc"></canvas></div>
 <div id="playerOverlay" role="dialog" aria-modal="true" aria-label="Lecteur vidéo" aria-hidden="true" inert><div class="overlay-bg" id="overlayBg"></div><iframe id="overlayPlayer" src="" title="Vidéo Synaptik Studio" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe><button id="closePlayer" type="button" aria-label="Fermer la vidéo" onclick="closeOverlay()">&#10005; FERMER</button></div>
@@ -369,6 +370,23 @@
   observer.observe(title);
   window.addEventListener('resize', alignTitle);
   document.fonts.ready.then(alignTitle);
+})();
+</script>
+<script>
+(function(){
+  function startSynaptikMotion(){
+    if(!document.body.classList.contains('motion-live')) return;
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        document.body.classList.add('motion-ready');
+      });
+    });
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', startSynaptikMotion, {once:true});
+  } else {
+    startSynaptikMotion();
+  }
 })();
 </script>
 </body>
