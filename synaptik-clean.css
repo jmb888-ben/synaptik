@@ -957,3 +957,123 @@ body{font-size:var(--type-body)}
   }
   .motion-js .motion-live .landing-visual::before{display:none!important}
 }
+
+
+/* =========================================================
+   SECTION ENTRANCE MOTION
+   Only section markers/headings animate. Body copy stays stable.
+========================================================= */
+.motion-js .motion-live .motion-section .stag,
+.motion-js .motion-live .motion-section h2.vtitle,
+.motion-js .motion-live .motion-section .sidx,
+.motion-js .motion-live .motion-section .sp-section-number,
+.motion-js .motion-live .motion-section .sp-section-end,
+.motion-js .motion-live .motion-section #sp-heading{
+  opacity:0!important;
+  transform:translateY(8px)!important;
+}
+
+.motion-js .motion-live .motion-section .stag::after,
+.motion-js .motion-live .motion-section .sp-section-rule{
+  transform:scaleX(0)!important;
+  transform-origin:left center!important;
+}
+
+.motion-js .motion-live .motion-section.section-motion-ready .stag{
+  opacity:1!important;
+  transform:none!important;
+  transition:opacity .28s cubic-bezier(.22,1,.36,1),transform .28s cubic-bezier(.22,1,.36,1)!important;
+}
+.motion-js .motion-live .motion-section.section-motion-ready .stag::after{
+  transform:scaleX(1)!important;
+  transition:transform .32s .06s cubic-bezier(.22,1,.36,1)!important;
+}
+.motion-js .motion-live .motion-section.section-motion-ready .sidx{
+  opacity:1!important;
+  transform:none!important;
+  transition:opacity .24s .10s ease-out,transform .24s .10s ease-out!important;
+}
+.motion-js .motion-live .motion-section.section-motion-ready h2.vtitle{
+  opacity:1!important;
+  transform:none!important;
+  transition:opacity .30s .08s cubic-bezier(.22,1,.36,1),transform .30s .08s cubic-bezier(.22,1,.36,1)!important;
+}
+
+.motion-js .motion-live .motion-section.section-motion-ready .sp-section-number{
+  opacity:1!important;
+  transform:none!important;
+  transition:opacity .26s cubic-bezier(.22,1,.36,1),transform .26s cubic-bezier(.22,1,.36,1)!important;
+}
+.motion-js .motion-live .motion-section.section-motion-ready .sp-section-rule{
+  transform:scaleX(1)!important;
+  transition:transform .34s .06s cubic-bezier(.22,1,.36,1)!important;
+}
+.motion-js .motion-live .motion-section.section-motion-ready .sp-section-end{
+  opacity:1!important;
+  transform:none!important;
+  transition:opacity .24s .10s ease-out,transform .24s .10s ease-out!important;
+}
+.motion-js .motion-live .motion-section.section-motion-ready #sp-heading{
+  opacity:1!important;
+  transform:none!important;
+  transition:opacity .30s .08s cubic-bezier(.22,1,.36,1),transform .30s .08s cubic-bezier(.22,1,.36,1)!important;
+}
+
+/* =========================================================
+   FILM MICRO-INTERACTIONS
+========================================================= */
+.vitem{
+  transition:transform .22s cubic-bezier(.22,1,.36,1),border-color .18s ease!important;
+}
+.vwrap{
+  overflow:hidden!important;
+}
+.vposter{
+  transition:transform .22s cubic-bezier(.22,1,.36,1),opacity .18s ease!important;
+  transform-origin:center center!important;
+}
+.vitem-idx,.vitem-tag,.vitem-ext,.watch-cue{
+  transition:opacity .18s ease,color .18s ease,transform .18s cubic-bezier(.22,1,.36,1),border-color .18s ease!important;
+}
+.vitem-idx,.vitem-tag{opacity:.68!important}
+
+@media(hover:hover) and (pointer:fine){
+  .vitem:hover{transform:translateY(-2px)!important;border-color:rgba(114,216,220,.32)!important}
+  .vitem:hover .vposter{transform:scale(1.015)!important}
+  .vitem:hover .vitem-idx,.vitem:hover .vitem-tag{opacity:1!important}
+  .vitem:hover .vitem-ext{transform:translateX(4px)!important;color:var(--hud)!important}
+  .vitem:hover .watch-cue{transform:translate(-50%,-2px)!important}
+}
+
+/* Faster, cleaner hand-off from poster to full-screen Vimeo. */
+#playerOverlay{
+  transition:opacity .20s ease,visibility 0s linear .20s!important;
+}
+#playerOverlay.active{transition-delay:0s!important}
+#overlayPlayer{
+  transform:scale(.985)!important;
+  opacity:0!important;
+  transition:transform .22s cubic-bezier(.22,1,.36,1),opacity .18s ease!important;
+}
+#playerOverlay.active #overlayPlayer{
+  transform:scale(1)!important;
+  opacity:1!important;
+}
+
+@media(prefers-reduced-motion:reduce){
+  .motion-js .motion-live .motion-section .stag,
+  .motion-js .motion-live .motion-section h2.vtitle,
+  .motion-js .motion-live .motion-section .sidx,
+  .motion-js .motion-live .motion-section .sp-section-number,
+  .motion-js .motion-live .motion-section .sp-section-end,
+  .motion-js .motion-live .motion-section #sp-heading{
+    opacity:1!important;transform:none!important;transition:none!important;
+  }
+  .motion-js .motion-live .motion-section .stag::after,
+  .motion-js .motion-live .motion-section .sp-section-rule{
+    transform:scaleX(1)!important;transition:none!important;
+  }
+  .vitem,.vposter,.vitem-idx,.vitem-tag,.vitem-ext,.watch-cue,#playerOverlay,#overlayPlayer{
+    transition:none!important;
+  }
+}

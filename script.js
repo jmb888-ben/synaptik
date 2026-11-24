@@ -332,6 +332,33 @@ function initReveal() {
 }
 
 
+/* ------------ MOTION DES SECTIONS ------------ */
+function initSectionMotion() {
+  if (!('IntersectionObserver' in window)) return;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var sections = Array.from(document.querySelectorAll('#videos, #about, #services, #tarifs'));
+
+  sections.forEach(function(section){
+    section.classList.add('motion-section');
+  });
+
+  if (reduceMotion.matches) {
+    sections.forEach(function(section){ section.classList.add('section-motion-ready'); });
+    return;
+  }
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('section-motion-ready');
+      io.unobserve(entry.target);
+    });
+  }, { threshold:.12, rootMargin:'0px 0px -8% 0px' });
+
+  sections.forEach(function(section){ io.observe(section); });
+}
+
+
 /* ------------ HORLOGE ------------ */
 function tick(){
   var n=new Date(), h=String(n.getHours()).padStart(2,'0'), m=String(n.getMinutes()).padStart(2,'0'), s=String(n.getSeconds()).padStart(2,'0');
@@ -349,6 +376,7 @@ window.addEventListener('DOMContentLoaded', function(){
   runBoot();
   initCursor();
   initReveal();
+  initSectionMotion();
 });
 
 /* ------------ NAVIGATION ACTIVE ------------ */
