@@ -275,9 +275,9 @@ section{
 }
 #creations .stag::before{content:"01 / "!important}
 #reel .stag::before{content:"02 / "!important}
-#videos .stag::before{content:"04 / "!important}
-#about .stag::before{content:"05 / "!important}
-#services .stag::before{content:"06 / "!important}
+#videos .stag::before{content:"06 / "!important}
+#about .stag::before{content:"04 / "!important}
+#services .stag::before{content:"05 / "!important}
 .sl{display:none!important}
 .sidx{margin-left:auto!important;font:400 .52rem/1 var(--ff-m)!important;letter-spacing:.12em!important;color:rgba(180,220,222,.68)!important}
 

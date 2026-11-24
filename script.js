@@ -466,7 +466,7 @@ function initReveal() {
 function initSectionMotion() {
   if (!('IntersectionObserver' in window) ||
       window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var sections = Array.from(document.querySelectorAll('#creations, #reel, #tarifs, #videos, #about, #services'));
+  var sections = Array.from(document.querySelectorAll('#creations, #reel, #tarifs, #about, #services, #videos'));
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
       if (!entry.isIntersecting) return;
