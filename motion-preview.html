@@ -106,22 +106,57 @@
 .motion-preview .landing-hero::before{animation:mp-frame .26s ease-out both}
 @keyframes mp-frame{from{opacity:0}to{opacity:.72}}
 
-.motion-preview .landing-boot-title{opacity:0;transform:translateY(4px)}
-.motion-preview.motion-ready .landing-boot-title{animation:mp-rise .18s .08s ease-out forwards}
-.motion-preview .landing-boot-row{opacity:0!important;transform:translateY(3px)!important}
-.motion-preview.motion-ready .landing-boot-row:nth-of-type(2){animation:mp-boot .18s .24s ease-out forwards}
-.motion-preview.motion-ready .landing-boot-row:nth-of-type(3){animation:mp-boot .18s .31s ease-out forwards}
-.motion-preview.motion-ready .landing-boot-row:nth-of-type(4){animation:mp-boot .18s .38s ease-out forwards}
-.motion-preview.motion-ready .landing-boot-row:nth-of-type(5){animation:mp-boot .18s .45s ease-out forwards}
-.motion-preview.motion-ready .landing-boot-row:nth-of-type(6){animation:mp-boot .18s .52s ease-out forwards}
-.motion-preview.motion-ready .landing-boot-row:nth-of-type(7){animation:mp-boot .18s .59s ease-out forwards}
-@keyframes mp-boot{to{opacity:1;transform:none}}
+.motion-preview .landing-boot-title{
+  opacity:0!important;
+  transform:translateY(4px)!important;
+  transition:opacity .18s ease-out,transform .18s ease-out!important;
+  transition-delay:.08s!important;
+}
+.motion-preview.motion-ready .landing-boot-title{
+  opacity:1!important;
+  transform:none!important;
+}
 
-.motion-preview .landing-boot-progress span{animation:none!important;transform:scaleX(0)!important}
-.motion-preview.motion-ready .landing-boot-progress span{animation:mp-progress .72s .2s cubic-bezier(.22,1,.36,1) forwards!important}
-@keyframes mp-progress{to{transform:scaleX(1)}}
+.motion-preview .landing-boot-row{
+  opacity:0!important;
+  transform:translateY(3px)!important;
+  transition:opacity .18s ease-out,transform .18s ease-out!important;
+}
+.motion-preview .landing-boot-row:nth-of-type(2){transition-delay:.24s!important}
+.motion-preview .landing-boot-row:nth-of-type(3){transition-delay:.31s!important}
+.motion-preview .landing-boot-row:nth-of-type(4){transition-delay:.38s!important}
+.motion-preview .landing-boot-row:nth-of-type(5){transition-delay:.45s!important}
+.motion-preview .landing-boot-row:nth-of-type(6){transition-delay:.52s!important}
+.motion-preview .landing-boot-row:nth-of-type(7){transition-delay:.59s!important}
+.motion-preview.motion-ready .landing-boot-row{
+  opacity:1!important;
+  transform:none!important;
+}
 
-.motion-preview .landing-visual{pointer-events:none!important}
+.motion-preview .landing-boot-progress span{
+  animation:none!important;
+  transform:scaleX(0)!important;
+  transition:transform .72s cubic-bezier(.22,1,.36,1)!important;
+  transition-delay:.2s!important;
+}
+.motion-preview.motion-ready .landing-boot-progress span{
+  transform:scaleX(1)!important;
+}
+
+.motion-preview .landing-visual{
+  pointer-events:none!important;
+  opacity:0!important;
+  transform:translateX(14px) scale(.985)!important;
+  transform-origin:right center!important;
+  transition:
+    opacity .55s cubic-bezier(.23,1,.32,1),
+    transform .55s cubic-bezier(.23,1,.32,1)!important;
+  transition-delay:.73s!important;
+}
+.motion-preview.motion-ready .landing-visual{
+  opacity:1!important;
+  transform:none!important;
+}
 .motion-preview .landing-visual::before{
   content:"";position:absolute;left:4%;right:3%;top:8%;height:1px;
   background:linear-gradient(90deg,transparent,rgba(114,216,220,.86),transparent);
@@ -129,10 +164,6 @@
 }
 .motion-preview.motion-ready .landing-visual::before{animation:mp-scan .72s 1.02s cubic-bezier(.22,1,.36,1) both}
 @keyframes mp-scan{0%{top:8%;opacity:0}12%{opacity:.65}80%{opacity:.42}100%{top:88%;opacity:0}}
-
-.motion-preview .landing-visual img{opacity:0!important;transform:translateX(14px) scale(.985)!important;transform-origin:right center!important;filter:brightness(.82)}
-.motion-preview.motion-ready .landing-visual img{animation:mp-human .55s .73s cubic-bezier(.23,1,.32,1) forwards!important}
-@keyframes mp-human{to{opacity:.88;transform:translateX(0) scale(1);filter:brightness(1)}}
 
 .motion-preview .landing-copy h1,
 .motion-preview .landing-role,
@@ -456,7 +487,7 @@
 })();
 </script>
 
-<div class="motion-preview-badge">MOTION TEST / FULL SITE / V02</div>
+<div class="motion-preview-badge">MOTION TEST / FULL SITE / V03</div>
 <div class="motion-preview-controls">
   <button type="button" id="motionReplay">REJOUER HERO</button>
   <a href="/">RETOUR SITE</a>
