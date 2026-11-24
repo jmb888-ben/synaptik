@@ -1,0 +1,291 @@
+[
+  {
+    "id": "1223586438",
+    "slug": "synaptik-reel",
+    "title": "Synaptik Reel",
+    "category": "Showreel · 60 secondes",
+    "desc": "Une minute de réalisation, de direction artistique et de création en IA générative : publicité, fiction et recherche visuelle.",
+    "detail": "Le reel rassemble différentes approches du film, du travail de mise en scène à la construction d’un univers visuel.",
+    "related": [
+      "duel",
+      "tag-heuer-ai",
+      "saturnin-groland"
+    ],
+    "vertical": false,
+    "duration": 60,
+    "page": "/films/synaptik-reel/",
+    "poster": "/assets/posters/1223586438.jpg"
+  },
+  {
+    "id": "1232085603",
+    "slug": "duel",
+    "title": "Duel",
+    "category": "Fiction · IA générative",
+    "desc": "Un face-à-face dans un décor de western, où les regards, la tension et les mouvements du combat construisent la scène.",
+    "detail": "Duel explore la mise en scène d’un affrontement : le découpage, la présence physique des personnages et la continuité de l’action sont au cœur de cette séquence de fiction.",
+    "related": [
+      "fuck-it",
+      "jil",
+      "ai-akira"
+    ],
+    "vertical": false,
+    "duration": null,
+    "page": "/films/duel/",
+    "poster": "/assets/posters/1232085603.jpg"
+  },
+  {
+    "id": "1231054783",
+    "slug": "fuck-it",
+    "title": "Fuck it",
+    "category": "Création · IA générative",
+    "desc": "Un même mouvement traverse différents personnages, époques et univers. Une recherche sur la continuité du geste et le montage.",
+    "detail": "Du western à la science-fiction, Fuck it fait du mouvement le lien entre des univers visuels différents. Le projet explore les raccords de mouvement et la cohérence d’une chorégraphie à travers des décors et des personnages qui changent.",
+    "related": [
+      "duel",
+      "fuck-ia",
+      "ai-akira"
+    ],
+    "vertical": false,
+    "duration": null,
+    "page": "/films/fuck-it/",
+    "poster": "/assets/posters/1231054783.jpg"
+  },
+  {
+    "id": "1227995438",
+    "slug": "avant-l-oubli",
+    "title": "Avant l’oubli",
+    "category": "Bande-annonce · Fiction",
+    "desc": "Une bande-annonce qui s’appuie sur les visages, les regards et les atmosphères pour installer un univers de fiction.",
+    "detail": "La bande-annonce met en avant la présence des personnages et l’expression des émotions. L’approche de réalisation privilégie le cadre, l’ambiance et la crédibilité des regards.",
+    "related": [
+      "jil",
+      "duel",
+      "synaptik-reel"
+    ],
+    "vertical": false,
+    "duration": null,
+    "page": "/films/avant-l-oubli/",
+    "poster": "/assets/posters/1227995438.jpg"
+  },
+  {
+    "id": "1208485503",
+    "slug": "jil",
+    "title": "JIL",
+    "category": "Fiction · IA générative",
+    "desc": "Une séquence d’action urbaine, avec une voiture propulsée au-dessus de la ville. Un travail sur le mouvement, l’espace et le cadrage.",
+    "detail": "JIL explore un registre de cinéma d’action : véhicules, architecture urbaine et dynamique des plans. L’enjeu visuel est de maintenir la lisibilité de l’action dans un environnement en mouvement.",
+    "related": [
+      "duel",
+      "ai-akira",
+      "fuck-it"
+    ],
+    "vertical": false,
+    "duration": null,
+    "page": "/films/jil/",
+    "poster": "/assets/posters/1208485503.jpg"
+  },
+  {
+    "id": "1159611153",
+    "slug": "tag-heuer-ai",
+    "title": "TAG Heuer AI",
+    "category": "Spec film · Publicité · IA générative",
+    "desc": "Un film publicitaire indépendant autour de l’horlogerie, qui met en valeur la montre, ses matières et sa lumière.",
+    "detail": "Un spec film est une proposition créative indépendante, et non une campagne officielle de la marque. TAG Heuer AI explore une écriture publicitaire centrée sur le produit.",
+    "related": [
+      "truc-de-fou",
+      "puma-rabbits",
+      "rencontres-d-exception"
+    ],
+    "vertical": false,
+    "duration": null,
+    "page": "/films/tag-heuer-ai/",
+    "poster": "/assets/posters/1159611153.jpg"
+  },
+  {
+    "id": "1184018270",
+    "slug": "fuck-ia",
+    "title": "Fuck IA",
+    "category": "Clip · Création personnelle",
+    "desc": "Un film musical qui interroge, avec ironie, le rapport entre intelligence artificielle, authenticité et émotion humaine.",
+    "detail": "À travers une esthétique de performance musicale soul, Fuck IA questionne la valeur du travail et de l’investissement humain dans la création d’images. La contradiction entre le propos du film et son mode de fabrication fait partie du projet.",
+    "related": [
+      "fuck-it",
+      "synaptik-reel",
+      "ai-akira"
+    ],
+    "vertical": false,
+    "duration": null,
+    "page": "/films/fuck-ia/",
+    "poster": "/assets/posters/1184018270.jpg"
+  },
+  {
+    "id": "1195592669",
+    "slug": "truc-de-fou",
+    "title": "Truc de Fou — Rover",
+    "category": "Film publicitaire · Boisson · IA générative",
+    "desc": "Une boisson transposée dans un univers lunaire : un rover, un astronaute et une canette au cœur de la mise en scène.",
+    "detail": "Ce film de 18 secondes construit son récit autour d’un rover lunaire et d’un packshot final. Il a été réalisé en six jours, du début de la production à la livraison.",
+    "related": [
+      "truc-de-fou-drink",
+      "tag-heuer-ai",
+      "puma-rabbits"
+    ],
+    "vertical": false,
+    "duration": 18,
+    "page": "/films/truc-de-fou/",
+    "poster": "/assets/posters/1195592669.jpg"
+  },
+  {
+    "id": "1195592668",
+    "slug": "truc-de-fou-drink",
+    "title": "Truc de Fou — Drink",
+    "category": "Film publicitaire · Boisson · IA générative",
+    "desc": "Un film publicitaire en format vertical, dans un univers industriel peuplé de personnages masqués, autour de la boisson Truc de Fou.",
+    "detail": "La direction artistique associe des costumes singuliers, des matières usées et un décor industriel. Le produit s’inscrit dans cet univers plutôt que d’en être isolé.",
+    "related": [
+      "truc-de-fou",
+      "puma-rabbits",
+      "tag-heuer-ai"
+    ],
+    "vertical": true,
+    "duration": null,
+    "page": "/films/truc-de-fou-drink/",
+    "poster": "/assets/posters/1195592668.jpg"
+  },
+  {
+    "id": "1244693830",
+    "slug": "saturnin-groland",
+    "title": "Le procès de Saturnin",
+    "category": "Sketch · Groland · Canal+",
+    "desc": "Un sketch d’environ trois minutes entièrement réalisé en IA générative pour Groland, autour d’un procès et de ses personnages.",
+    "detail": "La scène de tribunal met à l’épreuve la continuité des personnages, des costumes, des regards et du rythme des dialogues. La mise en scène et la mécanique comique restent au centre de la fabrication.",
+    "related": [
+      "mamie-cannes",
+      "papys-brindillette",
+      "mamie-c-est-la-fete"
+    ],
+    "vertical": false,
+    "duration": null,
+    "page": "/films/saturnin-groland/",
+    "poster": "https://vumbnail.com/1244693830.jpg"
+  },
+  {
+    "id": "1176114048",
+    "slug": "spring-2026",
+    "title": "SPRING 2026",
+    "category": "Film · Direction artistique · IA générative",
+    "desc": "Un univers visuel où l’imaginaire japonais, les cerisiers en fleurs et le longboard se rencontrent.",
+    "detail": "Le film associe les silhouettes, les costumes, les décors et le déplacement sur une planche. Cette rencontre entre une iconographie japonaise et la culture du longboard constitue son territoire visuel.",
+    "related": [
+      "puma-rabbits",
+      "ai-akira",
+      "truc-de-fou-drink"
+    ],
+    "vertical": true,
+    "duration": null,
+    "page": "/films/spring-2026/",
+    "poster": "/assets/posters/1176114048.jpg"
+  },
+  {
+    "id": "1212243448",
+    "slug": "rencontres-d-exception",
+    "title": "Rencontres d’exception",
+    "category": "Film publicitaire · IA générative",
+    "desc": "Un film publicitaire qui inscrit ses personnages dans un cadre du quotidien, avec une attention portée à la justesse des attitudes et du décor.",
+    "detail": "L’écriture visuelle s’appuie sur des situations familières, comme une terrasse de café. Le travail porte sur la présence du personnage, les regards et le naturel de la scène.",
+    "related": [
+      "tag-heuer-ai",
+      "truc-de-fou",
+      "synaptik-reel"
+    ],
+    "vertical": false,
+    "duration": null,
+    "page": "/films/rencontres-d-exception/",
+    "poster": "/assets/posters/1212243448.jpg"
+  },
+  {
+    "id": "1176641273",
+    "slug": "puma-rabbits",
+    "title": "Puma Rabbits",
+    "category": "Spec film · Publicité · IA générative",
+    "desc": "Une proposition publicitaire indépendante, en format vertical, qui associe des personnages masqués à un univers industriel.",
+    "detail": "Les masques de lapin, les matières brutes et le décor donnent au film une identité visuelle commune. Il s’agit d’une proposition créative, et non d’une campagne officielle de la marque.",
+    "related": [
+      "truc-de-fou-drink",
+      "spring-2026",
+      "tag-heuer-ai"
+    ],
+    "vertical": true,
+    "duration": null,
+    "page": "/films/puma-rabbits/",
+    "poster": "/assets/posters/1176641273.jpg"
+  },
+  {
+    "id": "1176271004",
+    "slug": "mamie-cannes",
+    "title": "Mamie Cannes",
+    "category": "Sketch · Groland · Canal+",
+    "desc": "Un sketch de Groland autour de Cannes, qui joue avec les codes du glamour et une figure de mamie décalée.",
+    "detail": "Le portrait, les accessoires et les codes visuels du cinéma participent au décalage comique du film.",
+    "related": [
+      "mamie-c-est-la-fete",
+      "papys-brindillette",
+      "saturnin-groland"
+    ],
+    "vertical": true,
+    "duration": null,
+    "page": "/films/mamie-cannes/",
+    "poster": "/assets/posters/1176271004.jpg"
+  },
+  {
+    "id": "1176114060",
+    "slug": "papys-brindillette",
+    "title": "Papys Brindillette",
+    "category": "Sketch · Groland · Canal+",
+    "desc": "Deux papys jouent aux cartes dans un univers sous-marin : une situation familière déplacée dans un décor impossible.",
+    "detail": "Le sketch s’appuie sur le contraste entre les habitudes des personnages et un environnement qui défie la logique du quotidien.",
+    "related": [
+      "mamie-cannes",
+      "mamie-c-est-la-fete",
+      "saturnin-groland"
+    ],
+    "vertical": true,
+    "duration": null,
+    "page": "/films/papys-brindillette/",
+    "poster": "/assets/posters/1176114060.jpg"
+  },
+  {
+    "id": "1172962666",
+    "slug": "mamie-c-est-la-fete",
+    "title": "Mamie c’est la fête",
+    "category": "Sketch · Groland · Canal+",
+    "desc": "Un sketch qui place un personnage de mamie au centre d’une situation comique, dans l’univers de Groland.",
+    "detail": "Les traits du personnage, son costume et un décor de village contribuent au ton et à l’identité de cette création humoristique.",
+    "related": [
+      "mamie-cannes",
+      "papys-brindillette",
+      "saturnin-groland"
+    ],
+    "vertical": false,
+    "duration": null,
+    "page": "/films/mamie-c-est-la-fete/",
+    "poster": "/assets/posters/1172962666.jpg"
+  },
+  {
+    "id": "1159610980",
+    "slug": "ai-akira",
+    "title": "AI AKIRA",
+    "category": "Expérimentation · Science-fiction · IA générative",
+    "desc": "Une recherche visuelle de science-fiction autour d’une moto futuriste et d’un paysage urbain enneigé.",
+    "detail": "AI AKIRA explore une esthétique de cinéma de genre, entre véhicule imaginaire, mouvement et architecture. Le projet interroge la manière de construire un univers de science-fiction avec l’image générative.",
+    "related": [
+      "jil",
+      "duel",
+      "spring-2026"
+    ],
+    "vertical": false,
+    "duration": null,
+    "page": "/films/ai-akira/",
+    "poster": "/assets/posters/1159610980.jpg"
+  }
+]

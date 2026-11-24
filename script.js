@@ -11,24 +11,142 @@
    Chaque vidéo s'affiche en pleine largeur, l'une sous l'autre.
 ============================================================== */
 var VIDEOS = [
-  { id:"1223586438", title:"Synaptik reel",         desc:"Reel · 60 sec", page:"/films/synaptik-reel/" },
-  { id:"1232085603", title:"Duel", desc:"", page:"" },
-  { id:"1231054783", title:"Fuck it", desc:"", page:"" },
-  { id:"1227995438", title:"Avant l’oubli",          desc:"Bande-annonce", page:"" },
-  { id:"1208485503", title:"JIL",                  desc:"", page:"" },
-  { id:"1159611153", title:"Tag Heuer AI",         desc:"Spec film · Publicité", page:"/films/tag-heuer-ai/" },
-  { id:"1184018270", title:"Fuck IA",              desc:"", page:"" },
-  { id:"1195592669", title:"Truc de fou rover",    desc:"Publicité · Truc de Fou", page:"/films/truc-de-fou/" },
-  { id:"1195592668", title:"Truc de fou drink",    desc:"Publicité · Truc de Fou", page:"/films/truc-de-fou/" },
-  { id:"1244693830", title:"Le procès de Saturnin", desc:"Groland · Canal+ · Sketch 3 min · 100 % IA", page:"/films/saturnin-groland/", poster:"https://vumbnail.com/1244693830.jpg" },
-  { id:"1176114048", title:"SPRING 2026",          desc:"Film · IA générative", page:"/films/spring-2026/" },
-  { id:"1212243448", title:"Rencontres d'exception", desc:"Publicité · Rencontres d’exception", page:"" },
-  { id:"1176641273", title:"Puma Rabbits",         desc:"Spec film · Publicité", page:"" },
-  { id:"1176271004", title:"Mamie Cannes",         desc:"Groland · Canal+ · Cannes 2026", page:"" },
-  { id:"1176114060", title:"Papys Brindillette",   desc:"Groland · Canal+ · Cannes 2026", page:"" },
-  { id:"1172962666", title:"Mamie c'est la fête", desc:"Groland · Canal+ · Cannes 2026", page:"" },
-  { id:"1159610980", title:"AI AKIRA",             desc:"Expérimentation", page:"" }
-  /* Ajouter : , { id:"XXXXXXXXX", title:"Titre", desc:"Description", page:"" } */
+  {
+    "id": "1223586438",
+    "title": "Synaptik Reel",
+    "desc": "Showreel · 60 secondes",
+    "summary": "Une minute de réalisation, de direction artistique et de création en IA générative : publicité, fiction et recherche visuelle.",
+    "page": "/films/synaptik-reel/",
+    "poster": "/assets/posters/1223586438.jpg"
+  },
+  {
+    "id": "1232085603",
+    "title": "Duel",
+    "desc": "Fiction · IA générative",
+    "summary": "Un face-à-face dans un décor de western, où les regards, la tension et les mouvements du combat construisent la scène.",
+    "page": "/films/duel/",
+    "poster": "/assets/posters/1232085603.jpg"
+  },
+  {
+    "id": "1231054783",
+    "title": "Fuck it",
+    "desc": "Création · IA générative",
+    "summary": "Un même mouvement traverse différents personnages, époques et univers. Une recherche sur la continuité du geste et le montage.",
+    "page": "/films/fuck-it/",
+    "poster": "/assets/posters/1231054783.jpg"
+  },
+  {
+    "id": "1227995438",
+    "title": "Avant l’oubli",
+    "desc": "Bande-annonce · Fiction",
+    "summary": "Une bande-annonce qui s’appuie sur les visages, les regards et les atmosphères pour installer un univers de fiction.",
+    "page": "/films/avant-l-oubli/",
+    "poster": "/assets/posters/1227995438.jpg"
+  },
+  {
+    "id": "1208485503",
+    "title": "JIL",
+    "desc": "Fiction · IA générative",
+    "summary": "Une séquence d’action urbaine, avec une voiture propulsée au-dessus de la ville. Un travail sur le mouvement, l’espace et le cadrage.",
+    "page": "/films/jil/",
+    "poster": "/assets/posters/1208485503.jpg"
+  },
+  {
+    "id": "1159611153",
+    "title": "TAG Heuer AI",
+    "desc": "Spec film · Publicité · IA générative",
+    "summary": "Un film publicitaire indépendant autour de l’horlogerie, qui met en valeur la montre, ses matières et sa lumière.",
+    "page": "/films/tag-heuer-ai/",
+    "poster": "/assets/posters/1159611153.jpg"
+  },
+  {
+    "id": "1184018270",
+    "title": "Fuck IA",
+    "desc": "Clip · Création personnelle",
+    "summary": "Un film musical qui interroge, avec ironie, le rapport entre intelligence artificielle, authenticité et émotion humaine.",
+    "page": "/films/fuck-ia/",
+    "poster": "/assets/posters/1184018270.jpg"
+  },
+  {
+    "id": "1195592669",
+    "title": "Truc de Fou — Rover",
+    "desc": "Film publicitaire · Boisson · IA générative",
+    "summary": "Une boisson transposée dans un univers lunaire : un rover, un astronaute et une canette au cœur de la mise en scène.",
+    "page": "/films/truc-de-fou/",
+    "poster": "/assets/posters/1195592669.jpg"
+  },
+  {
+    "id": "1195592668",
+    "title": "Truc de Fou — Drink",
+    "desc": "Film publicitaire · Boisson · IA générative",
+    "summary": "Un film publicitaire en format vertical, dans un univers industriel peuplé de personnages masqués, autour de la boisson Truc de Fou.",
+    "page": "/films/truc-de-fou-drink/",
+    "poster": "/assets/posters/1195592668.jpg"
+  },
+  {
+    "id": "1244693830",
+    "title": "Le procès de Saturnin",
+    "desc": "Sketch · Groland · Canal+",
+    "summary": "Un sketch d’environ trois minutes entièrement réalisé en IA générative pour Groland, autour d’un procès et de ses personnages.",
+    "page": "/films/saturnin-groland/",
+    "poster": "https://vumbnail.com/1244693830.jpg"
+  },
+  {
+    "id": "1176114048",
+    "title": "SPRING 2026",
+    "desc": "Film · Direction artistique · IA générative",
+    "summary": "Un univers visuel où l’imaginaire japonais, les cerisiers en fleurs et le longboard se rencontrent.",
+    "page": "/films/spring-2026/",
+    "poster": "/assets/posters/1176114048.jpg"
+  },
+  {
+    "id": "1212243448",
+    "title": "Rencontres d’exception",
+    "desc": "Film publicitaire · IA générative",
+    "summary": "Un film publicitaire qui inscrit ses personnages dans un cadre du quotidien, avec une attention portée à la justesse des attitudes et du décor.",
+    "page": "/films/rencontres-d-exception/",
+    "poster": "/assets/posters/1212243448.jpg"
+  },
+  {
+    "id": "1176641273",
+    "title": "Puma Rabbits",
+    "desc": "Spec film · Publicité · IA générative",
+    "summary": "Une proposition publicitaire indépendante, en format vertical, qui associe des personnages masqués à un univers industriel.",
+    "page": "/films/puma-rabbits/",
+    "poster": "/assets/posters/1176641273.jpg"
+  },
+  {
+    "id": "1176271004",
+    "title": "Mamie Cannes",
+    "desc": "Sketch · Groland · Canal+",
+    "summary": "Un sketch de Groland autour de Cannes, qui joue avec les codes du glamour et une figure de mamie décalée.",
+    "page": "/films/mamie-cannes/",
+    "poster": "/assets/posters/1176271004.jpg"
+  },
+  {
+    "id": "1176114060",
+    "title": "Papys Brindillette",
+    "desc": "Sketch · Groland · Canal+",
+    "summary": "Deux papys jouent aux cartes dans un univers sous-marin : une situation familière déplacée dans un décor impossible.",
+    "page": "/films/papys-brindillette/",
+    "poster": "/assets/posters/1176114060.jpg"
+  },
+  {
+    "id": "1172962666",
+    "title": "Mamie c’est la fête",
+    "desc": "Sketch · Groland · Canal+",
+    "summary": "Un sketch qui place un personnage de mamie au centre d’une situation comique, dans l’univers de Groland.",
+    "page": "/films/mamie-c-est-la-fete/",
+    "poster": "/assets/posters/1172962666.jpg"
+  },
+  {
+    "id": "1159610980",
+    "title": "AI AKIRA",
+    "desc": "Expérimentation · Science-fiction · IA générative",
+    "summary": "Une recherche visuelle de science-fiction autour d’une moto futuriste et d’un paysage urbain enneigé.",
+    "page": "/films/ai-akira/",
+    "poster": "/assets/posters/1159610980.jpg"
+  }
 ];
 /* ▲▲▲  FIN ZONE À MODIFIER  ▲▲▲ */
 
@@ -82,6 +200,10 @@ function buildFeed() {
   var feed = document.getElementById('vfeed');
   var reelFeed = document.getElementById('reel-feed');
   if (!feed) return;
+  if (feed.querySelector('.vitem') && (!reelFeed || reelFeed.querySelector('.vitem'))) {
+    initScrollPlay();
+    return;
+  }
   VIDEOS.forEach(function(v, i) {
     var item = document.createElement('div');
     item.className = 'vitem';
@@ -91,7 +213,7 @@ function buildFeed() {
       : '<span class="vitem-title">' + v.title + '</span>';
 
     var detailLink = v.page
-      ? '<a class="vitem-ext" href="' + v.page + '">Voir la fiche →</a>'
+      ? '<a class="vitem-ext" href="' + v.page + '">Découvrir le projet ↗</a>'
       : '<span class="vitem-ext">SYNAPTIK STUDIO</span>';
 
     item.innerHTML =
@@ -124,7 +246,7 @@ function buildFeed() {
 
       ((v.desc || v.page) ?
         '<div class="vitem-desc">' +
-          '<span class="vitem-desc-text">' + (v.desc || 'Film · Synaptik Studio') + '</span>' +
+          '<div class="vitem-desc-text"><strong class="syn-film-category">' + (v.desc || 'Film · Synaptik Studio') + '</strong><span class="syn-film-summary">' + (v.summary || '') + '</span></div>' +
           detailLink +
         '</div>'
       : '');

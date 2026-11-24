@@ -1,0 +1,134 @@
+/* Synaptik — portfolio and final motion pass.
+   Shared composition, no layout changes on hover, no external animation library. */
+:root{--syn-motion-ease:var(--syn-ease,cubic-bezier(.23,1,.32,1));--syn-motion-fast:160ms;--syn-motion-ui:220ms}
+
+/* The homepage stays a film-first portfolio. Captions are present in the HTML. */
+.syn-film-description{display:flex!important;align-items:flex-start!important;justify-content:space-between;gap:24px;margin-top:clamp(18px,3vw,36px)!important}
+.syn-film-description .vitem-desc-text{flex:1;min-width:0;max-width:940px;font:400 clamp(15px,1.15vw,19px)/1.65 var(--type-editorial,"itc-avant-garde-gothic-pro",Arial,sans-serif)!important}
+.syn-film-description .vitem-desc-text::before{content:none!important}
+.syn-film-category{display:block;margin-bottom:8px;font:400 clamp(10px,.85vw,13px)/1.55 "IBM Plex Mono",monospace!important;letter-spacing:.07em;color:var(--syn-accent,#72d8dc)!important}
+.syn-film-summary{display:block;color:#c4ced0}
+.syn-film-description .syn-film-more{flex-shrink:0;display:inline-flex;align-items:center;gap:9px;color:var(--syn-accent,#72d8dc)!important;font-size:clamp(12px,1vw,16px)!important;line-height:1.5;letter-spacing:0;text-decoration:none}
+.syn-film-more span{display:inline-block}
+.syn-film-hub{box-sizing:border-box;margin-inline:auto;padding:1.5rem clamp(16px,3vw,40px);justify-content:space-between}
+#reel-feed .vitem-meta .vitem-title,#vfeed .vitem-meta .vitem-title{overflow-wrap:anywhere}
+@media(max-width:700px){
+  .syn-film-description{flex-direction:column;gap:13px!important;padding-inline:16px!important}
+  .syn-film-description .vitem-desc-text{font-size:15px!important}
+  .syn-film-description .syn-film-more{font-size:13px!important}
+  .syn-film-hub{gap:14px;flex-wrap:wrap}
+}
+
+/* New artwork: keep the approved Vitruvian placement. The globe is complete,
+   right-aligned inside the contact section, with legible copy above it. */
+#contact .contact-reference{right:2.7%!important;left:auto!important;top:0!important;bottom:0!important;width:66%!important;height:auto!important;opacity:1!important;overflow:hidden!important}
+#contact .contact-reference img{position:absolute!important;inset:0!important;display:block;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;object-position:right center!important;transform:none!important;transform-origin:right center!important;opacity:.92!important}
+#contact.contact-motion:not(.contact-motion-ready) .contact-reference img{opacity:.46!important;scale:.97}
+#contact::after{background:linear-gradient(90deg,#050708 0%,rgba(5,7,8,.98) 25%,rgba(5,7,8,.7) 43%,rgba(5,7,8,.12) 62%,transparent 80%)!important}
+#contact .syn-contact-orbit{display:none!important}
+.sp-offer-page .sp-contact-hero{position:relative;isolation:isolate;overflow:hidden;max-width:none!important;padding-right:0;min-height:clamp(300px,30vw,440px);display:flex;flex-direction:column;justify-content:center}
+.sp-offer-page .sp-contact-hero>.sp-eyebrow,.sp-offer-page .sp-contact-hero>h1,.sp-offer-page .sp-contact-hero>.sp-offer-lead{position:relative;z-index:2;max-width:650px}
+.syn-contact-page-art{position:absolute;inset:0 0 0 27%;z-index:-1;pointer-events:none}
+.syn-contact-page-art img{display:block;width:100%;height:100%;object-fit:contain;object-position:right center;opacity:.85}
+.syn-contact-page-art::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--syn-ink,#080b0d),rgba(8,11,13,.8) 19%,rgba(8,11,13,.3) 48%,transparent 72%);pointer-events:none}
+@media(max-width:900px){
+  #contact .contact-reference{width:88%!important;right:1.5%!important;opacity:.65!important}
+  #contact::after{background:linear-gradient(90deg,#050708 0%,rgba(5,7,8,.94) 35%,rgba(5,7,8,.45) 70%,rgba(5,7,8,.2))!important}
+}
+@media(max-width:700px){
+  #contact .contact-reference{width:100%!important;right:0!important;opacity:.32!important}
+  #contact .contact-reference img{object-position:right bottom!important}
+  #contact::after{background:linear-gradient(180deg,rgba(5,7,8,.94),rgba(5,7,8,.65) 55%,rgba(5,7,8,.38))!important}
+  .sp-offer-page .sp-contact-hero{min-height:330px;padding-bottom:35px}
+  .syn-contact-page-art{inset:0;opacity:.35}
+  .syn-contact-page-art img{object-position:right bottom}
+  .syn-contact-page-art::after{background:linear-gradient(180deg,rgba(8,11,13,.84),rgba(8,11,13,.5))}
+}
+
+/* Dedicated watch pages and the browsable catalogue. Existing logo asset only. */
+.syn-film-brand{display:block;flex:0 0 auto;max-width:190px}
+.syn-film-brand img{display:block;width:100%;height:auto}
+.syn-film-page .seo-nav,.syn-film-index .seo-nav{gap:24px;flex-wrap:wrap}
+.syn-film-page .seo-navlinks,.syn-film-index .seo-navlinks{gap:clamp(12px,1.5vw,22px);align-items:center;justify-content:flex-end}
+.syn-film-page .seo-navlinks a[aria-current],.syn-film-index .seo-navlinks a[aria-current]{color:var(--syn-accent,#72d8dc)!important;opacity:1}
+.syn-film-page .seo-hero.syn-watch-heading{padding:clamp(32px,5vw,72px) 0 16px!important}
+.syn-film-page .syn-watch-heading h1{font-size:clamp(2.4rem,5.7vw,5.7rem)!important;line-height:1.04!important;letter-spacing:-.045em!important;margin:14px 0 8px!important;overflow-wrap:anywhere}
+.syn-watch-video{margin:8px auto 0!important;width:100%;background:#000;border:1px solid var(--syn-line,rgba(114,216,220,.24))!important;position:relative}
+.syn-watch-video.syn-watch-portrait{aspect-ratio:9/16;width:min(100%,440px);margin-inline:auto!important}
+.syn-watch-external{text-align:right;margin-top:12px!important;max-width:none!important;font-size:13px!important}
+.syn-watch-external a{color:var(--syn-muted,#a6b1b5)!important}
+.syn-watch-lead{font-size:clamp(19px,2vw,25px)!important;line-height:1.5!important;max-width:950px!important;margin-top:26px}
+.syn-watch-details{max-width:920px}
+.syn-watch-details h2{font-size:clamp(22px,3vw,34px)!important;line-height:1.2!important}
+.syn-watch-details p,.syn-watch-details li{font-size:clamp(15px,1.35vw,19px)!important;line-height:1.7!important}
+.syn-watch-details ul{padding-left:1.2em}
+.syn-film-credit{font:400 12px/1.6 "IBM Plex Mono",monospace;color:var(--syn-muted,#a6b1b5);margin:36px 0}
+.syn-film-credit a{color:var(--syn-accent,#72d8dc)!important}
+.syn-film-credit span{margin-inline:7px}
+.syn-project-cta{border-block:1px solid var(--syn-line,rgba(114,216,220,.24));padding:clamp(24px,4vw,44px) 0;margin:clamp(32px,5vw,64px) 0;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.syn-project-cta h2{font-size:clamp(22px,3vw,34px)!important;margin:0 0 10px!important}
+.syn-project-cta p{margin:0!important}
+.syn-project-actions{display:flex;gap:10px;flex-wrap:wrap}
+.syn-project-actions .seo-cta{display:inline-flex;align-items:center;gap:12px;margin:0;min-height:44px}
+.syn-project-actions .seo-cta span{display:inline-block}
+.syn-project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,22px);margin:24px 0 48px}
+.syn-project-card{display:flex;flex-direction:column;gap:10px;border:1px solid var(--syn-line,rgba(114,216,220,.24));border-radius:4px;overflow:hidden;background:var(--syn-panel,#101518);text-decoration:none!important;color:var(--syn-copy,#eef4f4)!important;min-width:0;padding-bottom:20px}
+.syn-project-thumb{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden}
+.syn-project-thumb img{display:block;width:100%;height:100%;object-fit:contain;object-position:center}
+.syn-project-play{position:absolute;right:12px;bottom:12px;display:grid;place-items:center;width:34px;height:34px;border:1px solid rgba(220,242,244,.6);border-radius:50%;background:rgba(0,0,0,.62);font-size:12px;color:#eef4f4;pointer-events:none}
+.syn-project-category{margin:5px 16px 0;font:400 10px/1.5 "IBM Plex Mono",monospace;letter-spacing:.03em;color:var(--syn-accent,#72d8dc)}
+.syn-project-name{display:flex;justify-content:space-between;align-items:baseline;gap:6px;margin:0 16px;font:500 clamp(17px,1.8vw,22px)/1.25 var(--type-editorial,"itc-avant-garde-gothic-pro",Arial,sans-serif);overflow-wrap:anywhere}
+.syn-project-name>span{font-size:14px;color:var(--syn-accent,#72d8dc);flex-shrink:0}
+.syn-project-caption{margin:0 16px;color:#c3ced1;font:400 14px/1.55 var(--type-editorial,"itc-avant-garde-gothic-pro",Arial,sans-serif)}
+.syn-film-index .seo-hero{padding-bottom:36px!important}
+.syn-related-title{font-size:clamp(22px,3vw,34px)!important}
+@media(max-width:900px){.syn-project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){
+  .syn-film-brand{max-width:142px}
+  .syn-film-page .seo-nav,.syn-film-index .seo-nav{gap:16px;align-items:flex-start;padding:18px 0!important}
+  .syn-film-page .seo-navlinks,.syn-film-index .seo-navlinks{justify-content:flex-start;gap:8px 15px;width:100%}
+  .syn-film-page .seo-navlinks a,.syn-film-index .seo-navlinks a{font-size:12px!important}
+  .syn-project-grid{grid-template-columns:1fr;gap:15px}
+  .syn-watch-heading h1{font-size:clamp(2.1rem,10vw,3.8rem)!important}
+  .syn-project-actions{width:100%}
+  .syn-project-actions .seo-cta{flex:1 1 150px;justify-content:center;text-align:center}
+}
+
+/* Final motion — feedback, state and continuity. No persistent reveal loops. */
+@keyframes syn-editorial-enter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes syn-contact-art-enter{from{opacity:.35;transform:scale(.975)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:no-preference){
+  .seo-hero .seo-kicker,.seo-hero h1,.seo-hero .seo-lead,
+  .sp-offer-hero .sp-eyebrow,.sp-offer-hero h1,.sp-offer-hero .sp-offer-lead,
+  .sp-contact-hero .sp-eyebrow,.sp-contact-hero h1,.sp-contact-hero .sp-offer-lead{
+    animation:syn-editorial-enter 280ms var(--syn-motion-ease) both
+  }
+  .seo-hero h1,.sp-offer-hero h1,.sp-contact-hero h1{animation-delay:45ms}
+  .seo-hero .seo-lead,.sp-offer-hero .sp-offer-lead,.sp-contact-hero .sp-offer-lead{animation-delay:95ms}
+  .syn-contact-page-art{animation:syn-contact-art-enter 500ms var(--syn-motion-ease) both}
+  .sp-form-result:not([hidden]){animation:syn-editorial-enter 220ms var(--syn-motion-ease) both}
+  .syn-pricing .sp-faq details[open]>p{animation:syn-editorial-enter 180ms var(--syn-motion-ease) both}
+  .syn-project-card,.syn-project-thumb img,.syn-project-play,.syn-project-name>span,
+  .syn-film-more span,.syn-project-actions .seo-cta span,.syn-watch-external a{
+    transition:transform var(--syn-motion-fast) var(--syn-motion-ease),opacity var(--syn-motion-fast) ease,border-color var(--syn-motion-fast) ease,background-color var(--syn-motion-fast) ease,color var(--syn-motion-fast) ease
+  }
+  .syn-project-card:active,.syn-project-actions .seo-cta:active{transform:scale(.985)}
+  .syn-project-card:focus-visible{outline:2px solid var(--syn-accent,#72d8dc);outline-offset:4px}
+}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .syn-project-card:hover{border-color:rgba(134,216,228,.54);transform:translateY(-2px)}
+  .syn-project-card:hover .syn-project-thumb img{transform:scale(1.015)}
+  .syn-project-card:hover .syn-project-play{opacity:1;transform:scale(1.06)}
+  .syn-project-card:hover .syn-project-name>span,.syn-film-more:hover span,.syn-project-actions .seo-cta:hover span{transform:translate(3px,-1px)}
+  .syn-watch-external a:hover{color:var(--syn-accent,#72d8dc)!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .seo-hero .seo-kicker,.seo-hero h1,.seo-hero .seo-lead,.sp-offer-hero .sp-eyebrow,.sp-offer-hero h1,.sp-offer-hero .sp-offer-lead,
+  .sp-contact-hero .sp-eyebrow,.sp-contact-hero h1,.sp-contact-hero .sp-offer-lead,.syn-contact-page-art,.sp-form-result,.syn-pricing .sp-faq details>p{
+    animation:none!important;opacity:1;transform:none!important
+  }
+  .syn-project-card,.syn-project-card img,.syn-project-play,.syn-project-name>span,.syn-film-more span,.syn-project-actions .seo-cta,.syn-project-actions .seo-cta span{
+    animation:none!important;transition:none!important;transform:none!important
+  }
+  #contact .contact-reference img,#contact.contact-motion:not(.contact-motion-ready) .contact-reference img{opacity:.92!important;scale:1;transition:none!important}
+}
